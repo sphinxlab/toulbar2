@@ -14,7 +14,7 @@
 
   sphinx-quickstart
 
-  ...answers... (follow [Method](README/method.md)).
+  ...answers... (follow [Method](method.md)).
 
 - conf.py :
 
