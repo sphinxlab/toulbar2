@@ -2,7 +2,7 @@
 
 ## Install 'pyvenv' python virtual environment
 
-    See file docs/_local/install.txt.
+- See file docs/_local/install.txt.
 
 ## Commands to generate documentation
 
@@ -14,11 +14,8 @@
     make epub ;
 
 ## Productions
-
     
-    _build/html folder where index.html
-
-    .pdf under _build/rinoh
-
-    .epub under _build/epub
+- _build/html folder where index.html
+- .pdf under _build/rinoh
+- .epub under _build/epub
 

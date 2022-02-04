@@ -4,23 +4,19 @@
 
 - Install sphinx
 
-  sudo apt-get install -y python3-sphinx
-
-  sudo apt-get install -y python3-sphinx-rtd-theme
+      sudo apt-get install -y python3-sphinx
+      sudo apt-get install -y python3-sphinx-rtd-theme
 
 - setup sphinx site  :
 
-  cd docs
-
-  sphinx-quickstart
-
-  ...answers... (follow [Method](method.md)).
+      cd docs
+      sphinx-quickstart
+      ...answers... (follow [Method](method.md)).
 
 - conf.py :
 
-  change theme from 'alabaster' to 'sphinx_rtd_theme'
-
-  python code path
+  - change theme from 'alabaster' to 'sphinx_rtd_theme'
+  - python code path
 
 ## [Local build](local_build.md)
 

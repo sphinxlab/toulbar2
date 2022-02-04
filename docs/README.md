@@ -4,7 +4,7 @@
 
 The **'toulbar2/docs'** folder is dedicated to the **Sphinx** documentation of toulbar2.
 
-This documentation replaces the .html pages of **'toulbar2/web'** folder.
+This documentation replaces the previous .html pages of **'toulbar2/web'** folder.
 
 This documentation **uses files of some other folders**, such as 'toulbar2/web'.
 
