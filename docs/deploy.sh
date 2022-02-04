@@ -61,7 +61,6 @@ for current_version in ${versions}; do
       echo "INFO: Building for ${current_language}"
  
       # html
-      rm -fr docs/_build/html/*
       sphinx-build -b html docs/ docs/_build/html/${current_language}/${current_version} -D language="${current_language}"
  
       # pdf
