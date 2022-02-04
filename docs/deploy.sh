@@ -104,23 +104,22 @@ touch .nojekyll
 cat > index.html <<EOF
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>toulbar2 Docs (from ... buildDocs.sh ...) </title>
-      <meta http-equiv = "refresh" content="0; url='/${REPO_NAME}/en/master/'" />
-   </head>
-   <body>
-      <p>Please wait while you're redirected to our <a href="/${REPO_NAME}/en/master/">documentation</a>.</p>
-   </body>
+  <head>
+    <title>toulbar2 Docs (from ... deploy.sh ...) </title>
+    <meta http-equiv = "refresh" content="0; url='/${REPO_NAME}/en/master/'" />
+  </head>
+  <body>
+    <p>Redirection to <a href="/${REPO_NAME}/en/master/">documentation</a>.</p>
+  </body>
 </html>
 EOF
  
-# Add README
+# add README
 cat > README.md <<EOF
 # GitHub Pages Cache
 
-Branch containing essentially a cache, not intended to be viewed on github.com.
- 
-For more information : see docs/README.md.
+Branch not intended to be viewed on github.com, for more see docs/README.md.
+
 EOF
  
 # copy the resulting html pages built from sphinx above to our new git repository
