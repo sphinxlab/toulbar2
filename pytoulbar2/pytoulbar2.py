@@ -1,6 +1,22 @@
-import pytoulbar2.pytb2 as tb2
+"""pytoulbar2 module
+
+This module is the Python interface of toulbar2.
+
+"""
+
+try :
+    import pytoulbar2.pytb2 as tb2
+except :
+    pass
+#import pytoulbar2.pytb2 as tb2
 
 class CFN:
+    """CFN summary line description...
+
+    Details...
+
+    """
+
     def __init__(self, ubinit, resolution = 0, vac = 0, configuration = False, vns = None):
         tb2.init()
         tb2.option.decimalPoint = resolution   # decimal precision of costs
@@ -57,6 +73,17 @@ class CFN:
         tb2.option.trwsAccuracy = -1
 
     def AddVariable(self, name, values):
+        """AddVariable summary line description....
+
+        Args:
+            name (type...): ...
+            values (type...): ...
+
+        Returns:
+            ...
+
+        """
+
         if name in self.Variables:
             raise RuntimeError(name+" already defined")
         self.Variables[name] = values
@@ -76,6 +103,20 @@ class CFN:
         return vIdx
 
     def AddFunction(self, scope, costs, incremental = False):
+        """AddFunction summary line description....
+
+        Description text ... AddFunction ...
+     
+        Args:
+           scope (type...): Description text...
+           costs (type...): Description text...
+           incremental (type...): Description text...
+
+        Returns:
+            ...
+
+        """
+
         sscope = set(scope)
         if len(scope) != len(sscope):
             raise RuntimeError("Duplicate variable in scope:"+str(scope))

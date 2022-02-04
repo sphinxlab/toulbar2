@@ -18,8 +18,8 @@ import sys
 docs_path = os.path.normpath(os.path.abspath('.'))
 
 # python source code path
-pytoulbar2_code_path = os.path.normpath(os.path.join(docs_path,
-                                                     "..", "pytoulbar2"))
+pytoulbar2_code_path = os.path.normpath(os.path.join(docs_path, "..",
+                                                                "pytoulbar2"))
 sys.path.insert(0, pytoulbar2_code_path)
 
 # -- Project information -----------------------------------------------------
@@ -46,6 +46,7 @@ release = '1.0.0'
 extensions = [
     'sphinx_rtd_theme',
     'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
@@ -74,7 +75,7 @@ language = None
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
-                    'local', '_pyvenv', ]
+                    '_local', '_pyvenv', ]
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'

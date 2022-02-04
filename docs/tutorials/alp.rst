@@ -5,7 +5,7 @@ Airplane landing problem
 ========================
 
 Brief description (from `CHOCO-SOLVER <https://choco-solver.org/tutos/aircraft-landing-problem>`_)
-=================
+==================================================================================================
 
 Given a set of planes and runways, the objective is to minimize the total weighted deviation from the target landing time for each plane. We consider only a single runway.
 There are costs associated with landing either earlier or later than a target landing time for each plane.

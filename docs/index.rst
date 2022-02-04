@@ -23,4 +23,5 @@ toulbar2 is an exact solver for cost function networks.
      documentation.rst
      publications.rst
      tutorials.rst
+     software.rst
 
