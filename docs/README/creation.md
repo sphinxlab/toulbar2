@@ -22,7 +22,7 @@
 
   python code path
 
-## [Local build](README/local_build.md)
+## [Local build](local_build.md)
 
 ## Initial content at creation
 
@@ -33,5 +33,5 @@ Not taken into account :
 - toulbar2 python code (toulbar2/pytoulbar2)
 - toulbar2 C++ code (toulbar2/src)
 
-## [CI/CD](README/CICD.md)
+## [CI/CD](CICD.md)
 
