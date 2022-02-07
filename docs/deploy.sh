@@ -37,6 +37,7 @@ make -C docs clean
  
 # get a list of branches, excluding 'HEAD' and 'gh-pages'
 versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
+echo "INFO: versions ${versions}"
 for current_version in ${versions}; do
  
    # make the current language available to conf.py
@@ -105,11 +106,11 @@ cat > index.html <<EOF
 <!DOCTYPE html>
 <html>
   <head>
-    <title>toulbar2 Docs (from ... deploy.sh ...) </title>
+    <title>toulbar2 docs (by deploy.sh) </title>
     <meta http-equiv = "refresh" content="0; url='/${REPO_NAME}/en/master/'" />
   </head>
   <body>
-    <p>Redirection to <a href="/${REPO_NAME}/en/master/">documentation</a>.</p>
+    <p>Redirection to <a href="/${REPO_NAME}/en/master/">toulbar2 main documentation</a>...</p>
   </body>
 </html>
 EOF
