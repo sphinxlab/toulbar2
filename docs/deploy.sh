@@ -82,6 +82,15 @@ for current_version in ${versions}; do
  
       # pdf
       sphinx-build -b rinoh docs/ docs/_build/rinoh -D language="${current_language}"
+
+
+
+
+      ls -l docs/_build/rinoh
+
+
+
+
       mkdir -p "${docroot}/${current_language}/${current_version}"
       cp "docs/_build/rinoh/toulbar2.pdf" "${docroot}/${current_language}/${current_version}/toulbar2_${current_language}_${current_version}.pdf"
 
