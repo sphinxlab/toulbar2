@@ -15,7 +15,7 @@ ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 apt-get update -y
 apt-get -y install git rsync python3-sphinx python3-sphinx-rtd-theme python3-stemmer python3-git python3-pip python3-virtualenv python3-setuptools
  
-python3 -m pip install --upgrade rinohtype pygments
+python3 -m pip install --upgrade rinohtype pygments breathe
  
 # Required to build doxygen docs (xml used by breathe)
 apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev 
@@ -42,7 +42,8 @@ make -C docs clean
 # get a list of branches, excluding 'HEAD' and 'gh-pages'
 #versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
 # manual selection of a list of branches
-versions="master sphinx-nr sphinx-usr"
+###versions="master sphinx-nr sphinx-usr"
+versions="sphinx-nr"
 for current_version in ${versions}; do
  
    # make the current language available to conf.py
