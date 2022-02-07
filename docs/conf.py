@@ -50,7 +50,15 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
+    'breathe',
 ]
+
+# Breathe
+breathe_default_project = "toulbar2cpp"
+breathe_projects = {
+    "toulbar2cpp" : os.path.normpath(os.path.join(docs_path,
+                                                  "..", "build", "xml")),
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = [os.path.join(docs_path,'_templates')]

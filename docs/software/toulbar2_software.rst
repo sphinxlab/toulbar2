@@ -19,5 +19,7 @@ Examples
 API Reference
 =============
 
-  ...
+.. doxygenclass:: WeightedCSP
+   :project: toulbar2cpp
+   :members:
 
