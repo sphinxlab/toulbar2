@@ -36,7 +36,9 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
 make -C docs clean
  
 # get a list of branches, excluding 'HEAD' and 'gh-pages'
-versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
+#versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
+# manual selection of a list of branches
+versions="master sphinx-nr sphinx-usr"
 for current_version in ${versions}; do
  
    # make the current language available to conf.py
@@ -104,23 +106,22 @@ touch .nojekyll
 cat > index.html <<EOF
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>toulbar2 Docs (from ... buildDocs.sh ...) </title>
-      <meta http-equiv = "refresh" content="0; url='/${REPO_NAME}/en/master/'" />
-   </head>
-   <body>
-      <p>Please wait while you're redirected to our <a href="/${REPO_NAME}/en/master/">documentation</a>.</p>
-   </body>
+  <head>
+    <title>toulbar2 docs (by deploy.sh) </title>
+    <meta http-equiv = "refresh" content="0; url='/${REPO_NAME}/en/master/'" />
+  </head>
+  <body>
+    <p>Redirection to <a href="/${REPO_NAME}/en/master/">toulbar2 main documentation</a>...</p>
+  </body>
 </html>
 EOF
  
-# Add README
+# add README
 cat > README.md <<EOF
 # GitHub Pages Cache
 
-Branch containing essentially a cache, not intended to be viewed on github.com.
- 
-For more information : see docs/README.md.
+Branch not intended to be viewed on github.com, for more see docs/README.md.
+
 EOF
  
 # copy the resulting html pages built from sphinx above to our new git repository
