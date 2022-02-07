@@ -61,9 +61,12 @@ for current_version in ${versions}; do
    # Build doxygen docs (xml used by breathe)
    mkdir build
    pushd build 
-   cmake -DBUILD_API_DOC=ON ..
+   cmake -DBUILD_API_DOC=ON -DBUILD_API_DOC_LATEX=ON ..
    make
    popd
+   echo "####################################################"
+   cat build/xml/indexpage.xml
+   echo "####################################################"
  
    languages="en `find docs/locales/ -mindepth 1 -maxdepth 1 -type d -exec basename '{}' \;`"
    for current_language in ${languages}; do
