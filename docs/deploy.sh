@@ -20,6 +20,15 @@ python3 -m pip install --upgrade rinohtype pygments breathe
 # Required to build doxygen docs (xml used by breathe)
 apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev pkg-config texlive-latex-recommended  texlive-fonts-recommended doxygen
 
+
+
+
+# PYTHON VIRTUALENV
+# 1.
+#apt-get install python3
+#apt-get install python3-pip
+#apt-get install python3-venv
+
 ###############################################################################
 # Declare variables
  
@@ -58,15 +67,21 @@ for current_version in ${versions}; do
       continue
    fi
 
+
+   # 2.
+   python3 -m venv _pyvenv
+   source _pyvenv/bin/activate
+   pip3 install -r docs/_local/requirement.txt
+
+
    # Build doxygen docs (xml used by breathe)
    mkdir build
    pushd build 
-   cmake -DBUILD_API_DOC=ON -DBUILD_API_DOC_LATEX=ON ..
-   make
+   #cmake -DBUILD_API_DOC=ON -DBUILD_API_DOC_LATEX=ON ..
+   cmake -DBUILD_API_DOC=ON ..
+   #make (for help ?)
+   make doc
    popd
-   echo "####################################################"
-   cat build/xml/indexpage.xml
-   echo "####################################################"
  
    languages="en `find docs/locales/ -mindepth 1 -maxdepth 1 -type d -exec basename '{}' \;`"
    for current_language in ${languages}; do
@@ -82,15 +97,6 @@ for current_version in ${versions}; do
  
       # pdf
       sphinx-build -b rinoh docs/ docs/_build/rinoh -D language="${current_language}"
-
-
-
-
-      ls -l docs/_build/rinoh
-
-
-
-
       mkdir -p "${docroot}/${current_language}/${current_version}"
       cp "docs/_build/rinoh/toulbar2.pdf" "${docroot}/${current_language}/${current_version}/toulbar2_${current_language}_${current_version}.pdf"
 
