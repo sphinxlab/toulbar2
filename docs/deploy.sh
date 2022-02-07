@@ -61,7 +61,7 @@ for current_version in ${versions}; do
    # Build doxygen docs (xml used by breathe)
    mkdir build
    pushd build 
-   cmake -DBUILD_API_DOC=ON -DBUILD_API_DOC_LATEX=ON ..
+   cmake -DBUILD_API_DOC=ON ..
    make
    popd
  
