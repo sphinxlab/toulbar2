@@ -17,6 +17,9 @@ apt-get -y install git rsync python3-sphinx python3-sphinx-rtd-theme python3-ste
  
 python3 -m pip install --upgrade rinohtype pygments
  
+# Required to build doxygen docs (xml used by breathe)
+apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev 
+
 ###############################################################################
 # Declare variables
  
@@ -34,6 +37,7 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
  
 # cleanup
 make -C docs clean
+./clean # doxygen
  
 # get a list of branches, excluding 'HEAD' and 'gh-pages'
 #versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
@@ -52,6 +56,13 @@ for current_version in ${versions}; do
       echo -e "\tINFO: Couldn't find 'docs/conf.py' (skipped)"
       continue
    fi
+
+   # Build doxygen docs (xml used by breathe)
+   mkdir build
+   pushd build 
+   cmake ..
+   make
+   popd
  
    languages="en `find docs/locales/ -mindepth 1 -maxdepth 1 -type d -exec basename '{}' \;`"
    for current_language in ${languages}; do
