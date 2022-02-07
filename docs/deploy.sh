@@ -18,6 +18,7 @@ apt-get -y install git rsync
 # PYTHON VIRTUALENV
 # 1.
 apt-get -y install python3-pip python3-venv
+python3 -m pip install --upgrade pip
 #python3 -m pip install --upgrade rinohtype pygments breathe
  
 # Required to build doxygen docs (xml used by breathe)
