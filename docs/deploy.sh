@@ -13,9 +13,12 @@ TZ=Europe/Paris
 ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 apt-get update -y
-apt-get -y install git rsync python3-sphinx python3-sphinx-rtd-theme python3-stemmer python3-git python3-pip python3-virtualenv python3-setuptools
- 
-python3 -m pip install --upgrade rinohtype pygments breathe
+# PREC apt-get -y install git rsync python3-sphinx python3-sphinx-rtd-theme python3-stemmer python3-git python3-pip python3-virtualenv python3-setuptools
+apt-get -y install git rsync
+# PYTHON VIRTUALENV
+# 1.
+apt-get -y install python3-pip python3-venv
+#python3 -m pip install --upgrade rinohtype pygments breathe
  
 # Required to build doxygen docs (xml used by breathe)
 apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev pkg-config texlive-latex-recommended  texlive-fonts-recommended doxygen
