@@ -25,8 +25,8 @@ jobs:
         git clone "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
       shell: bash
  
-    - name: Execute script to build documentation and update GitHub Pages
+    - name: Build default documentation and update GitHub Pages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: "docs/_cicd/cicd.sh deploy"
+      run: "docs/_cicd/deploy.sh"
       shell: bash

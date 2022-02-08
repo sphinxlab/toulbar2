@@ -1,4 +1,4 @@
-name: docs_deploy
+name: docs_devel
  
 on:
   workflow_dispatch:
@@ -23,5 +23,5 @@ jobs:
     - name: Build devel documentation and update GitHub Pages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: "docs/_cicd/cicd.sh devel"
+      run: "docs/_cicd/deploy.sh devel"
       shell: bash
