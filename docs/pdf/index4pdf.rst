@@ -8,7 +8,6 @@
 ====
 Home
 ====
-sphinx-nr code
 
 .. :Version: |version|
 .. :Release: |release|
@@ -19,11 +18,11 @@ toulbar2 is an exact solver for cost function networks.
   .. toctree::
      :maxdepth: 1
 
-     presentation.rst
-     downloads.rst
-     documentation.rst
-     publications.rst
-     tutorials.rst
+     ../presentation.rst
+     ../downloads.rst
+     ../documentation.rst
+     ../publications.rst
+     ../tutorials.rst
 
 *pdf format missing "Software" Chapter (C++ and python API References...)*
 

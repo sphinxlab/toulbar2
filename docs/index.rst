@@ -8,7 +8,6 @@
 ====
 Home
 ====
-sphinx-nr code
 
 .. :Version: |version|
 .. :Release: |release|
