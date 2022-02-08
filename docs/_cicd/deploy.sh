@@ -44,7 +44,7 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
 ###############################################################################
 # Build docs
 
-if [ ${usecase} == "devel" ]; then
+if [[ ${usecase} == "devel" ]]; then
 
     # get a list of branches, excluding 'HEAD' and 'gh-pages'
     #versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
@@ -84,7 +84,7 @@ git checkout -b gh-pages
 # that start with an underscore (_), such as our "_content" dir..
 touch .nojekyll
  
-if [ ${usecase} == "devel" ]; then
+if [[ ${usecase} == "devel" ]]; then
 
 # add devel.html
 cat > devel.html <<EOF
