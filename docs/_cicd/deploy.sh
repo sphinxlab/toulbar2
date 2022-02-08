@@ -127,6 +127,9 @@ Branch not intended to be viewed on github.com, for more see docs/README.md.
 EOF
  
 git add .
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+git status
  
 msg="Updating Docs for commit ${GITHUB_SHA} made on `date -d"@${SOURCE_DATE_EPOCH}" --iso-8601=seconds` from ${GITHUB_REF} by ${GITHUB_ACTOR}"
 git commit -am "${msg}"
