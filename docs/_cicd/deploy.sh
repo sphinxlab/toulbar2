@@ -17,7 +17,7 @@ docroot=$1
 #versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
 # manual selection of a list of branches
 ###versions="master sphinx-nr sphinx-usr"
-versions="sphinx-nr"
+versions="master" #versions="sphinx-nr"
 for current_version in ${versions}; do
  
    git checkout ${current_version}
