@@ -51,6 +51,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
     'breathe',
+    'rinoh.frontend.sphinx',
 ]
 
 # Breathe
@@ -164,10 +165,10 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'toulbar2.tex', 'toulbar2 Documentation',
-     'INRAE', 'manual'),
+    ('pdf/index4pdf', 'toulbar2.tex', 'toulbar2 Documentation',
+                                                         'INRAE', 'manual'),
+    ('tutorials', 'tutorials.tex', 'toulbar2 Tutorials', 'INRAE', 'manual'),
 ]
-
 
 # -- Options for manual page output ------------------------------------------
 
