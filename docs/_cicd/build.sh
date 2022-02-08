@@ -6,8 +6,8 @@ set -x
 
 # Builds the documentation for one branch
 
-# .github/workflows/docs-deploy.yml |-> cicd.sh ->| deploy.sh |-> build.sh
-# .github/workflows/docs-devel.yml  |             | devel.sh  |
+# .github/workflows/docs-deploy.yml |-> cicd.sh -> build.sh
+# .github/workflows/docs-devel.yml  | 
  
 docroot=$1
 current_version=$2
