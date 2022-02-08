@@ -28,5 +28,5 @@ jobs:
     - name: Execute script to build documentation and update GitHub Pages
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: "docs/deploy.sh"
+      run: "docs/_cicd/cicd.sh deploy"
       shell: bash
