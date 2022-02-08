@@ -2,15 +2,16 @@
 
 set -x
 
-# cicd.sh
+# deploy.sh
 
 # Builds the documentation using sphinx (and doxygen + breathe for C++ code)
 # and updates GitHub Pages.
+# In deployment case by default, in development case if INPUT "devel".
  
-# .github/workflows/docs-deploy.yml |-> cicd.sh -> build.sh
-# .github/workflows/docs-devel.yml  |           
+# .github/workflows/docs-deploy.yml -> "deploy.sh"       -> build.sh
+# .github/workflows/docs-devel.yml  -> "deploy.sh devel" -> build.sh           
 
-# usecase available values : "deploy" or "devel"
+# usecase available values : "devel" or none
 usecase=$1
 
 ###############################################################################
