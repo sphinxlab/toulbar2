@@ -7,8 +7,8 @@ set -x
 # Builds the documentation using sphinx (and doxygen + breathe for C++ code)
 # and updates GitHub Pages.
  
-# .github/workflows/docs-deploy.yml |-> cicd.sh ->| deploy.sh |-> build.sh
-# .github/workflows/docs-devel.yml  |             | devel.sh  |
+# .github/workflows/docs-deploy.yml |-> cicd.sh -> build.sh
+# .github/workflows/docs-devel.yml  |           
 
 # usecase available values : "deploy" or "devel"
 usecase=$1
@@ -44,9 +44,26 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
 # Build docs
 
 if [ ${usecase} == "devel" ]; then
-    docs/_cicd/devel.sh ${docroot}
+
+    # get a list of branches, excluding 'HEAD' and 'gh-pages'
+    #versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
+
+    # manual selection of a list of branches
+    ###versions="master sphinx-nr sphinx-usr"
+    versions="sphinx-nr"
+
+    for current_version in ${versions}; do
+       git checkout ${current_version}
+       docs/_cicd/build.sh ${docroot} ${current_version}
+       git checkout master # return to master branch
+    done
+
 else
-    docs/_cicd/deploy.sh ${docroot}
+    # main master branch
+    current_version="master" 
+    git checkout ${current_version}
+    docs/_cicd/build.sh ${docroot} ${current_version}
+    git checkout master # return to master branch
 fi
  
 ###############################################################################
