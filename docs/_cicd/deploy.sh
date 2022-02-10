@@ -25,7 +25,7 @@ apt-get update -y
 apt-get -y install git rsync python3-stemmer python3-git python3-pip
  
 # Required to build doxygen docs (xml used by breathe)
-apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev pkg-config texlive-latex-recommended  texlive-fonts-recommended doxygen
+apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev pkg-config texlive-latex-recommended  texlive-fonts-recommended graphviz doxygen
 
 python3 -m pip install --upgrade sphinx sphinx_rtd_theme rinohtype pygments breathe
 
@@ -44,14 +44,14 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
 ###############################################################################
 # Build docs
 
-if [ ${usecase} == "devel" ]; then
+if [[ ${usecase} == "devel" ]]; then
 
     # get a list of branches, excluding 'HEAD' and 'gh-pages'
     #versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
 
-    # manual selection of a list of branches
+    # manual selection of a list of branches (at least master !)
     ###versions="master sphinx-nr sphinx-usr"
-    versions="sphinx-nr"
+    versions="master sphinx-nr"
 
     for current_version in ${versions}; do
        git checkout ${current_version}
@@ -84,7 +84,7 @@ git checkout -b gh-pages
 # that start with an underscore (_), such as our "_content" dir..
 touch .nojekyll
  
-if [ ${usecase} == "devel" ]; then
+if [[ ${usecase} == "devel" ]]; then
 
 # add devel.html
 cat > devel.html <<EOF
@@ -127,6 +127,8 @@ Branch not intended to be viewed on github.com, for more see docs/README.md.
 EOF
  
 git add .
+
+git status
  
 msg="Updating Docs for commit ${GITHUB_SHA} made on `date -d"@${SOURCE_DATE_EPOCH}" --iso-8601=seconds` from ${GITHUB_REF} by ${GITHUB_ACTOR}"
 git commit -am "${msg}"

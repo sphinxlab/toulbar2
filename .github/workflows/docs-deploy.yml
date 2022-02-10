@@ -4,9 +4,9 @@ name: docs_deploy
 # + workflow_dispatch
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - 'master'
+  #push:
+  #  branches:
+  #    - 'master'
 
 jobs:
  
