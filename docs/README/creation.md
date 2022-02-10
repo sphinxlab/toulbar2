@@ -25,9 +25,9 @@
 At creation :
 The .rst pages have been created from 'toulbar2/web' .html pages that have been renamed .html.old (.html pages being now redirections to Sphinx online documentation).
 
-Not taken into account :
-- toulbar2 python code (toulbar2/pytoulbar2)
-- toulbar2 C++ code (toulbar2/src)
+Now installed :
+Documentation of toulbar2 python code (toulbar2/pytoulbar2) and of
+toulbar2 C++ code (toulbar2/src).
 
 ## [CI/CD](CICD.md)
 

@@ -2,7 +2,7 @@
 
 ## Install
 
-- The file .github/workflows/docs-deploy.yml launches file docs/deploy.sh
+- The file .github/workflows/docs-deploy.yml launches file docs/_cicd/deploy.sh
 - On the repository :
   "Settings" / "Pages" choose 'gh-pages branch' under "Source"
 

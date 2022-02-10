@@ -8,6 +8,7 @@
 
     source _local/_pyvenv/bin/activate
 
+    ../clean
     make clean ;
     make html ;
     make rinoh ;
