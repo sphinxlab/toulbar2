@@ -119,14 +119,13 @@ What are the algorithms inside toulbar2 ?
 toulbar2 for Combinatorial Optimization in Life Sciences
 --------------------------------------------------------
 
-
 - **Computational Protein Design**
 
   Designing Peptides on a Quantum Computer,
   Vikram Khipple Mulligan, Hans Melo, Haley Irene Merritt, Stewart Slocum, Brian D. Weitzner, Andrew M. Watkins, P. Douglas Renfrew, Craig Pelissier, Paramjit S. Arora, and Richard Bonneau,
   bioRxiv, 2019.
 
-  Computational design of symmetrical eight-bladed β-propeller proteins,
+  Computational design of symmetrical eight-bladed :math:`\beta`-propeller proteins,
   Noguchi, H., Addy, C., Simoncini, D., Wouters, S., Mylemans, B., Van Meervelt, L., Schiex, T., Zhang, K., Tameb, J., and Voet, A.,
   IUCrJ, 6(1), 2019.
 
