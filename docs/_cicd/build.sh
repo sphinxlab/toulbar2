@@ -41,13 +41,20 @@ languages="en `find docs/locales/ -mindepth 1 -maxdepth 1 -type d -exec basename
  
       echo "INFO: Building for ${current_language}"
  
+      # pdf before html
+      rm -fr docs/_files
+      mkdir docs/_files
+      cp ../README.md docs/_files/.
+      make latexpdf
+      cp docs/_build/latex/*.pdf docs/_files/.
+
       # html
       sphinx-build -b html docs/ docs/_build/html/${current_language}/${current_version} -D language="${current_language}"
  
-      # pdf
-      sphinx-build -b rinoh docs/ docs/_build/rinoh -D language="${current_language}"
-      mkdir -p "${docroot}/${current_language}/${current_version}"
-      cp "docs/_build/rinoh/toulbar2.pdf" "${docroot}/${current_language}/${current_version}/toulbar2_${current_language}_${current_version}.pdf"
+      #old# pdf
+      #sphinx-build -b rinoh docs/ docs/_build/rinoh -D language="${current_language}"
+      #mkdir -p "${docroot}/${current_language}/${current_version}"
+      #cp "docs/_build/rinoh/toulbar2.pdf" "${docroot}/${current_language}/${current_version}/toulbar2_${current_language}_${current_version}.pdf"
 
       # epub
       sphinx-build -b epub docs/ docs/_build/epub -D language="${current_language}"
