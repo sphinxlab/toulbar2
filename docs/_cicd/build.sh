@@ -44,8 +44,10 @@ languages="en `find docs/locales/ -mindepth 1 -maxdepth 1 -type d -exec basename
       # pdf before html
       rm -fr docs/_files
       mkdir docs/_files
-      cp ../README.md docs/_files/.
+      cp README.md docs/_files/.
+      pushd docs
       make latexpdf
+      popd
       cp docs/_build/latex/*.pdf docs/_files/.
 
       # html
