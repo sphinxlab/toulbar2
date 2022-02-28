@@ -28,7 +28,8 @@ apt-get -y install git rsync python3-stemmer python3-git python3-pip
 #apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev pkg-config texlive-latex-recommended  texlive-fonts-recommended graphviz doxygen
 apt-get -y install cmake texlive-latex-recommended  texlive-fonts-recommended graphviz doxygen
 
-python3 -m pip install --upgrade sphinx sphinx_rtd_theme rinohtype pygments breathe
+python3 -m pip install --upgrade sphinx sphinx_rtd_theme pygments breathe recommonmark
+
 
 ###############################################################################
 # Declare variables
