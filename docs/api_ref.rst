@@ -7,6 +7,6 @@ API Reference
 .. toctree::
    :maxdepth: 1
 
-   api_ref/api_ref_toulbar2.rst
-   api_ref/api_ref_pytoulbar2.rst
+   toulbar2 (C++) <api_ref/api_ref_toulbar2.rst>
+   pytoulbar2 (Python) <api_ref/api_ref_pytoulbar2.rst>
 

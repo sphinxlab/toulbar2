@@ -13,15 +13,23 @@ Home
 .. :Release: |release|
 .. :Date: |today|
 
+
+
+*Quick access* : :ref:`downloads` | *Command line arguments* | ...
+
+
 toulbar2 is an exact solver for cost function networks.
 
   .. toctree::
      :maxdepth: 1
 
      presentation.rst
-     downloads.rst
+     resources.rst
      documentation.rst
      publications.rst
      tutorials.rst
-     software.rst
+
+..   api_ref.rst (inclus dans documentation/refman.rst) 
+..   tmp/tmp.rst
+
 

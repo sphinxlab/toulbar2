@@ -4,19 +4,35 @@
 Documentation
 =============
 
-User and reference manuals
-==========================
+Manuals
+=======
 
-  - :download:`User manual<../doc/userdoc.pdf>`
-  - :download:`Reference manual<../doc/refman.pdf>`
+Downloads :
+:download:`User manual<_files/userdoc.pdf>` |
+:download:`Reference manual<_files/refman.pdf>` |
+:download:`WCSP format<_files/WCSP_format.pdf>` |
+:download:`CFN format<_files/CFN_format.pdf>`
+
+.. toctree::
+   :maxdepth: 2
+
+   documentation/userdoc.rst
+   documentation/refman.rst
+
+.. warning::
+   *Pour memo documents PRECEDENTS :*
+   :download:`User manual<../doc/userdoc.pdf>` |
+   :download:`Reference manual<../doc/refman.pdf>` |
+   :download:`WCSP Format<../doc/wcspformat.pdf>` |
+   :download:`CFN Format<../doc/CFNformat.pdf>`
 
 Input formats
 =============
 
 The available file formats (possibly compressed by gzip or xz, e.g., .cfn.gz, .wcsp.xz) are :
 
-  - Cost Function Network format (:download:`.cfn<../doc/CFNformat.pdf>` file extensions)
-  - Weighted Constraint Satisfaction Problem (:download:`.wcsp<../doc/wcspformat.pdf>` file extension)
+  - :ref:`Cost Function Network format<cfn_format>` (:download:`.cfn<_files/CFN_format.pdf>` file extensions)
+  - :ref:`Weighted Constraint Satisfaction Problem<wcsp_format>` (:download:`.wcsp<_files/WCSP_format.pdf>` file extension)
   - Probabilistic Graphical Model (`.uai <http://www.cs.huji.ac.il/project/PASCAL/fileFormat.php>`_ / .LG file extension ; the file format .LG is identical to .UAI except that we expect log-potentials)
   - Weigthed Partial Max-SAT (`.cnf/.wcnf <http://www.maxsat.udl.cat/08/index.php?disp=requirements>`_ file extension)
   - Quadratic Unconstrained Pseudo-Boolean Optimization (:download:`.qpbo<../doc/QpboFormat.txt>` file extension)

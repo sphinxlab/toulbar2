@@ -6,6 +6,8 @@ toulbar2 API Reference
 
 toulbar2 is an open-source C++ solver for cost function networks.
 
+See : :download:`Class Diagram<../../doc/toulbar2-class.pdf>`.
+
 WeightedCSP class
 =================
 
@@ -17,9 +19,4 @@ WeightedCSPSolver class
 
 .. doxygenclass:: WeightedCSPSolver
    :members:
-
-pytoulbar2 file
-===============
-
-.. doxygenfile:: pytoulbar2.cpp
 

@@ -10,7 +10,7 @@ Downloads
   `MacOs 64bit <https://github.com/toulbar2/toulbar2/releases/download/v1.1.1/toulbar2mac>`_ |
   `Windows 64bit <https://github.com/toulbar2/toulbar2/releases/download/v1.1.1/toulbar2.exe>`_
 
-**Open-source code**
+**For more**
 
-  `github <https://github.com/toulbar2/toulbar2>`_
+   :ref:`Other resources<resources>`
 

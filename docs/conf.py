@@ -48,10 +48,12 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
+    'sphinx.ext.imgmath',
     'sphinx.ext.mathjax',
     'sphinx.ext.githubpages',
+    'sphinx.ext.graphviz',
     'breathe',
-    'rinoh.frontend.sphinx',
+    'recommonmark',
 ]
 
 # Breathe
@@ -67,8 +69,8 @@ templates_path = [os.path.join(docs_path,'_templates')]
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-# source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ['.rst', '.md']
+#source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
@@ -84,7 +86,10 @@ language = None
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
-                    '_local', '_pyvenv', ]
+                    '_local', '_pyvenv',
+                    'README.md', 'README/CICD.md', 'README/creation.md',
+                    'README/local_build.md', 'README/method.md',
+                   ]
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -112,7 +117,7 @@ html_theme_options = {
     #'collapse_navigation': True,
     #'sticky_navigation': True,
     'navigation_depth': 4,
-    #'includehidden': True,
+    #'includehidden': True, # False,
     #'titles_only': False
 }
 
@@ -165,9 +170,43 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    ('pdf/index4pdf', 'toulbar2.tex', 'toulbar2 Documentation',
-                                                         'INRAE', 'manual'),
-    ('tutorials', 'tutorials.tex', 'toulbar2 Tutorials', 'INRAE', 'manual'),
+
+    # main
+
+    ('index', 'toulbar2.tex',
+     'toulbar2 Documentation',
+     'INRAE', 'manual'),
+
+    # extracts 
+
+    ('tutorials', 'tutorials.tex',
+     '', # to keep .rst title
+     'INRAE', 'manual'),
+
+    ('documentation/userdoc', 'userdoc.tex',
+     'toulbar2 User Manual',
+     'INRAE', 'manual'),
+
+    ('documentation/refman', 'refman.tex',
+     'toulbar2 Reference Manual',
+     'INRAE', 'manual'),
+
+    ('documentation/wcspformat', 'WCSP_format.tex',
+     '', # to keep .rst title
+     'INRAE', 'manual'),
+
+    ('documentation/cfnformat', 'CFN_format.tex',
+     '', # to keep .rst title
+     'INRAE', 'manual'),
+
+    # api ref
+
+    ('api_ref/api_ref_toulbar2', 'api_ref_toulbar2.tex',
+     '', # to keep .rst title
+     'INRAE', 'manual'),
+    ('api_ref/api_ref_pytoulbar2', 'api_ref_pytoulbar2.tex',
+     '', # to keep .rst title
+     'INRAE', 'manual'),
 ]
 
 # -- Options for manual page output ------------------------------------------

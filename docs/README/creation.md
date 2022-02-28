@@ -2,6 +2,8 @@
 
 ## Install/init
 
+### Sphinx
+
 - Install sphinx
 
       sudo apt-get install -y python3-sphinx
@@ -17,6 +19,18 @@
 
   - change theme from 'alabaster' to 'sphinx_rtd_theme'
   - python code path
+
+### Add C++ documentation
+
+Use of Doxygen and breathe : the build/xml folder content, built by Doxygen,
+will be used by Sphinx (via breathe).
+
+- add 'breathe' into toulbar2/docs/_local/requirement.txt and
+  into docs/conf.py (extensions, breathe_projects).
+
+- add into toulbar2/Doxyfile.in ::
+
+      GENERATE_XML = YES
 
 ## [Local build](local_build.md)
 
