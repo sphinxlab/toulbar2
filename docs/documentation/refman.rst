@@ -4,6 +4,8 @@
 Reference Manual
 ================
 
+**Overview** :
+
   ================================  =====================================
   **Cost Function Network Solver**  toulbar2
   **Copyright**                     toulbar2 team
@@ -18,30 +20,31 @@ Reference Manual
     Use cmake flags LIBTB2=ON and TOULBAR2_ONLY=OFF to get the toulbar2 C++
     library libtb2.so and toulbar2test executable example.
 
-  See also
-    :download:`src/toulbar2test.cpp<../../src/toulbar2test.cpp>`.
+  **See also** : :download:`src/toulbar2test.cpp<../../src/toulbar2test.cpp>`.
 
-.. toctree::
-   :maxdepth: 1
-
-   ../_files/README.md
-
-.. toctree::
-   :maxdepth: 1
-
-   modules.rst
-
-.. only:: html
+**Content** :
 
   .. toctree::
      :maxdepth: 1
 
-     ../api_ref/api_ref_toulbar2.rst
+     ../_files/README.md
 
   .. toctree::
      :maxdepth: 1
 
-     ../api_ref/api_ref_pytoulbar2.rst
+     modules.rst
+
+  .. only:: html
+
+    .. toctree::
+       :maxdepth: 1
+
+       ../api_ref/api_ref_toulbar2.rst
+
+    .. toctree::
+       :maxdepth: 1
+
+       ../api_ref/api_ref_pytoulbar2.rst
 
 .. class WeightedCSP NOK for LaTeX there (LaTeX Error: Too deeply nested)
 

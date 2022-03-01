@@ -42,13 +42,12 @@ languages="en `find docs/locales/ -mindepth 1 -maxdepth 1 -type d -exec basename
       echo "INFO: Building for ${current_language}"
  
       # pdf before html
-      mkdir docs/_files/tmp
-      cp docs/_files/*.* docs/_files/tmp/.
-      cp -f README.md docs/_files/.
+      rm -f docs/_files/*.*
+      cp README.md docs/_files/.
       pushd docs
       make latexpdf
       popd
-      cp -f docs/_build/latex/*.pdf docs/_files/.
+      cp docs/_build/latex/*.pdf docs/_files/.
 
       # html
       sphinx-build -b html docs/ docs/_build/html/${current_language}/${current_version} -D language="${current_language}"

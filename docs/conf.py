@@ -184,18 +184,22 @@ latex_documents = [
      'INRAE', 'manual'),
 
     ('documentation/userdoc', 'userdoc.tex',
-     'toulbar2 User Manual',
+     'toulbar2 User Guide',
      'INRAE', 'manual'),
 
     ('documentation/refman', 'refman.tex',
      'toulbar2 Reference Manual',
      'INRAE', 'manual'),
 
-    ('documentation/wcspformat', 'WCSP_format.tex',
+    ('formats/inputformats', 'inputformats.tex',
+     'toulbar2 Input Formats',
+     'INRAE', 'manual'),
+
+    ('formats/wcspformat', 'WCSP_format.tex',
      '', # to keep .rst title
      'INRAE', 'manual'),
 
-    ('documentation/cfnformat', 'CFN_format.tex',
+    ('formats/cfnformat', 'CFN_format.tex',
      '', # to keep .rst title
      'INRAE', 'manual'),
 

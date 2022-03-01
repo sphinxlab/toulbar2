@@ -733,8 +733,8 @@ void help_msg(char* toulbar2filename)
 #endif
     cout << endl;
 #endif
-    cout << "   *.pre : pedigree format (see doc/MendelSoft.txt for Mendelian error correction)" << endl;
-    cout << "   *.pre *.map : pedigree and genetic map formats (see doc/HaplotypeHalfSib.txt for haplotype reconstruction in half-sib families)" << endl;
+    cout << "   *.pre : pedigree format (see docs/formats/MendelSoft.txt for Mendelian error correction)" << endl;
+    cout << "   *.pre *.map : pedigree and genetic map formats (see docs/formats/HaplotypeHalfSib.txt for haplotype reconstruction in half-sib families)" << endl;
     cout << "   *.bep  : satellite scheduling format (CHOCO benchmark)" << endl
          << endl;
     cout << "   *.order  : variable elimination order" << endl;

@@ -22,7 +22,7 @@ _The build/xml folder content, built by Doxygen, will be used by Sphinx
       # for generating documentation use the following command:
 
       mkdir build ; cd build
-      cmake -DBUILD_API_DOC=ON ; make doc
+      cmake -DBUILD_API_DOC=ON .. ; make doc
 
 ### Sphinx
 

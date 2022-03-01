@@ -18,12 +18,10 @@ help:
 # builds pdf files and install them into FILESDIR
 # has to be done before html pages
 files:
-	rm -fr $(FILESDIR)
-	mkdir $(FILESDIR)
+	rm -f $(FILESDIR)/*.*
 	cp ../README.md $(FILESDIR)/.
 	make latexpdf
 	cp $(BUILDDIR)/latex/*.pdf $(FILESDIR)/.
-
 
 # builds pdf files and then html pages
 docs:
