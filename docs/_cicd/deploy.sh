@@ -25,10 +25,9 @@ apt-get update -y
 apt-get -y install git rsync python3-stemmer python3-git python3-pip
  
 # Required to build doxygen docs (xml used by breathe)
-#apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev pkg-config texlive-latex-recommended  texlive-fonts-recommended graphviz doxygen
-apt-get -y install cmake texlive-latex-recommended  texlive-fonts-recommended graphviz doxygen
+apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev pkg-config texlive-latex-recommended  texlive-fonts-recommended graphviz doxygen
 
-python3 -m pip install --upgrade sphinx sphinx_rtd_theme rinohtype pygments breathe recommonmark
+python3 -m pip install --upgrade sphinx sphinx_rtd_theme pygments breathe recommonmark
 
 ###############################################################################
 # Declare variables
@@ -52,7 +51,7 @@ if [[ ${usecase} == "devel" ]]; then
 
     # manual selection of a list of branches (at least master !)
     ###versions="master sphinx-nr sphinx-usr"
-    versions="master sphinx-nr"
+    versions="sphinx-nr step1 step2"
 
     for current_version in ${versions}; do
        git checkout ${current_version}
