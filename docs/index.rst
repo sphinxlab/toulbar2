@@ -14,8 +14,7 @@ Home
 .. :Date: |today|
 
 
-
-*Quick access* : :ref:`downloads` | *Command line arguments* | ...
+*Quick access* : :ref:`downloads` | :download:`Help message<../HELP>` | ...
 
 
 toulbar2 is an exact solver for cost function networks.
