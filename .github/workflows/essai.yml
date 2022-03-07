@@ -31,7 +31,7 @@ jobs:
           ##pip3 install setuptools
           ##pip3 install sphinx sphinx_rtd_theme breathe recommonmark
           python -m pip install --upgrade pip
-          pip install -r docs/_local/requirements.txt
+          pip install -r docs/_local/requirement.txt
 
       - name: "Build Sphinx Doc"
         run: |
