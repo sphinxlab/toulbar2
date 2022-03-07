@@ -51,7 +51,7 @@ languages="en `find docs/locales/ -mindepth 1 -maxdepth 1 -type d -exec basename
       popd
       cp docs/_build/latex/*.pdf docs/_files/.
 
-      # 2. html
+      # html
       sphinx-build -b html docs/ docs/_build/html/${current_language}/${current_version} -D language="${current_language}"
  
       # 2. pdf after html
