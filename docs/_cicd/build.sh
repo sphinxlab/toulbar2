@@ -41,26 +41,28 @@ languages="en `find docs/locales/ -mindepth 1 -maxdepth 1 -type d -exec basename
  
       echo "INFO: Building for ${current_language}"
  
-      # pdf before html
+      # 1. pdf before html
       rm -f docs/_files/*.*
       cp README.md docs/_files/.
       pushd docs
-      echo "ls -l _build/latex"
-      ls -l _build/latex      
       make latexpdf
-      echo "ls -l _build/latex"
+      echo "1. ls -l _build/latex"
       ls -l _build/latex      
       popd
       cp docs/_build/latex/*.pdf docs/_files/.
 
-      # html
+      # 2. html
       sphinx-build -b html docs/ docs/_build/html/${current_language}/${current_version} -D language="${current_language}"
  
-      #old# pdf
-      #sphinx-build -b rinoh docs/ docs/_build/rinoh -D language="${current_language}"
-      #mkdir -p "${docroot}/${current_language}/${current_version}"
-      #cp "docs/_build/rinoh/toulbar2.pdf" "${docroot}/${current_language}/${current_version}/toulbar2_${current_language}_${current_version}.pdf"
-      #cp "docs/_build/rinoh/tutorials.pdf" "${docroot}/${current_language}/${current_version}/tutorials_${current_language}_${current_version}.pdf"
+      # 2. pdf after html
+      rm -f docs/_files/*.*
+      cp README.md docs/_files/.
+      pushd docs
+      make latexpdf
+      echo "2. ls -l _build/latex"
+      ls -l _build/latex      
+      popd
+      cp docs/_build/latex/*.pdf docs/_files/.
 
       # epub
       sphinx-build -b epub docs/ docs/_build/epub -D language="${current_language}"

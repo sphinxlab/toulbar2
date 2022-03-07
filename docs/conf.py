@@ -171,12 +171,6 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
 
-    # main
-
-    ('index', 'toulbar2.tex',
-     'toulbar2 Documentation',
-     'INRAE', 'manual'),
-
     # extracts 
 
     ('tutorials', 'tutorials.tex',
@@ -210,6 +204,12 @@ latex_documents = [
      'INRAE', 'manual'),
     ('api_ref/api_ref_pytoulbar2', 'api_ref_pytoulbar2.tex',
      '', # to keep .rst title
+     'INRAE', 'manual'),
+
+    # main
+
+    ('index', 'toulbar2.tex',
+     'toulbar2 Documentation',
      'INRAE', 'manual'),
 ]
 
