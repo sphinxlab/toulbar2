@@ -19,14 +19,23 @@ jobs:
           #persist-credentials: false
           ref: 'sphinx-nr'
 
+      - name: "Cache"
+      - uses: actions/cache@v1
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('docs/_local/*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
 
       # Doxygen
 
       - name: "Doxygen install"
         run: |
-          apt-get install texlive-latex-recommended
-          apt-get install texlive-fonts-recommended
-          apt-get install doxygen
+          sudo apt -y update
+          sudo apt-get -y install texlive-latex-recommended
+          sudo apt-get -y install texlive-fonts-recommended
+          sudo apt-get -y install doxygen graphviz
           mkdir build
           cd build
           cmake -DBUILD_API_DOC=ON ..
