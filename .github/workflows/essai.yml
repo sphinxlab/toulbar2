@@ -15,9 +15,9 @@ jobs:
 
       - name: "Checkout"
         uses: actions/checkout@v2
-        #with:
+        with:
         #  persist-credentials: false
-        #  ref: 'sphinx-nr'
+          ref: 'sphinx-nr'
 
       # Sphinx
 
