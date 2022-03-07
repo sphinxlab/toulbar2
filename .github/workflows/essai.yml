@@ -19,6 +19,19 @@ jobs:
           #persist-credentials: false
           ref: 'sphinx-nr'
 
+
+      # Doxygen
+
+      - name: "Doxygen install"
+        run: |
+          apt-get install texlive-latex-recommended
+          apt-get install texlive-fonts-recommended
+          apt-get install doxygen
+          mkdir build
+          cd build
+          cmake -DBUILD_API_DOC=ON ..
+          make doc
+
       # Sphinx
 
       - name: "Python setup"
