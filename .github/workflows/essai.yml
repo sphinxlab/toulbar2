@@ -28,18 +28,18 @@ jobs:
             ${{ runner.os }}-pip-
 
 
-      # Doxygen
-
-      - name: "Doxygen install"
-        run: |
-          sudo apt -y update
-          sudo apt-get -y install texlive-latex-recommended
-          sudo apt-get -y install texlive-fonts-recommended
-          sudo apt-get -y install doxygen graphviz
-          mkdir build
-          cd build
-          cmake -DBUILD_API_DOC=ON ..
-          make doc
+#      # Doxygen
+#
+#      - name: "Doxygen install"
+#        run: |
+#          sudo apt -y update
+#          sudo apt -y install texlive-latex-recommended
+#          sudo apt -y install texlive-fonts-recommended
+#          sudo apt -y install doxygen graphviz
+#          mkdir build
+#          cd build
+#          cmake -DBUILD_API_DOC=ON ..
+#          make doc
 
       # Sphinx
 
