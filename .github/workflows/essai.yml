@@ -15,9 +15,9 @@ jobs:
 
       - name: "Checkout"
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-          ref: 'sphinx-nr'
+        #with:
+        #  persist-credentials: false
+        #  ref: 'sphinx-nr'
 
       # Sphinx
 
@@ -34,7 +34,7 @@ jobs:
 
       - name: "Build Sphinx Doc"
         run: |
-          cd docs ; make html
+          cd docs/ && make html
 
       # Deploy on Github Pages
 
