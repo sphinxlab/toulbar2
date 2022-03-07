@@ -54,16 +54,9 @@ jobs:
       - name: "Sphinx build"
         run: |
           cd docs
-          make html
+          make docs
 
       # Deploy on Github Pages
-
-#      - name: "Deploy Github Pages"
-#        uses: JamesIves/github-pages-deploy-action@3.7.1
-#        with:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          BRANCH: gh-pages
-#          FOLDER: docs/_build/html/
 
       - name: "Run ghp-import"
         run: | 
