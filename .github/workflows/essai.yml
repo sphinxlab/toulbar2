@@ -1,0 +1,47 @@
+name: "Build and deploy Github pages"
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build-and-deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # get repository content
+
+      - name: "Checkout"
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          ref: 'sphinx-nr'
+
+      # Sphinx
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: "Install Python dependencies"
+        run: |
+          pip3 install setuptools
+          pip3 install sphinx sphinx_rtd_theme breathe recommonmark
+
+
+      - name: "Build Sphinx Doc"
+        run: |
+          cd docs ; make html
+
+      # Deploy on Github Pages
+
+      - name: "Deploy Github Pages"
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # Brancht commit des fichiers
+          FOLDER: docs/build/html/  # Dossier contenant documentation generee
+
