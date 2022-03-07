@@ -20,7 +20,7 @@ jobs:
           ref: 'sphinx-nr'
 
       - name: "Cache"
-      - uses: actions/cache@v1
+        uses: actions/cache@v1
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('docs/_local/*.txt') }}
@@ -28,18 +28,18 @@ jobs:
             ${{ runner.os }}-pip-
 
 
-#      # Doxygen
-#
-#      - name: "Doxygen install"
-#        run: |
-#          sudo apt -y update
-#          sudo apt -y install texlive-latex-recommended
-#          sudo apt -y install texlive-fonts-recommended
-#          sudo apt -y install doxygen graphviz
-#          mkdir build
-#          cd build
-#          cmake -DBUILD_API_DOC=ON ..
-#          make doc
+      # Doxygen
+
+      - name: "Doxygen install"
+        run: |
+          sudo apt -y update
+          sudo apt -y install texlive-latex-recommended
+          sudo apt -y install texlive-fonts-recommended
+          sudo apt -y install doxygen graphviz
+          mkdir build
+          cd build
+          cmake -DBUILD_API_DOC=ON ..
+          make doc
 
       # Sphinx
 
