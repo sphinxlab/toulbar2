@@ -1,4 +1,4 @@
-name: "Build and deploy Github pages"
+name: "essai.yml : Build and deploy Github pages"
 
 on:
   workflow_dispatch:
