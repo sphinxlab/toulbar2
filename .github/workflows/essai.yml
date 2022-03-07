@@ -32,10 +32,8 @@ jobs:
 
       - name: "Doxygen install"
         run: |
-          sudo apt -y update
-          sudo apt -y install texlive-latex-recommended
-          sudo apt -y install texlive-fonts-recommended
-          sudo apt -y install doxygen graphviz
+          sudo apt-get -y update
+          sudo apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev pkg-config texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended latexmk graphviz doxygen
           mkdir build
           cd build
           cmake -DBUILD_API_DOC=ON ..
