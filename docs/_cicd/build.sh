@@ -45,7 +45,11 @@ languages="en `find docs/locales/ -mindepth 1 -maxdepth 1 -type d -exec basename
       rm -f docs/_files/*.*
       cp README.md docs/_files/.
       pushd docs
+      echo "ls -l _build/latex"
+      ls -l _build/latex      
       make latexpdf
+      echo "ls -l _build/latex"
+      ls -l _build/latex      
       popd
       cp docs/_build/latex/*.pdf docs/_files/.
 
