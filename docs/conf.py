@@ -50,7 +50,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.imgmath',
     'sphinx.ext.mathjax',
-    'sphinx.ext.githubpages',
+    'sphinx.ext.githubpages', # => .nojekyll file
     'sphinx.ext.graphviz',
     'breathe',
     'recommonmark',
