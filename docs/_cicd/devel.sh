@@ -43,7 +43,7 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
 # manual selection of a list of branches (at least master !)
 ###versions="master sphinx-nr sphinx-usr"
 #versions="sphinx-nr step1 step2"
-versions="sphinx-nr"
+versions="sphinx-nr step2"
 
 for current_version in ${versions}; do
    git checkout ${current_version}
