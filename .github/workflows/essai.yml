@@ -1,32 +1,33 @@
-name: "essai.yml : Build and deploy Github pages"
+name: "docs-deploy (toulbar2 site on GitHub Pages)"
 
+# workflow automatically executed when push to master
+# + workflow_dispatch (manual)
 on:
   workflow_dispatch:
+  #push:
+  #  branches:
+  #    - 'master'
 
 jobs:
 
   build-and-deploy:
 
-    runs-on: ubuntu-20.04
-    #runs-on: ubuntu-latest
-    #Cache hit occurred on the primary key Linux-pip-8dc9b32104a881f6bc619bf2d932872ea6fed3d5d06ff1a94d846bd99a2fe642, not saving cache
+    runs-on: ubuntu-latest
+    #runs-on: ubuntu-20.04
 
     steps:
-
-      # get repository content
 
       - name: "Checkout"
         uses: actions/checkout@v2
         with:
-          #persist-credentials: false
           ref: 'sphinx-nr'
 
       - name: "Cache"
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('docs/_local/*.txt') }}
-          #key: ${{ runner.os }}-pip-${{ hashFiles('**/requirement.txt') }}
+          #key: ${{ runner.os }}-pip-${{ hashFiles('docs/_local/*.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirement.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -36,6 +37,7 @@ jobs:
         run: |
           sudo apt-get -y update
           sudo apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-dev zlib1g-dev liblzma-dev libxml2-dev libopenmpi-dev libboost-mpi-dev libjemalloc-dev pkg-config texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended latexmk graphviz doxygen
+        shell: bash
 
       - name: "Python setup"
         uses: actions/setup-python@v1
