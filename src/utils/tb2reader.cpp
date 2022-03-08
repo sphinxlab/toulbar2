@@ -42,7 +42,7 @@ typedef struct {
 } TemporaryUnaryConstraint;
 
 /**
- * \defgroup wcspformat Weighted Constraint Satisfaction Problem file format (wcsp)
+ * \defgroup wcspformat (TEST Weighted Constraint Satisfaction Problem file format (wcsp))
  *
  * It is a text format composed of a list of numerical and string terms separated by spaces.
  * Instead of using names for making reference to variables, variable
