@@ -56,7 +56,7 @@ jobs:
         run: |
           cd docs
           make docs
-          mv docs/_build/html docs/_build_sphinx-nr_html
+          mv _build/html _build_sphinx-nr_html
 
       - name: "Deploy on Github Pages (ghp-import)"
         run: | 
