@@ -7,8 +7,9 @@ jobs:
 
   build-and-deploy:
 
-    #runs-on: ubuntu-20.04
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    #runs-on: ubuntu-latest
+    #Cache hit occurred on the primary key Linux-pip-8dc9b32104a881f6bc619bf2d932872ea6fed3d5d06ff1a94d846bd99a2fe642, not saving cache
 
     steps:
 
@@ -25,6 +26,7 @@ jobs:
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('docs/_local/*.txt') }}
+          #key: ${{ runner.os }}-pip-${{ hashFiles('**/requirement.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
