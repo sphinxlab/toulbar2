@@ -5,6 +5,8 @@
 
 .. _home:
 
+.. include:: news_home.rst
+
 ====
 Home
 ====

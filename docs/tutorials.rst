@@ -1,5 +1,7 @@
 .. _tutorials:
 
+.. include:: news_tutorials.rst
+
 =========
 Tutorials
 =========
