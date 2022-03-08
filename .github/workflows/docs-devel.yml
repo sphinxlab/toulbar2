@@ -1,17 +1,18 @@
-name: docs_devel
+name: "docs-devel try docs on GitHub Pages"
  
 on:
   workflow_dispatch:
 
 jobs:
  
-  build_docs_job:
-    runs-on: ubuntu-latest
-    container: ubuntu:latest
+  build-and-try-docs:
+
+    runs-on: ubuntu-20.04
+    container: ubuntu:20.04
  
     steps:
  
-    - name: Prereqs
+    - name: "Before"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
@@ -20,8 +21,8 @@ jobs:
         git clone "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
       shell: bash
  
-    - name: Build devel documentation and update GitHub Pages
+    - name: "Build on gh-pages for versions (devel.sh)"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: "docs/_cicd/deploy.sh devel"
+      run: "docs/_cicd/devel.sh"
       shell: bash
