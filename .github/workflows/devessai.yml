@@ -56,11 +56,13 @@ jobs:
         run: |
           cd docs
           make docs
-          mv docs/_build/html docs/_build_html_sphinx-nr
+          mv docs/_build/html docs/_build_sphinx-nr_html
 
-      #- name: "Deploy on Github Pages (ghp-import)"
-      #  run: | 
-      #    ghp-import -n -p -f docs/_build/html
+      - name: "Deploy on Github Pages (ghp-import)"
+        run: | 
+          mkdir docs/_build/sphinx-nr
+          mv docs/_build_sphinx-nr_html docs/_build/sphinx-nr/.
+          ghp-import -n -p -f docs/_build
 
       #- name: "Run a shell script ?"
       #  run: |
