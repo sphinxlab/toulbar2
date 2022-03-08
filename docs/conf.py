@@ -177,12 +177,12 @@ latex_documents = [
      '', # to keep .rst title
      'INRAE', 'manual'),
 
-    ('documentation/userdoc', 'userdoc.tex',
-     'toulbar2 User Guide',
-     'INRAE', 'manual'),
-
     ('documentation/refman', 'refman.tex',
      'toulbar2 Reference Manual',
+     'INRAE', 'manual'),
+
+    ('documentation/userdoc', 'userdoc.tex',
+     'toulbar2 User Guide',
      'INRAE', 'manual'),
 
     ('formats/inputformats', 'inputformats.tex',
