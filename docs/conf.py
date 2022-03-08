@@ -48,8 +48,8 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
-    'sphinx.ext.imgmath',
-    'sphinx.ext.mathjax',
+    #'sphinx.ext.imgmath',
+    #'sphinx.ext.mathjax',
     'sphinx.ext.githubpages', # => .nojekyll file
     'sphinx.ext.graphviz',
     'breathe',
