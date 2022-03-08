@@ -60,9 +60,10 @@ jobs:
 
       - name: "Deploy on Github Pages (ghp-import)"
         run: | 
-          mkdir docs/_build/sphinx-nr
-          mv docs/_build_sphinx-nr_html docs/_build/sphinx-nr/.
-          ghp-import -n -p -f docs/_build
+          mkdir docs/_build/html
+          mkdir docs/_build/html/sphinx-nr
+          mv docs/_build_sphinx-nr_html docs/_build/html/sphinx-nr/.
+          ghp-import -n -p -f docs/_build/html
 
       #- name: "Run a shell script ?"
       #  run: |
