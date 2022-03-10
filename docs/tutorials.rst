@@ -21,4 +21,5 @@ Tutorials
    tutorials/sspp.rst
    tutorials/ltps.rst
    tutorials/rccs.rst
+   tutorials/vs.rst
 
