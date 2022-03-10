@@ -4,10 +4,10 @@
 Module Documentation
 ====================
 
-Weighted Constraint Satisfaction Problem file format (wcsp)
------------------------------------------------------------
+.. Weighted Constraint Satisfaction Problem file format (wcsp)
+.. -----------------------------------------------------------
 
-.. doxygengroup:: wcspformat
+.. .. doxygengroup:: wcspformat
 
 Variable and cost function modeling
 -----------------------------------
