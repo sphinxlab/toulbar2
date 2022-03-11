@@ -7,8 +7,6 @@
 
 .. include:: news_home.rst
 
-:ref:`downloads` | :download:`Help message<../HELP>`
-
 ========
 toulbar2
 ========
@@ -21,15 +19,14 @@ toulbar2
 toulbar2 is an exact solver for cost function networks.
 
   .. toctree::
-     :maxdepth: 2
+     :maxdepth: 1
 
      presentation.rst
-     resources.rst
-     documentation/userdoc.rst
-     formats/inputformats.rst
-     publications.rst
      tutorials.rst
+     documentation/userdoc.rst
      documentation/refman.rst
+     publications.rst
+     resources.rst
 
 ..   api_ref.rst (inclus dans documentation/refman.rst) 
 ..   tmp/tmp.rst

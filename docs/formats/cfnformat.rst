@@ -1,8 +1,8 @@
 .. _cfn_format:
 
-============================
-The CFN format (.cfn suffix)
-============================
+========================
+CFN format (.cfn suffix)
+========================
 
 With this JSON compatible format, it is possible:
 
@@ -11,7 +11,7 @@ With this JSON compatible format, it is possible:
   - to use decimal and possibly negative costs.
   - to solve both minimization and maximization problems.
   - to debug your **.cfn** files: the parser gives a cause and line number when it fails.
-  - to use gzip-compressed files directly as input.
+  - to use gzip'd or xz compressed files directly as input (.cfn.gz and .cfn.xz). 
   - to use dense descriptions for dense cost tables.
 
 In a **cfn** file, a Cost Function Network is described as a JSON object with extra freedom and extra constraints.
