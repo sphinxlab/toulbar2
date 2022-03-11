@@ -185,10 +185,6 @@ latex_documents = [
      'toulbar2 User Guide',
      'INRAE', 'manual'),
 
-    ('formats/inputformats', 'inputformats.tex',
-     'toulbar2 Input Formats',
-     'INRAE', 'manual'),
-
     ('formats/wcspformat', 'WCSP_format.tex',
      '', # to keep .rst title
      'INRAE', 'manual'),
@@ -199,11 +195,11 @@ latex_documents = [
 
     # api ref
 
-    ('api_ref/api_ref_toulbar2', 'api_ref_toulbar2.tex',
-     '', # to keep .rst title
+    ('api_ref/api_ref_toulbar2', 'cpp_library.tex',
+     'C++ Library of toulbar2',
      'INRAE', 'manual'),
-    ('api_ref/api_ref_pytoulbar2', 'api_ref_pytoulbar2.tex',
-     '', # to keep .rst title
+    ('api_ref/api_ref_pytoulbar2', 'python_library.tex',
+     'Python Library of toulbar2',
      'INRAE', 'manual'),
 
     # main
