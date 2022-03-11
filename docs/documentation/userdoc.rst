@@ -750,7 +750,7 @@ It is possible to read a file from a unix pipe using option :code:`-stdin=[forma
 It is also possible to read and combine multiple problem files (warning, they must be all in the same format, either wcsp, cfn, or xml). 
 Variables with the same name are merged (domains must be identical), otherwise the merge is based on variable indexes (wcsp format).
 
-Formats are described in the followingi subparagraphs.
+Formats are detailed in the following subparagraphs.
 
 cfn format (.cfn, .cfn.gz, and .cfn.xz file extension)
 ------------------------------------------------------
@@ -1060,7 +1060,6 @@ Linkage format (.pre)
 See **mendelsoft** companion software at http://miat.inrae.fr/MendelSoft for pedigree correction. See also https://carlit.toulouse.inra.fr/cgi-bin/awki.cgi/HaplotypeInference for haplotype inference in half-sib families.
 
 .. .BEP format (old)
-
 
 How do I use it ?
 =================
