@@ -17,9 +17,14 @@ help:
 
 # builds pdf files and install them into FILESDIR
 # has to be done before html pages
+# also get and adapt toulbar2/README.md (without lines beginning with
+# 'master:' and 'cpd:' that are not ok for LaTeX)
 files:
 	rm -f $(FILESDIR)/*.*
 	cp ../README.md $(FILESDIR)/.
+	sed '/^master:/d' $(FILESDIR)/README.md > $(FILESDIR)/tmp.md
+	sed '/^cpd:/d' $(FILESDIR)/tmp.md > $(FILESDIR)/README.md
+	rm -f $(FILESDIR)/tmp.md
 	make latexpdf
 	cp $(BUILDDIR)/latex/*.pdf $(FILESDIR)/.
 
