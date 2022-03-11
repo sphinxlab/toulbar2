@@ -1,8 +1,8 @@
 .. _api_ref_pytoulbar2:
 
-=====================
-pytoulbar2 Reference
-=====================
+==============
+Python Library
+==============
 
 pytoulbar2 software is the Python interface of toulbar2.
 
