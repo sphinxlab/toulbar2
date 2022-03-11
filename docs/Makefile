@@ -23,12 +23,17 @@ files:
 	make latexpdf
 	cp $(BUILDDIR)/latex/*.pdf $(FILESDIR)/.
 
-# builds pdf files and then html pages
+# builds pdf, html, epub files; pdf and epub into html/pdf and html/epub
 docs:
 	make clean
 	make files
 	make html
 	make files
+	make epub
+	mkdir $(BUILDDIR)/html/epub
+	cp $(BUILDDIR)/epub/toulbar2.epub $(BUILDDIR)/html/epub/.
+	mkdir $(BUILDDIR)/html/pdf
+	cp $(FILESDIR)/*.pdf $(BUILDDIR)/html/pdf/.
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
