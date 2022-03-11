@@ -4,7 +4,8 @@
 Reference Manual
 ================
 
-**Overview** :
+Overview
+========
 
   ================================  =====================================
   **Cost Function Network Solver**  toulbar2
@@ -22,19 +23,88 @@ Reference Manual
 
   **See also** : :download:`src/toulbar2test.cpp<../../src/toulbar2test.cpp>`.
 
-**Content** :
+Exact optimization for cost function networks and additive graphical models
+===========================================================================
 
   .. toctree::
      :maxdepth: 1
 
      ../_files/README.md
 
-  .. toctree::
-     :maxdepth: 1
+.. _modules:
 
-     modules.rst
+Modules
+=======
 
-  .. only:: html
+.. Weighted Constraint Satisfaction Problem file format (wcsp)
+.. -----------------------------------------------------------
+
+.. .. doxygengroup:: wcspformat
+
+Variable and cost function modeling
+-----------------------------------
+
+.. doxygengroup:: modeling
+
+Solving cost function networks
+------------------------------
+
+.. doxygengroup:: solving
+
+Output messages, verbosity options and debugging
+------------------------------------------------
+
+.. doxygengroup:: verbosity
+
+Preprocessing techniques
+------------------------
+
+.. doxygengroup:: preprocessing
+
+Variable and value search ordering heuristics
+---------------------------------------------
+
+.. doxygengroup:: heuristics
+
+Soft arc consistency and problem reformulation
+----------------------------------------------
+
+.. doxygengroup:: softac
+
+Virtual Arc Consistency enforcing
+---------------------------------
+
+.. doxygengroup:: VAC
+
+NC bucket sort
+--------------
+
+.. doxygengroup:: ncbucket
+
+Variable elimination
+--------------------
+
+.. doxygengroup:: varelim
+
+Propagation loop
+----------------
+
+.. doxygengroup:: propagation
+
+Backtrack management
+--------------------
+
+.. doxygengroup:: backtrack
+
+Libraries
+=========
+
+.. only:: latex
+
+    - C++ Library : see "C++ Library of toulbar2" document.
+    - Python Library : see "Python Library of toulbar2" document.
+
+.. only:: html
 
     .. toctree::
        :maxdepth: 1
