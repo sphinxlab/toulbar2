@@ -4,10 +4,13 @@
 Resources
 =========
 
+toulbar2
+========
+
 .. _downloads:
 
-Downloads
-=========
+Binaries
+--------
 
 - **Latest release toulbar2 binaries**
 
@@ -16,12 +19,12 @@ Downloads
   `Windows 64bit <https://github.com/toulbar2/toulbar2/releases/download/v1.1.1/toulbar2.exe>`_
 
 Open-source code
-================
+----------------
 
 - `toulbar2 on GitHub <https://github.com/toulbar2/toulbar2>`_
 
 Docker images
-=============
+-------------
 
 - In `Toulbar2 Packages <https://github.com/toulbar2?tab=packages&repo_name=toulbar2>`_ :
 
@@ -39,13 +42,11 @@ Docker images
 
       docker pull ghcr.io/toulbar2/toulbar2/pytoulbar2:master
 
-Some model instances
-====================
+Benchmarks
+==========
 
 - `evalgm <http://genoweb.toulouse.inra.fr/~degivry/evalgm>`_ 
 - `Cost Function Library <https://forgemia.inra.fr/thomas.schiex/cost-function-library>`_
-
-
 
 Manuals
 =======
@@ -53,15 +54,14 @@ Manuals
 - Main documentation : :download:`toulbar2<_files/toulbar2.pdf>`
 
 - API Reference : 
-  :download:`Class Diagram<../doc/toulbar2-class.pdf>` |
-  :download:`toulbar2 API Reference<_files/api_ref_toulbar2.pdf>` |
-  :download:`pytoulbar2 API Reference<_files/api_ref_pytoulbar2.pdf>`
+  :download:`Class Diagram<../misc/doc/toulbar2-class.pdf>` |
+  :download:`C++ Library of toulbar2<_files/cpp_library.pdf>` |
+  :download:`Python Library of toulbar2<_files/python_library.pdf>`
 
 - Some extracts :
   :download:`User manual<_files/userdoc.pdf>` |
   :download:`Reference manual<_files/refman.pdf>` |
   :download:`Tutorials<_files/tutorials.pdf>` |
-  :download:`Input formats<_files/inputformats.pdf>` |
   :download:`WCSP format<_files/WCSP_format.pdf>` |
   :download:`CFN format<_files/CFN_format.pdf>` 
 
