@@ -1080,6 +1080,10 @@ An older version of toulbar2 was integrated inside Numberjack. See https://githu
 References
 ==========
 
+.. only:: latex
+
+   See 'BIBLIOGRAPHY' at the end of the document.
+
 .. [Schiex2020b] Céline Brouard and Simon de Givry and Thomas Schiex.
     Pushing Data in CP Models Using Graphical Model Learning and Solving.
     In *Proc. of CP-20*,
