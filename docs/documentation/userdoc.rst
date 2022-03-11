@@ -112,7 +112,7 @@ PBO or Linkage **.pre** file and executing: ::
 
   toulbar2 [option parameters] <file>
 
-and toulbar2 will start solving the optimization problem described in its file argument. By default, the extension of the file (either **.cfn**, **.cfn.gz**, **.cfn.xz**, **.wcsp**, **.wcsp.gz**, **.wcsp.xz**, **.wcnf**, **.wcnf.gz**, **.wcnf.xz**, **.cnf**, **.cnf.gz**, **.cnf.xz**, **.qpbo**, **.qpbo.gz**, **.qpbo.xz**, **.opb**, **.opb.gz**, **.opb.xz**, **.uai**, **.uai.gz**, **.uai.xz**, **.LG**, **.LG.gz**, **.LG.xz**, **.pre** or **.bep**) is used to determine the nature of the file (see :ref:`inputfileformats`).
+and toulbar2 will start solving the optimization problem described in its file argument. By default, the extension of the file (either **.cfn**, **.cfn.gz**, **.cfn.xz**, **.wcsp**, **.wcsp.gz**, **.wcsp.xz**, **.wcnf**, **.wcnf.gz**, **.wcnf.xz**, **.cnf**, **.cnf.gz**, **.cnf.xz**, **.qpbo**, **.qpbo.gz**, **.qpbo.xz**, **.opb**, **.opb.gz**, **.opb.xz**, **.uai**, **.uai.gz**, **.uai.xz**, **.LG**, **.LG.gz**, **.LG.xz**, **.pre** or **.bep**) is used to determine the nature of the file (see :ref:`input_formats`).
 There is no specific order for the options or problem file. toulbar2 comes with decently optimized default option parameters. It is however often possible to set it up for different target than pure optimization or tune it for faster action using specific command line options.
 
 Quick start
@@ -122,140 +122,140 @@ Quick start
 
     toulbar2 EXAMPLES/example.wcsp.xz
 
-  .. literalinclude:: ../../doc/out_d_binary_WCSP_example_s_default.txt
+  .. literalinclude:: ../../misc/doc/out_d_binary_WCSP_example_s_default.txt
 
 - Solve a WCSP using INCOP, a local search method [idwalk:cp04]_ applied just after preprocessing, in order to find a good upper bound before a complete search: ::
 
     toulbar2 EXAMPLES/example.wcsp.xz -i
 
-  .. literalinclude:: ../../doc/out_s_WCSP_example_INCOP.txt
+  .. literalinclude:: ../../misc/doc/out_s_WCSP_example_INCOP.txt
 
 - Solve a WCSP with an initial upper bound and save its (first) optimal solution in filename "example.sol": ::
 
     toulbar2 EXAMPLES/example.wcsp.xz -ub=28 -w=example.sol
 
-  .. literalinclude:: ../../doc/out_s_WCSP_example_initial_upper_bound.txt
+  .. literalinclude:: ../../misc/doc/out_s_WCSP_example_initial_upper_bound.txt
 
 - ... and see this saved "example.sol" file: ::
 
     cat example.sol
     # each value corresponds to one variable assignment in problem file order
 
-  .. literalinclude:: ../../doc/out_save_examplesol.txt
+  .. literalinclude:: ../../misc/doc/out_save_examplesol.txt
 
 - Download a larger WCSP file :download:`scen06.wcsp.xz<../../web/EXAMPLES/scen06.wcsp.xz>`. Solve it using a limited discrepancy search strategy [Ginsberg1995]_ with a VAC integrality-based variable ordering [Trosser2020a]_ in order to speed-up the search for finding good upper bounds first (by default, toulbar2 uses another diversification strategy based on hybrid best-first search [Katsirelos2015a]_): ::
 
     toulbar2 EXAMPLES/scen06.wcsp.xz -l -vacint
 
-  .. literalinclude:: ../../doc/out_d_larger_WCSP_scen06_s_VAC.txt
+  .. literalinclude:: ../../misc/doc/out_d_larger_WCSP_scen06_s_VAC.txt
 
 - Download a cluster decomposition file :download:`scen06.dec<../../web/EXAMPLES/scen06.dec>` (each line corresponds to a cluster of variables, clusters may overlap). Solve the previous WCSP using a variable neighborhood search algorithm (UDGVNS) [Ouali2017]_ during 10 seconds: ::
 
     toulbar2 EXAMPLES/scen06.wcsp.xz EXAMPLES/scen06.dec -vns -time=10
 
-  .. literalinclude:: ../../doc/out_d_cluster_decomp_scen06dec_s_UDGVNS.txt
+  .. literalinclude:: ../../misc/doc/out_d_cluster_decomp_scen06dec_s_UDGVNS.txt
 
 - Download another difficult instance :download:`scen07.wcsp.xz<../../web/EXAMPLES/scen07.wcsp.xz>`. Solve it using a variable neighborhood search algorithm (UDGVNS) with maximum cardinality search cluster decomposition and absorption [Ouali2017]_ during 5 seconds: ::
 
     toulbar2 EXAMPLES/scen07.wcsp.xz -vns -O=-1 -E -time=5
 
-  .. literalinclude:: ../../doc/out_d_another_instance_scen07_s_UDGVNS.txt
+  .. literalinclude:: ../../misc/doc/out_d_another_instance_scen07_s_UDGVNS.txt
 
 - Download file :download:`404.wcsp.xz<../../web/EXAMPLES/404.wcsp.xz>`. Solve it using Depth-First Brand and Bound with Tree Decomposition and HBFS (BTD-HBFS) [Schiex2006a]_ based on a min-fill variable ordering: ::
 
     toulbar2 EXAMPLES/404.wcsp.xz -O=-3 -B=1
 
-  .. literalinclude:: ../../doc/out_d_404_s_BTD_HBFS.txt
+  .. literalinclude:: ../../misc/doc/out_d_404_s_BTD_HBFS.txt
 
 - Solve the same problem using Russian Doll Search exploiting BTD [Sanchez2009a]_: ::
 
     toulbar2 EXAMPLES/404.wcsp.xz -O=-3 -B=2
 
-  .. literalinclude:: ../../doc/out_s_same_404_russian_doll_search.txt
+  .. literalinclude:: ../../misc/doc/out_s_same_404_russian_doll_search.txt
 
 - Solve another WCSP using the original Russian Doll Search method [Verfaillie1996]_ with static variable ordering (following problem file) and soft arc consistency: ::
 
     toulbar2 EXAMPLES/505.wcsp.xz -B=3 -j=1 -svo -k=1
 
-  .. literalinclude:: ../../doc/out_s_another_WCSP_505_russian_doll_search.txt
+  .. literalinclude:: ../../misc/doc/out_s_another_WCSP_505_russian_doll_search.txt
 
 - Solve the same WCSP using a parallel variable neighborhood search algorithm (UPDGVNS) with min-fill cluster decomposition [Ouali2017]_ using 4 cores during 5 seconds: ::
 
     mpirun -n 4 toulbar2 EXAMPLES/505.wcsp.xz -vns -O=-3 -time=5
 
-  .. literalinclude:: ../../doc/out_s_same_WCSP_505_UPDGVNS_minfill_cluster_decomp.txt
+  .. literalinclude:: ../../misc/doc/out_s_same_WCSP_505_UPDGVNS_minfill_cluster_decomp.txt
 
 - Download a cluster decomposition file :download:`example.dec<../../web/EXAMPLES/example.dec>` (each line corresponds to a cluster of variables, clusters may overlap). Solve a WCSP using a variable neighborhood search algorithm (UDGVNS) with a given cluster decomposition: ::
 
     toulbar2 EXAMPLES/example.wcsp.xz EXAMPLES/example.dec -vns
 
-  .. literalinclude:: ../../doc/out_d_cluster_decomp_s_UDGVNS_exampledec.txt
+  .. literalinclude:: ../../misc/doc/out_d_cluster_decomp_s_UDGVNS_exampledec.txt
 
 - Solve a WCSP using a parallel variable neighborhood search algorithm (UPDGVNS) with the same cluster decomposition: ::
 
     mpirun -n 4 toulbar2 EXAMPLES/example.wcsp.xz EXAMPLES/example.dec -vns
 
-  .. literalinclude:: ../../doc/out_s_WCSP_parallel_UPDGVNS_same_exampledec.txt
+  .. literalinclude:: ../../misc/doc/out_s_WCSP_parallel_UPDGVNS_same_exampledec.txt
 
 - Download file :download:`example.order<../../web/EXAMPLES/example.order>`. Solve a WCSP using BTD-HBFS based on a given (min-fill) reverse variable elimination ordering: ::
 
     toulbar2 EXAMPLES/example.wcsp.xz EXAMPLES/example.order -B=1
 
-  .. literalinclude:: ../../doc/out_d_exampleorder_s_BTD_HBFS.txt
+  .. literalinclude:: ../../misc/doc/out_d_exampleorder_s_BTD_HBFS.txt
 
 - Download file :download:`example.cov<../../web/EXAMPLES/example.cov>`. Solve a WCSP using BTD-HBFS based on a given explicit (min-fill path-) tree-decomposition: ::
 
     toulbar2 EXAMPLES/example.wcsp.xz EXAMPLES/example.cov -B=1
 
-  .. literalinclude:: ../../doc/out_d_examplecov_s_BTD_HBFS_tree_decomp.txt
+  .. literalinclude:: ../../misc/doc/out_d_examplecov_s_BTD_HBFS_tree_decomp.txt
 
 - Download a Markov Random Field (MRF) file :download:`pedigree9.uai.xz<../../web/EXAMPLES/pedigree9.uai.xz>` in UAI format. Solve it using bounded (of degree at most 8) variable elimination enhanced by cost function decomposition in preprocessing [Favier2011a]_ followed by BTD-HBFS exploiting only small-size (less than four variables) separators: ::
 
     toulbar2 EXAMPLES/pedigree9.uai.xz -O=-3 -p=-8 -B=1 -r=4
 
-  .. literalinclude:: ../../doc/out_d_MRF_pedigree9_UAI_format_s.txt
+  .. literalinclude:: ../../misc/doc/out_d_MRF_pedigree9_UAI_format_s.txt
 
 - Download another MRF file :download:`GeomSurf-7-gm256.uai.xz<../../web/EXAMPLES/GeomSurf-7-gm256.uai.xz>`. Solve it using Virtual Arc Consistency (VAC) in preprocessing [Cooper2008]_ and exploit a VAC-based value [Cooper2010a]_ and variable [Trosser2020a]_ ordering heuristics: ::
 
     toulbar2 EXAMPLES/GeomSurf-7-gm256.uai.xz -A -V -vacint
 
-  .. literalinclude:: ../../doc/out_d_another_MRF_GeomSurf_7_gm256_s.txt
+  .. literalinclude:: ../../misc/doc/out_d_another_MRF_GeomSurf_7_gm256_s.txt
 
 - Download another MRF file :download:`1CM1.uai.xz<../../web/EXAMPLES/1CM1.uai.xz>`. Solve it by applying first an initial upper bound probing, and secondly, use a modified variable ordering heuristic based on VAC-integrality during search [Trosser2020a]_: ::
 
     toulbar2 EXAMPLES/1CM1.uai.xz -A=1000 -vacint -rasps -vacthr
 
-  .. literalinclude:: ../../doc/out_d_another_MRF_1CM1_s.txt
+  .. literalinclude:: ../../misc/doc/out_d_another_MRF_1CM1_s.txt
 
 - Download a weighted Max-SAT file :download:`brock200_4.clq.wcnf.xz<../../web/EXAMPLES/brock200_4.clq.wcnf.xz>` in wcnf format. Solve it using a modified variable ordering heuristic [Schiex2014a]_: ::
 
     toulbar2 EXAMPLES/brock200_4.clq.wcnf.xz -m=1
 
-  .. literalinclude:: ../../doc/out_d_weighted_MaxSAT_brock200_4_wcnf_format_s.txt
+  .. literalinclude:: ../../misc/doc/out_d_weighted_MaxSAT_brock200_4_wcnf_format_s.txt
 
 - Download another WCSP file :download:`latin4.wcsp.xz<../../web/EXAMPLES/latin4.wcsp.xz>`. Count the number of feasible solutions: ::
 
     toulbar2 EXAMPLES/latin4.wcsp.xz -a
 
-  .. literalinclude:: ../../doc/out_d_another_WCSP_latin4_cns.txt
+  .. literalinclude:: ../../misc/doc/out_d_another_WCSP_latin4_cns.txt
 
 - Find a greedy sequence of at most 20 diverse solutions with Hamming distance greater than 12 between any pair of solutions: ::
 
     toulbar2 EXAMPLES/latin4.wcsp.xz -a=20 -div=12
 
-  .. literalinclude:: ../../doc/out_f_greedy_sequence_latin4.txt
+  .. literalinclude:: ../../misc/doc/out_f_greedy_sequence_latin4.txt
 
 - Download a crisp CSP file :download:`GEOM40_6.wcsp.xz<../../web/EXAMPLES/GEOM40_6.wcsp.xz>` (initial upper bound equal to 1). Count the number of solutions using \#BTD [Favier2009a]_ using a min-fill variable ordering (warning, cannot use BTD to find all solutions in optimization): ::
 
     toulbar2 EXAMPLES/GEOM40_6.wcsp.xz -O=-3 -a -B=1 -ub=1 -hbfs:
 
-  .. literalinclude:: ../../doc/out_d_crisp_CSP_GEOM40_6_cns.txt
+  .. literalinclude:: ../../misc/doc/out_d_crisp_CSP_GEOM40_6_cns.txt
 
 - Get a quick approximation of the number of solutions of a CSP with Approx\#BTD [Favier2009a]_: ::
 
     toulbar2 EXAMPLES/GEOM40_6.wcsp.xz -O=-3 -a -B=1 -D -ub=1 -hbfs:
 
-  .. literalinclude:: ../../doc/out_g_quick_approximation_GEOM40_6_cns.txt
+  .. literalinclude:: ../../misc/doc/out_g_quick_approximation_GEOM40_6_cns.txt
 
 Command line options
 ====================
@@ -266,9 +266,9 @@ If you just execute: ::
 
 toulbar2 will give you its (long) list of optional parameters, that you can
 see in part *'Available options'* of :
-:download:`ToulBar2 Help Message<../../HELP>`.
+:download:`ToulBar2 Help Message<../../misc/doc/HELP>`.
 
-.. .. literalinclude:: ../../HELP
+.. .. literalinclude:: ../../misc/doc/HELP
 
 .. %If you don't known much about Constraint
 .. %and Cost Function Programming, section~\ref{how-work} describes some
@@ -706,18 +706,377 @@ Random problem generation
                *gcc* or *regular* keywords with three possible forms 
                (*e.g., sgcc, sgccdp, wgcc*) and by *knapsack*.
           
-Using it as a library
-=====================
+
+.. _input_formats:
+
+Input formats
+=============
+
+The available **file formats** (possibly compressed by gzip or xz, e.g., .cfn.gz, .wcsp.xz) are :
+
+  - Cost Function Network format (:ref:`.cfn<cfn_format>` file extension)
+  - Weighted Constraint Satisfaction Problem (:ref:`.wcsp<wcsp_format>` file extension)
+  - Probabilistic Graphical Model (`.uai <http://www.cs.huji.ac.il/project/PASCAL/fileFormat.php>`_ / .LG file extension ; the file format .LG is identical to .UAI except that we expect log-potentials)
+  - Weigthed Partial Max-SAT (`.cnf/.wcnf <http://www.maxsat.udl.cat/08/index.php?disp=requirements>`_ file extension)
+  - Quadratic Unconstrained Pseudo-Boolean Optimization (:ref:`.qpbo<qpbo_format>` file extension)
+  - Pseudo-Boolean Optimization (`.opb <http://www.cril.univ-artois.fr/PB16/format.pdf>`_ file extension)
+
+**Some examples** :
+
+  - A simple 2 variables maximization problem `maximization.cfn <https://github.com/toulbar2/toulbar2/raw/master/validation/default/maximization.cfn>`_ in JSON-compatible CFN format, with decimal positive and negative costs.                 
+  - Random binary cost function network :download:`example.wcsp<../../web/EXAMPLES/example.wcsp.xz>`, with a specific variable ordering :download:`example.order<../../web/EXAMPLES/example.order>`, a tree decomposition :download:`example.cov<../../web/EXAMPLES/example.cov>`, and a cluster decomposition :download:`example.dec<../../web/EXAMPLES/example.dec>`
+  
+  - Latin square 4x4 with random costs on each variable :download:`latin4.wcsp<../../web/EXAMPLES/latin4.wcsp.xz>`
+  
+  - `Radio link frequency assignment CELAR <http://miat.inrae.fr/schiex/Doc/Export/CELAR.ps.gz>`_ instances :download:`scen06.wcsp<../../web/EXAMPLES/scen06.wcsp.xz>`, :download:`scen06.cov<../../web/EXAMPLES/scen06.cov>`, :download:`scen06.dec<../../web/EXAMPLES/scen06.dec>`, :download:`scen07.wcsp<../../web/EXAMPLES/scen07.wcsp.xz>`
+  
+  - `Earth observation satellite management SPOT5 <https://forgemia.inra.fr/thomas.schiex/cost-function-library/-/raw/master/real/spot5/BensanaLemaitreVerfaillieConstraints1999.pdf>`_ instances :download:`404.wcsp<../../web/EXAMPLES/404.wcsp.xz>` and :download:`505.wcsp<../../web/EXAMPLES/505.wcsp.xz>` with associated tree/cluster decompositions :download:`404.cov<../../web/EXAMPLES/404.cov>`, :download:`505.cov<../../web/EXAMPLES/505.cov>`, :download:`404.dec<../../web/EXAMPLES/404.dec>`, :download:`505.dec<../../web/EXAMPLES/505.dec>`
+  
+  - Linkage analysis instance :download:`pedigree9.uai<../../web/EXAMPLES/pedigree9.uai.xz>`
+  
+  - Computer vision superpixel-based image segmentation instance :download:`GeomSurf-7-gm256.uai<../../web/EXAMPLES/GeomSurf-7-gm256.uai.xz>`
+  
+  - `Protein folding <http://miat.inrae.fr/degivry/Schiex14a.pdf>`_ instance :download:`1CM1.uai<../../web/EXAMPLES/1CM1.uai.xz>`
+  
+  - Max-clique DIMACS instance :download:`brock200_4.clq.wcnf<../../web/EXAMPLES/brock200_4.clq.wcnf.xz>`
+  
+  - Graph 6-coloring instance :download:`GEOM40_6.wcsp<../../web/EXAMPLES/GEOM40_6.wcsp.xz>`
+
+  - Many more instances available `evalgm <http://genoweb.toulouse.inra.fr/~degivry/evalgm>`_ and  `Cost Function Library <https://forgemia.inra.fr/thomas.schiex/cost-function-library>`_.
+
+Notice that by default toulbar2 distinguishes file formats based on their extension. 
+It is possible to read a file from a unix pipe using option :code:`-stdin=[format]`; *e.g.*, :code:`cat example.wcsp | toulbar2 --stdin=wcsp`
+
+It is also possible to read and combine multiple problem files (warning, they must be all in the same format, either wcsp, cfn, or xml). 
+Variables with the same name are merged (domains must be identical), otherwise the merge is based on variable indexes (wcsp format).
+
+Formats are described in the followingi subparagraphs.
+
+cfn format (.cfn, .cfn.gz, and .cfn.xz file extension)
+------------------------------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   ../formats/cfnformat.rst
+
+wcsp format (.wcsp file extension)
+----------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   ../formats/wcspformat.rst
+
+.. .. CPD final stanza
+.. .. ----------------
+.. .. 
+.. .. to do
+.. ..
+
+UAI and LG formats (.uai, .LG)
+------------------------------
+
+It is a simple text file format specified below to describe probabilistic graphical model instances. The format is a generalization of the Ergo file format initially developed by Noetic Systems Inc. for their Ergo software.
+
+- **Structure**
+
+  A file in the UAI format consists of the following two parts, in that order: ::
+
+      <Preamble>
+
+      <Function tables>
+
+  The contents of each section (denoted :math:`<...>` above) are described in the following:
+
+- **Preamble**
+
+  The preamble starts with one line denoting the type of network. This will be either BAYES (if the network is a Bayesian network) or MARKOV (in case of a Markov network). This is followed by a line containing the number of variables. The next line specifies each variable's domain size, one at a time, separated by whitespace (note that this implies an order on the variables which will be used throughout the file).
+
+  The fourth line contains only one integer, denoting the number of functions in the problem (conditional probability tables for Bayesian networks, general factors for Markov networks). Then, one function per line, the scope of each function is given as follows: The first integer in each line specifies the size of the function's scope, followed by the actual indexes of the variables in the scope. The order of this list is not restricted, except when specifying a conditional probability table (CPT) in a Bayesian network, where the child variable has to come last. Also note that variables are indexed starting with 0.
+
+  For instance, a general function over variables 0, 5 and 11 would have this entry: ::
+
+    3 0 5 11
+
+  A simple Markov network preamble with three variables and two functions might for instance look like this: ::
+
+    MARKOV
+    3
+    2 2 3
+    2
+    2 0 1
+    3 0 1 2
+
+  The first line denotes the Markov network, the second line tells us the problem consists of three variables, let's refer to them as X, Y, and Z. Their domain size is 2, 2, and 3 respectively (from the third line). Line four specifies that there are 2 functions. The scope of the first function is X,Y, while the second function is defined over X,Y,Z.
+
+  An example preamble for a Belief network over three variables (and therefore with three functions) might be: ::
+
+    BAYES
+    3
+    2 2 3
+    3
+    1 0
+    2 0 1
+    2 1 2
+
+  The first line signals a Bayesian network. This example has three variables, let's call them X, Y, and Z, with domain size 2, 2, and 3, respectively (from lines two and three). Line four says that there are 3 functions (CPTs in this case). The scope of the first function is given in line five as just X (the probability P(X)), the second one is defined over X and Y (this is (Y | X)). The third function, from line seven, is the CPT P(Z | Y). We can therefore deduce that the joint probability for this problem factors as P(X,Y,Z) = P(X).P(Y | X).P(Z | Y).
+
+- **Function tables**
+
+  In this section each function is specified by giving its full table (i.e, specifying the function value for each tuple). The order of the functions is identical to the one in which they were introduced in the preamble.
+
+  For each function table, first the number of entries is given (this should be equal to the product of the domain sizes of the variables in the scope). Then, one by one, separated by whitespace, the values for each assignment to the variables in the function's scope are enumerated. Tuples are implicitly assumed in ascending order, with the last variable in the scope as the 'least significant'.
+
+  To illustrate, we continue with our Bayesian network example from above, let's assume the following conditional probability tables: ::
+
+    X      P(X)
+    0      0.436
+    1      0.564
+
+    X      Y         P(Y | X)
+    0      0         0.128
+    0      1         0.872
+    1      0         0.920
+    1      1         0.080
+
+    Y      Z         P(Z | Y)
+    0      0         0.210
+    0      1         0.333
+    0      2         0.457
+    1      0         0.811
+    1      1         0.000
+    1      2         0.189
+
+The corresponding function tables in the file would then look like this: ::
+
+    2
+     0.436 0.564
+
+    4
+     0.128 0.872
+     0.920 0.080
+
+    6
+     0.210 0.333 0.457
+     0.811 0.000 0.189 
+
+(Note that line breaks and empty lines are effectively just whitespace, exactly like plain spaces " ". They are used here to improve readability.)
+
+In the LG format, probabilities are replaced by their logarithm.
+
+- **Summary**
+
+  To sum up, a problem file consists of 2 sections: the preamble and the full the function tables, the names and the labels.
+
+  For our Markov network example above, the full file could be: ::
+
+    MARKOV
+    3
+    2 2 3
+    2
+    2 0 1
+    3 0 1 2
+
+    4
+     4.000 2.400
+     1.000 0.000
+
+    12
+     2.2500 3.2500 3.7500
+     0.0000 0.0000 10.0000
+     1.8750 4.0000 3.3330
+     2.0000 2.0000 3.4000
+
+Here is the full Bayesian network example from above: ::
+
+    BAYES
+    3
+    2 2 3
+    3
+    1 0
+    2 0 1
+    2 1 2
+
+    2
+     0.436 0.564
+
+    4
+     0.128 0.872
+     0.920 0.080
+
+    6
+     0.210 0.333 0.457
+     0.811 0.000 0.189 
+
+- **Expressing evidence**
+
+  Evidence is specified in a separate file. This file has the same name as the original problems file but an added .evid extension at the end. For instance, problem.uai will have evidence in problem.uai.evid.
+
+  The file simply starts with a line specifying the number of evidence variables. This is followed by the pairs of variable and value indexes for each observed variable, one pair per line. The indexes correspond to the ones implied by the original problem file.
+
+  If, for our above example, we want to specify that variable Y has been observed as having its first value and Z with its second value, the file example.uai.evid would contain the following: ::
+
+    2
+     1 0
+     2 1
+
+Partial Weighted MaxSAT format
+------------------------------
+
+  **Max-SAT input format (.cnf)}**
+
+  The input file format for Max-SAT will be in DIMACS format: ::
+
+    c
+    c comments Max-SAT
+    c
+    p cnf 3 4
+    1 -2 0
+    -1 2 -3 0
+    -3 2 0
+    1 3 0
+
+  - The file can start with comments, that is lines beginning with the character 'c'.
+  - Right after the comments, there is the line "p cnf nbvar nbclauses" indicating that the instance is in CNF format; nbvar is the number of variables appearing in the file; nbclauses is the exact number of clauses contained in the file.
+  - Then the clauses follow. Each clause is a sequence of distinct non-null numbers between -nbvar and nbvar ending with 0 on the same line. Positive numbers denote the corresponding variables. Negative numbers denote the negations of the corresponding variables.
+
+  **Weighted Max-SAT input format (.wcnf)**
+
+  In Weighted Max-SAT, the parameters line is "p wcnf nbvar nbclauses". The weights of each clause will be identified by the first integer in each clause line. The weight of each clause is an integer greater than or equal to 1.
+
+  Example of Weighted Max-SAT formula: ::
+
+    c
+    c comments Weighted Max-SAT
+    c
+    p wcnf 3 4
+    10 1 -2 0
+    3 -1 2 -3 0
+    8 -3 2 0
+    5 1 3 0
+
+  **Partial Max-SAT input format (.wcnf)**
+
+  In Partial Max-SAT, the parameters line is "p wcnf nbvar nbclauses top". We associate a weight with each clause, which is the first integer in the clause. Weights must be greater than or equal to 1. Hard clauses have weight top and soft clauses have weight 1. We assume that top is a weight always greater than the sum of the weights of violated soft clauses.
+
+  Example of Partial Max-SAT formula: ::
+
+    c
+    c comments Partial Max-SAT
+    c
+    p wcnf 4 5 15
+    15 1 -2 4 0
+    15 -1 -2 3 0
+    1 -2 -4 0
+    1 -3 2 0
+    1 1 3 0
+
+  **Weighted Partial Max-SAT input format (.wcnf)**
+
+  In Weighted Partial Max-SAT, the parameters line is "p wcnf nbvar nbclauses top". We associate a weight with each clause, which is the first integer in the clause. Weights must be greater than or equal to 1. Hard clauses have weight top and soft clauses have a weight smaller than top. We assume that top is a weight always greater than the sum of the weights of violated soft clauses.
+
+  Example of Weighted Partial Max-SAT formula: ::
+
+    c
+    c comments Weighted Partial Max-SAT
+    c
+    p wcnf 4 5 16
+    16 1 -2 4 0
+    16 -1 -2 3 0
+    8 -2 -4 0
+    4 -3 2 0
+    3 1 3 0
+
+.. _qpbo_format:
+
+QPBO format (.qpbo)
+-------------------
+
+In the quadratic pseudo-Boolean optimization (unconstrained quadratic programming) format, the goal is to minimize or maximize the quadratic function:
+
+:math:`X' * W * X = \sum_{i=1}^N \sum_{j=1}^N  W_{ij} * X_i * X_j`
+
+where :math:`W` is a symmetric squared :math:`N \times N` matrix expressed by all its non-zero half (:math:`i \leq j`) squared matrix coefficients, :math:`X` is a vector of :math:`N` binary variables with domain values in :math:`\{0,1\}` or :math:`\{1,-1\}`, and :math:`X'` is the transposed vector of :math:`X`.
+
+Note that for two indices :math:`i \neq j`, coefficient :math:`W_{ij} = W_{ji}` (symmetric matrix) and it appears twice in the previous sum.
+It can be controled by the option {\tt -qpmult=[double]} which defines a coefficient multiplier for quadratic terms (default value is 2).
+
+Note also that coefficients can be positive or negative and are real float numbers. They are converted to fixed-point real numbers by multiplying them by :math:`10^{precision}` (see option {\em -precision} to modify it, default value is 7).  Infinite coefficients are forbidden.
+
+Notice that depending on the sign of the number of variables in the first text line, the domain of all variables is either :math:`\{0,1\}` or :math:`\{1,-1\}`.
+
+Warning! The encoding in Weighted CSP of variable domain :math:`\{1,-1\}` associates for each variable value the following index: value 1 has index 0 and value -1 has index 1 in the solutions found by toulbar2.
+The encoding  of variable domain :math:`\{0,1\}` is direct.
+
+Qpbo is a file text format:
+
+  - First line contains the number of variables :math:`N` and the number of non-zero coefficients :math:`M`.
+
+    If :math:`N` is negative then domain values are in :math:`\{1, -1\}`, otherwise :math:`\{0, 1\}`.
+    If :math:`M` is negative then it will maximize the quadratic function, otherwise it will minimize it.
+
+  - Followed by :math:`|M|` lines where each text line contains three values separated by spaces:
+    position index :math:`i` (integer belonging to :math:`[1,|N|]`),
+    position index :math:`j` (integer belonging to :math:`[1,|N|]`),
+    coefficient :math:`W_{ij}` (float number)
+    such that :math:`i \leq j` and :math:`W_{ij} \neq 0`.
+
+OPB format (.opb)
+-----------------
+
+The OPB file format is used to express pseudo-Boolean satisfaction and optimization models. 
+These models may only contain :math:`0/1` Boolean variables. The format is defined by an optional objective function followed by a set of linear constraints.
+Variables may be multiplied together in the objective function, but currently not in the constraints due to some restriction in the reader.
+The objective function must start with the **min:** or **max:** keyword followed by **coef_1 varname_1_1 varname_1_2 ... coef2 varname_2_1 ...** and end with a **;**.
+Linear constraints are composed in the same way, ended by a comparison operator (**<=**, **>=**, or **!=**) followed by the right-hand side coefficient and **;**.
+Each coefficient must be an integer beginning with its sign (**+** or **-** with no extra space).
+Comment lines start with a \*.
+
+An example with a quadratic objective and 7 linear constraints is: ::
+
+  max: +1 x1 x2 +2 x3 x4;
+  +1 x2 +1 x1 >= 1;
+  +1 x3 +1 x1 >= 1;
+  +1 x4 +1 x1 >= 1;
+  +1 x3 +1 x2 >= 1;
+  +1 x4 +1 x2 >= 1;
+  +1 x4 +1 x3 >= 1;
+  +2 x1 +2 x2 +2 x3 +2 x4 <= 7;
+
+Internally, all integer costs are multiplied by a power of ten depending on the -precision option. 
+For problems with big integers, try to reduce the precision (*e.g.*, use option -precision 0).
+
+XCSP2.1 format (.xml)
+---------------------
+
+CSP and weighted CSP in XML format XCSP 2.1, with constraints in extension only, can be read. See a description of this deprecated format here `http://www.cril.univ-artois.fr/CPAI08/XCSP2_1.pdf <http://www.cril.univ-artois.fr/CPAI08/XCSP2_1.pdf>`_.
+
+Warning, toulbar2 must be compiled with a specific option XML in the cmake.
+
+Linkage format (.pre)
+---------------------
+
+See **mendelsoft** companion software at http://miat.inrae.fr/MendelSoft for pedigree correction. See also https://carlit.toulouse.inra.fr/cgi-bin/awki.cgi/HaplotypeInference for haplotype inference in half-sib families.
+
+.. .BEP format (old)
+
+
+How do I use it ?
+=================
+
+Using it as a C++ library
+-------------------------
 
 See :ref:`toulbar2 Reference Manual<refman>` which describes the libtb2.so C++ library API.
 
 Using it from Python
-====================
+--------------------
 
 A Python interface is now available. Compile toulbar2 with cmake option PYTB2 (and without MPI options) to generate a Python module **pytoulbar2** (in lib directory). See examples in :download:`src/pytoulbar2.cpp<../../src/pytoulbar2.cpp>`
 and :ref:`web/TUTORIALS <tutorials>` directory.
 
-An older verion of toulbar2 was integrated inside Numberjack. See https://github.com/eomahony/Numberjack.
+An older version of toulbar2 was integrated inside Numberjack. See https://github.com/eomahony/Numberjack.
 
 References
 ==========
