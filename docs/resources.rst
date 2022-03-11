@@ -65,5 +65,3 @@ Manuals
   :download:`WCSP format<_files/WCSP_format.pdf>` |
   :download:`CFN format<_files/CFN_format.pdf>` 
 
-- e-book : online at ./epub/toulbar2.epub
-
