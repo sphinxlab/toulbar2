@@ -27,7 +27,7 @@ Exact optimization for cost function networks and additive graphical models
 ===========================================================================
 
   .. toctree::
-     :maxdepth: 1
+     :maxdepth: 3
 
      ../_files/README.md
 
@@ -107,12 +107,12 @@ Libraries
 .. only:: html
 
     .. toctree::
-       :maxdepth: 1
+       :maxdepth: 3
 
        ../api_ref/api_ref_toulbar2.rst
 
     .. toctree::
-       :maxdepth: 1
+       :maxdepth: 3
 
        ../api_ref/api_ref_pytoulbar2.rst
 

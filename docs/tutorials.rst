@@ -7,7 +7,7 @@ Tutorials
 =========
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    tutorials/wnqp.rst
    tutorials/wlsp.rst

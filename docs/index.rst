@@ -5,21 +5,15 @@
 
 .. _home:
 
-.. include:: news_home.rst
+.. only:: html
 
-========
-toulbar2
-========
+    .. include:: presentation.rst
 
-.. :Version: |version|
-.. :Release: |release|
-.. :Date: |today|
-
-
-toulbar2 is an exact solver for cost function networks.
+Detailed Content
+----------------
 
   .. toctree::
-     :maxdepth: 1
+     :maxdepth: 3
 
      presentation.rst
      tutorials.rst
@@ -27,8 +21,4 @@ toulbar2 is an exact solver for cost function networks.
      documentation/refman.rst
      publications.rst
      resources.rst
-
-..   api_ref.rst (inclus dans documentation/refman.rst) 
-..   tmp/tmp.rst
-
 

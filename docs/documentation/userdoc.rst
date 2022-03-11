@@ -756,7 +756,7 @@ cfn format (.cfn, .cfn.gz, and .cfn.xz file extension)
 ------------------------------------------------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    ../formats/cfnformat.rst
 
@@ -764,7 +764,7 @@ wcsp format (.wcsp file extension)
 ----------------------------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 3
 
    ../formats/wcspformat.rst
 
