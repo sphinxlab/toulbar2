@@ -1,8 +1,11 @@
-.. _api_ref_toulbar2:
+.. _ref_cpp:
 
 ===========
 C++ Library
 ===========
+
+Introduction
+============
 
 toulbar2 is an open-source C++ solver for cost function networks.
 

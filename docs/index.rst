@@ -1,5 +1,5 @@
-.. toulbar2 documentation master file, created by
-   sphinx-quickstart on Tue Jan 11 11:46:20 2022.
+.. toulbar2 documentation master file,
+   created by sphinx-quickstart on Tue Jan 11 11:46:20 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -17,8 +17,8 @@ Detailed Content
 
      presentation.rst
      tutorials.rst
-     documentation/userdoc.rst
-     documentation/refman.rst
+     userdoc.rst
+     refman.rst
      publications.rst
      resources.rst
 

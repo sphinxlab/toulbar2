@@ -1,4 +1,4 @@
-.. _api_ref_pytoulbar2:
+.. _ref_python:
 
 ==============
 Python Library

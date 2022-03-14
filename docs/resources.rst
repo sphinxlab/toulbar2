@@ -4,7 +4,7 @@
 Resources
 =========
 
-The tool
+Software
 ========
 
 .. _downloads:

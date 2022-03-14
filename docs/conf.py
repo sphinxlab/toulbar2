@@ -53,7 +53,8 @@ extensions = [
     'sphinx.ext.githubpages', # => .nojekyll file
     'sphinx.ext.graphviz',
     'breathe',
-    'recommonmark',
+    'myst_parser',
+    'sphinx.ext.autosectionlabel',
 ]
 
 # Breathe
@@ -63,14 +64,16 @@ breathe_projects = {
                                                   "..", "build", "xml")),
 }
 
+# Prefix document path to section labels, to use:
+# `path/to/file:heading` instead of just `heading`
+autosectionlabel_prefix_document = True
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = [os.path.join(docs_path,'_templates')]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
-#
 source_suffix = ['.rst', '.md']
-#source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
@@ -177,11 +180,11 @@ latex_documents = [
      '', # to keep .rst title
      'INRAE', 'manual'),
 
-    ('documentation/refman', 'refman.tex',
+    ('refman', 'refman.tex',
      'toulbar2 Reference Manual',
      'INRAE', 'manual'),
 
-    ('documentation/userdoc', 'userdoc.tex',
+    ('userdoc', 'userdoc.tex',
      'toulbar2 User Guide',
      'INRAE', 'manual'),
 
@@ -195,10 +198,10 @@ latex_documents = [
 
     # api ref
 
-    ('api_ref/api_ref_toulbar2', 'cpp_library.tex',
+    ('ref/ref_cpp', 'cpp_library.tex',
      'C++ Library of toulbar2',
      'INRAE', 'manual'),
-    ('api_ref/api_ref_pytoulbar2', 'python_library.tex',
+    ('ref/ref_python', 'python_library.tex',
      'Python Library of toulbar2',
      'INRAE', 'manual'),
 

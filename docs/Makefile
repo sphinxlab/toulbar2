@@ -15,16 +15,18 @@ help:
 
 .PHONY: help Makefile
 
-# builds pdf files and install them into FILESDIR
-# has to be done before html pages
-# also get and adapt toulbar2/README.md (without lines beginning with
-# 'master:' and 'cpd:' that are not ok for LaTeX)
+# build pdf files and install them into FILESDIR
+# also get and adapt toulbar2/README.md :
+# - without lines 'master:...' and 'cpd:...' that are not ok for LaTeX
+# - change some titles
+# Note : has to be done before html pages
 files:
 	rm -f $(FILESDIR)/*.*
-	cp ../README.md $(FILESDIR)/.
-	sed '/^master:/d' $(FILESDIR)/README.md > $(FILESDIR)/tmp.md
-	sed '/^cpd:/d' $(FILESDIR)/tmp.md > $(FILESDIR)/README.md
-	rm -f $(FILESDIR)/tmp.md
+	cp ../README.md $(FILESDIR)/README.md
+	sed -i '/^master:/d' $(FILESDIR)/README.md
+	sed -i '/^cpd:/d' $(FILESDIR)/README.md
+	sed -i '1,10 s/# toulbar2//' $(FILESDIR)/README.md
+	sed -i '1,10 s/## Exact optimization/# Exact optimization/' $(FILESDIR)/README.md
 	make latexpdf
 	cp $(BUILDDIR)/latex/*.pdf $(FILESDIR)/.
 

@@ -6,6 +6,17 @@
 Presentation
 ============
 
+TMP POINTING README.md :
+
+- :ref:`_files/README:What is toulbar2?`
+- :ref:`_files/README:Installation from binaries`
+- :ref:`_files/README:Python interface`
+- :ref:`_files/README:Download`
+- :ref:`_files/README:Installation from sources`
+- :ref:`_files/README:Authors`
+- :ref:`_files/README:Citing`
+- :ref:`_files/README:What are the algorithms inside toulbar2?`
+
 .. _about_toulbar2:
 
 About toulbar2

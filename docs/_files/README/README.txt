@@ -7,13 +7,12 @@ Required :
 
 README.md
 
-api_ref_pytoulbar2.pdf
-api_ref_toulbar2.pdf
-CFN_format.pdf
-inputformats.pdf
-refman.pdf
 toulbar2.pdf
-tutorials.pdf
+cpp_library.pdf
+python_library.pdf
 userdoc.pdf
+refman.pdf
+tutorials.pdf
 WCSP_format.pdf
+CFN_format.pdf
 
