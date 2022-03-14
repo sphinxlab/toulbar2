@@ -17,7 +17,7 @@ cpd: [![Build Status](https://travis-ci.com/toulbar2/toulbar2.svg?branch=cpd)](h
 ### essai2
 
 ```{eval-rst}
-.. include:: docd/presentation.rst
+.. include:: doc/presentation.rst
 ```
 
 ## fin mesessais
