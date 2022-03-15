@@ -6,7 +6,10 @@
 Presentation
 ============
 
-TMP POINTING README.md :
+TEMPORAIRE
+==========
+
+Pointeurs de paragraphes de README.md :
 
 - :ref:`_files/README:What is toulbar2?`
 - :ref:`_files/README:Installation from binaries`
