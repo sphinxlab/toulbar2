@@ -5,9 +5,11 @@
 
 .. _home:
 
+.. include:: news_home.rst
+
 .. only:: html
 
-    .. include:: presentation.rst
+    .. include:: presentation/about_toulbar2.rst
 
 Detailed Content
 ----------------
@@ -21,4 +23,5 @@ Detailed Content
      refman.rst
      publications.rst
      resources.rst
+     presentation_old.rst
 
