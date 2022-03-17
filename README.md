@@ -159,7 +159,7 @@ Please use one of the following references for citing toulbar2:
  Artificial Intelligence, 174(7-8):449-478, 2010 
 
 
-##  What are the algorithms inside toulbar2?
+## What are the algorithms inside toulbar2?
 
 * Soft arc consistency (AC): 
  Arc consistency for Soft Constraints
