@@ -22,12 +22,6 @@ File pytoulbar2.cpp (doxygenfile:: pytoulbar2.cpp)
 
 .. doxygenfile:: pytoulbar2.cpp
 
-File tb2types.hpp (doxygenfile:: tb2types.hpp)
-==============================================
-
-.. doxygenfile:: tb2types.hpp
-.. :sections: briefdescription enum var func typedef public-type
-
 A function (doxygenfunction:: WeightedCSP::getSolver)
 =====================================================
 
@@ -42,4 +36,37 @@ A typedef (doxygentypedef:: ConstraintSet)
 ==========================================
 
 .. doxygentypedef:: ConstraintSet
+
+File tb2types.hpp
+=================
+
+File tb2types.hpp -> briefdescription
+-------------------------------------
+
+.. doxygenfile:: tb2types.hpp
+   :sections: briefdescription
+
+File tb2types.hpp -> detaileddescription
+----------------------------------------
+
+.. doxygenfile:: tb2types.hpp
+   :sections: detaileddescription
+
+File tb2types.hpp) -> Variables
+-------------------------------
+
+.. doxygenfile:: tb2types.hpp
+   :sections: var
+
+File tb2types.hpp (doxygenfile:: tb2types.hpp) en entier
+--------------------------------------------------------
+
+.. doxygenfile:: tb2types.hpp
+.. :sections: briefdescription enum var func typedef public-type
+
+File toulbar2lib.hpp
+====================
+
+.. doxygenfile:: toulbar2lib.hpp
+
 

@@ -18,24 +18,12 @@ help:
 # Get and adapt toulbar2/README.md :
 # - delete lines 'master:...' and 'cpd:...' that are not ok for LaTeX
 # - change some titles
-# - extract subfiles README_..
 readme:
 	cat ../README.md > $(FILESDIR)/README.md
 	sed -i '/^master:/d' $(FILESDIR)/README.md
 	sed -i '/^cpd:/d' $(FILESDIR)/README.md
 	sed -i '1,10 s/# toulbar2//' $(FILESDIR)/README.md
 	sed -i '1,10 s/## Exact optimization/# Exact optimization/' $(FILESDIR)/README.md
-	sed -n "/## What is toulbar2/,/## Install/p" $(FILESDIR)/README.md > $(FILESDIR)/README_toulbar2.md
-	sed -i "/## Install/d" $(FILESDIR)/README_toulbar2.md
-	sed -n "/## Install/,/## Authors/p" $(FILESDIR)/README.md > $(FILESDIR)/README_install.md
-	sed -i "/## Authors/d" $(FILESDIR)/README_install.md
-	sed -i '1 i # Install' $(FILESDIR)/README_install.md
-	sed -n "/## Authors/,/## Citing/p" $(FILESDIR)/README.md > $(FILESDIR)/README_authors.md
-	sed -i "/## Citing/d" $(FILESDIR)/README_authors.md
-	sed -n "/## Citing/,/## What are the algorithms inside toulbar2/p" $(FILESDIR)/README.md > $(FILESDIR)/README_citing.md
-	sed -i "/## What are the algorithms/d" $(FILESDIR)/README_citing.md
-	sed -n "/## What are the algorithms/,/^Copyright/p" $(FILESDIR)/README.md > $(FILESDIR)/README_algos.md
-	sed -i "/^Copyright/d" $(FILESDIR)/README_algos.md
 
 # build pdf files, get and adapt toulbar2/README.md
 # and install them into FILESDIR

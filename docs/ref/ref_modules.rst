@@ -19,6 +19,12 @@ Solving cost function networks
 
 .. doxygengroup:: solving
 
+**toulbar2test.cpp**
+
+  :download:`toulbar2test.cpp<../../src/toulbar2test.cpp>`
+
+  .. literalinclude:: ../../src/toulbar2test.cpp
+
 Output messages, verbosity options and debugging
 ------------------------------------------------
 
