@@ -4,16 +4,10 @@
 
 - Some required basic tools to be installed if not already installed :
 
-  - python 3 :
+  - python 3, pip3, python3 virtual environment tool :
 
         apt-get install python3
-
-  - pip3 :
-
         apt-get install python3-pip
-
-  - python3 virtual environment tool :
-
         apt-get install python3-venv
 
 - Install _pyvenv virtual environment
@@ -26,7 +20,7 @@
 
 - Use _pyvenv virtual environment
 
-  - activate :
+  Activate :
 
         source _pyvenv/bin/activate
 
