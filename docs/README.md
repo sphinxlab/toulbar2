@@ -8,7 +8,7 @@ Livraison d’une version :
 - réorganisant le plan de la documentation (regroupements…), étant donnée la réécriture/insertion de nouvelles pages .rst.
 - prenant en compte une grande partie de ce qui a été vu/dit en réunion jeudi 10 mars 2022, mais pas fini.
 
-- utilisant toulbar2/README.md ("découpé") en remplacement de texte du site (presentation.rst, publications.rst). **La partie "Authors" du README.md** est à adapter/modifier pour ne pas perdre l'ancien texte "Authors" de presentation.rst.
+- utilisant toulbar2/README.md ("découpé" pour authors, citing, what are the algos...) en remplacement de texte du site (presentation.rst, publications.rst). **La partie "Authors" du README.md** est à adapter/modifier pour ne pas perdre l'ancien texte "Authors" de presentation.rst.  
 - contient des parties temporaires : ref_cpp.rst, presentation.rst.
 
 Voir document NotesReunions.odt pour plus de details.
