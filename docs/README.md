@@ -71,6 +71,7 @@ This documentation is **hosted on GitHub Pages**, built with **GitHub free CI/CD
 
 - Documentation installed by CI/CD on GitHub Pages
   **toulbar2.github.io/toulbar2**.
+
   Redirections from the toulbar2 site main URL
   **miat.inrae.fr/toulbar2** to the documentation on GitHub Pages
   **toulbar2.github.io/toulbar2**.
