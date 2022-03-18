@@ -11,9 +11,9 @@ Notes temporaires
 
 - La partie "About toulbar2" de cette ancienne page "presentation" est gardée dans la nouvelle (inchangée)
 
-- La partie "Authors" vient du README.md dans la nouvelle page "presentation" => Récupérer dans "Authors" du README.md le paragraphe* :ref:`ancien_authors` de cette ancienne page "presentation" qui disparait
+- La partie "Authors" vient du README.md dans la nouvelle page "presentation" => **Récupérer dans "Authors" du README.md** le paragraphe :ref:`ancien_authors` de cette ancienne page "presentation" qui disparait
 
-- La partie "Citations" vient du README.md dans la nouvelle page "presentation" => Récupérer dans "Citing" du README.md le paragraphe* :ref:`ancien_citations` de cette ancienne page "presentation" qui disparait
+- La partie "Citations" vient du README.md dans la nouvelle page "presentation" . Le paragraphe :ref:`ancien_citations` de cette ancienne page "presentation" qui disparait **a été récupéré dans "Citing" du README.md** (cf liens).
 
 - La partie "Acknowledgements" de cette ancienne page "presentation" est gardée dans la nouvelle (inchangée)
 
@@ -21,7 +21,8 @@ Notes temporaires
 
 - *Les parties du README.md suivantes n'apparaissent pas ailleurs que dans "Reference Manual" :* :ref:`_files/README_toulbar2:What is toulbar2?` et :ref:`_files/README_install:Install`
 
-- La partie :ref:`_files/README_algos:What are the algorithms inside toulbar2?` du README.md est utilisée dans la page "Publications".
+- La partie :ref:`_files/README_algos:What are the algorithms inside toulbar2?` du README.md est utilisée dans la page "Publications". Le paragraphe correspondant de cette ancienne page "presentation" qui disparait **a été récupéré dans "What are the algo..." du README.md** (cf liens).
+
 
 .. _ancien_about_toulbar2:
 
