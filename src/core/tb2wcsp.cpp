@@ -204,13 +204,13 @@ int ToulBar2::rootHeuristic;
 bool ToulBar2::reduceHeight;
 
 double ToulBar2::startCpuTime;
+double ToulBar2::startRealTime;
+double ToulBar2::startRealTimeAfterPreProcessing;
 
 int ToulBar2::splitClusterMaxSize;
 double ToulBar2::boostingBTD;
 int ToulBar2::maxSeparatorSize;
 int ToulBar2::minProperVarSize;
-
-int ToulBar2::smallSeparatorSize;
 
 bool ToulBar2::heuristicFreedom;
 int ToulBar2::heuristicFreedomLimit;
@@ -260,6 +260,9 @@ Long ToulBar2::hbfsAlpha; // inverse of minimum node redundancy goal limit
 Long ToulBar2::hbfsBeta; // inverse of maximum node redundancy goal limit
 ptrdiff_t ToulBar2::hbfsCPLimit; // limit on the number of choice points stored inside open node list
 ptrdiff_t ToulBar2::hbfsOpenNodeLimit; // limit on the number of open nodes
+#ifdef OPENMPI
+bool ToulBar2::burst;
+#endif
 Long ToulBar2::eps;
 string ToulBar2::epsFilename;
 
@@ -405,13 +408,13 @@ void tb2init()
     ToulBar2::reduceHeight = false;
 
     ToulBar2::startCpuTime = 0;
+    ToulBar2::startRealTime = 0;
+    ToulBar2::startRealTimeAfterPreProcessing = 0;
 
     ToulBar2::splitClusterMaxSize = 0;
     ToulBar2::boostingBTD = 0.;
     ToulBar2::maxSeparatorSize = -1;
     ToulBar2::minProperVarSize = 0;
-
-    ToulBar2::smallSeparatorSize = 4;
 
     ToulBar2::heuristicFreedom = false;
     ToulBar2::heuristicFreedomLimit = 5;
@@ -461,6 +464,9 @@ void tb2init()
     ToulBar2::hbfsBeta = 10LL; // i.e., beta = 1/10 = 0.1
     ToulBar2::hbfsCPLimit = CHOICE_POINT_LIMIT;
     ToulBar2::hbfsOpenNodeLimit = OPEN_NODE_LIMIT;
+#ifdef OPENMPI
+    ToulBar2::burst = true;
+#endif
     ToulBar2::eps = 0;
     ToulBar2::epsFilename = "subproblems.txt";
 
@@ -507,7 +513,7 @@ void tb2checkOptions()
         cerr << "Error: cannot find all solutions or compute a partition function with VNS. Deactivate either option." << endl;
         throw BadConfiguration();
     }
-    if ((ToulBar2::allSolutions || ToulBar2::isZ) && ToulBar2::parallel) {
+    if ((ToulBar2::allSolutions || ToulBar2::isZ) && ToulBar2::parallel && ToulBar2::hbfs) {
         cerr << "Error: cannot find all solutions or compute a partition function with parallel HBFS. Deactivate either option." << endl;
         throw BadConfiguration();
     }
@@ -652,6 +658,12 @@ void tb2checkOptions()
         cout << "Error: embarrassingly parallel search works only with hybrid best-first search (use -eps with -hbfs)." << endl;
         throw BadConfiguration();
     }
+#ifdef OPENMPI
+    if (ToulBar2::parallel && ToulBar2::hbfs && ToulBar2::burst && ToulBar2::btdMode >= 1) {
+        cout << "Sorry: burst mode does not work with parallel hybrid best-first search exploiting tree decomposition (add option -burst:)." << endl;
+        throw BadConfiguration();
+    }
+#endif
     if (ToulBar2::verifyOpt && (ToulBar2::elimDegree >= 0 || ToulBar2::elimDegree_preprocessing >= 0)) {
         cout << "Warning! Cannot perform variable elimination while verifying that the optimal solution is preserved." << endl;
         ToulBar2::elimDegree = -1;
@@ -718,7 +730,7 @@ WCSP::~WCSP()
         for (unsigned int i = 0; i < vars.size(); i++)
             delete vars[i];
     if (constrs.size())
-        for (unsigned int i = 0; i < constrs.size() - ((nbNodes==0&&solutionCost==MAX_COST)?1:0); i++)
+        for (unsigned int i = 0; i < constrs.size() - ((nbNodes == 0 && solutionCost == MAX_COST) ? 1 : 0); i++)
             delete constrs[i]; // Warning! The last constraint may be badly allocated due to an exception occuring in its constructor (because of propagate) // If there is no constraint then (constrs.size()-1) overflow!
     if (elimBinConstrs.size())
         for (unsigned int i = 0; i < elimBinConstrs.size(); i++)
@@ -4729,6 +4741,8 @@ Constraint* WCSP::sum(Constraint* ctr1, Constraint* ctr2)
         if (tupleXtuple) {
             ctr1->first();
             while (ctr1->next(tuple1, cost1)) {
+                if (ToulBar2::interrupted)
+                    throw TimeOut();
                 ctr2->first();
                 while (ctr2->next(tuple2, cost2)) {
                     nary->insertSum(tuple1, cost1, ctr1, tuple2, cost2, ctr2, true);
@@ -4737,6 +4751,8 @@ Constraint* WCSP::sum(Constraint* ctr1, Constraint* ctr2)
         } else {
             nary->firstlex();
             while (nary->nextlex(tuple, cost)) {
+                if (ToulBar2::interrupted)
+                    throw TimeOut();
                 cost1 = ctr1->evalsubstr(tuple, nary);
                 cost2 = ctr2->evalsubstr(tuple, nary);
                 if (cost1 + cost2 < Top)
