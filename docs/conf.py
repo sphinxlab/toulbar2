@@ -63,6 +63,7 @@ breathe_projects = {
     "toulbar2cpp" : os.path.normpath(os.path.join(docs_path,
                                                   "..", "build", "xml")),
 }
+#breathe_implementation_filename_extensions = ['.c', '.cc', '.cpp']
 
 # Prefix document path to section labels, to use:
 # `path/to/file:heading` instead of just `heading`
