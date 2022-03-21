@@ -148,6 +148,10 @@ Voir document NotesReunions.odt pour plus de details.
 
 ### To generate documentation
 
+- Clear all
+
+      cd .. ; ./clean ; cd docs ;
+  
 - Doxygen
 
   The **'toulbar2/build/xml'** folder content, built by Doxygen, is required
@@ -167,7 +171,6 @@ Voir document NotesReunions.odt pour plus de details.
 - Sphinx
 
       source _pyvenv/bin/activate
-      cd .. ; ./clean ; cd docs ;
       make docs
 
 ### Productions
@@ -178,7 +181,11 @@ Voir document NotesReunions.odt pour plus de details.
 
 - .epub under _build/epub
 
-### Partial generation
+### Partial commands
+
+  - Clear only Sphinx (_build)
+
+      make clean
 
   - to generate only .pdf : 
 
@@ -189,7 +196,7 @@ Voir document NotesReunions.odt pour plus de details.
         make readme
         make html
 
-    but also requires (into _files) the generated .pdf files
+    but .html pages also requires (into _files) the generated .pdf files
 
   - to generate epub :
 
