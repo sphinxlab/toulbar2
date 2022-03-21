@@ -1,6 +1,6 @@
 .. _tutorials:
 
-.. include:: news_tutorials.rst
+.. include:: news/news_tutorials.rst
 
 =========
 Tutorials

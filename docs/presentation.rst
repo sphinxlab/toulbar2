@@ -1,6 +1,6 @@
 .. _presentation:
 
-.. include:: news_home.rst
+.. include:: news/news_home.rst
 
 ============
 Presentation
