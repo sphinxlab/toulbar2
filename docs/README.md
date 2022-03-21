@@ -188,19 +188,6 @@ See HowTo.build.Toulbar2 :
 
 - .epub under _build/epub
 
-
--------------- ------------------------------------------------
- .html pages    into _build/html folder where index.html
--------------- ------------------------------------------------
- .pdf files     into _build/latex and also copied into _files
--------------- ------------------------------------------------
- .epub          under _build/epub
--------------- ------------------------------------------------
-
-
-
-
-
 ### Partial commands
 
     # Clear only Sphinx (_build but not _files)
