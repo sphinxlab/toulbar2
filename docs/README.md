@@ -13,11 +13,9 @@
 
 Livraison d’une version :
 
-- (succédant à step1, step2) prenant en compte sous Sphinx (docs) la documentation qui existait précédemment sous Doxygen (doc).
-- réorganisant le plan de la documentation (regroupements…), étant donnée la réécriture/insertion de nouvelles pages .rst.
-- prenant en compte une grande partie de ce qui a été vu/dit en réunion jeudi 10 mars 2022, mais pas fini.
-
-- supprimant de toulbar2/README.md du texte faisant doublon avec du texte du site (presentation.rst, publications.rst).
+- (succédant à step1, step2) prenant en compte sous Sphinx (docs) la documentation qui existait précédemment sous Doxygen (doc), réorganisant le plan de la documentation (regroupements…).
+- prenant en compte ce qui a été vu/dit en réunion jeudi 10 mars 2022.
+- supprimant de toulbar2/README.md texte faisant doublon avec texte du site (presentation.rst, publications.rst).
 - ref_cpp.rst a été complété.
 
 Voir document NotesReunions.odt pour plus de details.
