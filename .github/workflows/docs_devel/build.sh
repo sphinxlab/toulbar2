@@ -25,7 +25,7 @@ fi
 
 # Install Sphinx
 python -m pip install --upgrade pip
-pip install -r docs/_local/requirement.txt
+pip install -r docs/requirements.txt
 
 # Build doxygen docs (xml used by breathe)
 mkdir build

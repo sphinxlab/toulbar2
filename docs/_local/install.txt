@@ -16,7 +16,7 @@ Commands to create, activate, then install from requirement.txt :
 
 python3 -m venv _pyvenv
 source _pyvenv/bin/activate
-pip3 install -r requirement.txt
+pip3 install -r requirements.txt
 
 Use _pyvenv virtual environment
 ===============================
