@@ -127,26 +127,26 @@ Voir document NotesReunions.odt pour plus de details.
 
 ## Local build
 
-### Work with a 'pyvenv' python virtual environment
+### To work with a 'pyvenv' python virtual environment
 
-- Install some required basic tools 
+  Install some required basic tools 
   python 3, pip3, python3 virtual environment tool :
 
       apt-get install python3
       apt-get install python3-pip
       apt-get install python3-venv
 
-- Create _pyvenv virtual environment :
+  Create _pyvenv virtual environment :
 
       python3 -m venv _pyvenv
       source _pyvenv/bin/activate
       pip3 install -r requirements.txt
 
-- To use/activate _pyvenv virtual environment :
+  To use/activate _pyvenv virtual environment :
 
       source _pyvenv/bin/activate
 
-### Generate documentation
+### To generate documentation
 
 - Doxygen
 
@@ -164,32 +164,35 @@ Voir document NotesReunions.odt pour plus de details.
       mkdir build ; cd build
       cmake -DBUILD_API_DOC=ON .. ; make doc
 
-#### Sphinx
+- Sphinx
 
-  - init and clear :
-
-        source _pyvenv/bin/activate
-        cd .. ; ./clean ; cd docs ;
-
-  - all (.pdf and .html) :
-
-        make docs
-
-  - only .pdf : 
-
-        make files
-
-  - only .html :
-
-        make html
-
-  - epub :
-
-        make epub
+      source _pyvenv/bin/activate
+      cd .. ; ./clean ; cd docs ;
+      make docs
 
 ### Productions
     
-- _build/html folder where index.html
-- .pdf under _files (and _build/latex)
+- .html pages : into _build/html folder where index.html
+
+- .pdf files : into _build/latex and also copied into _files
+
 - .epub under _build/epub
+
+### Partial generation
+
+  - to generate only .pdf : 
+
+        make files
+
+  - to generate only .html :
+
+        make readme
+        make html
+
+    but also requires (into _files) the generated .pdf files
+
+  - to generate epub :
+
+        make epub
+
 
