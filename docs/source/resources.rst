@@ -54,7 +54,7 @@ Manuals
 - Main documentation : :download:`toulbar2<_files/toulbar2.pdf>`
 
 - API Reference : 
-  :download:`Class Diagram<../misc/doc/toulbar2-class.pdf>` |
+  :download:`Class Diagram<../../misc/doc/toulbar2-class.pdf>` |
   :download:`C++ Library of toulbar2<_files/cpp_library.pdf>` |
   :download:`Python Library of toulbar2<_files/python_library.pdf>`
 

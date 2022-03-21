@@ -53,7 +53,7 @@ Example for N=4 in JSON .cfn format
 
 Optimal solution with cost 35 for the latin 4-square example (in red, weights associated to the selected values) :
 
-.. image:: ../../web/IMAGES/latin4.png
+.. image:: ../../../web/IMAGES/latin4.png
    :height: 250px
 
 Python model generator
@@ -61,7 +61,7 @@ Python model generator
 
 The following code using python3 interpreter will generate the previous example if called without argument. Otherwise the first argument is the dimension N of the chessboard (e.g. "python3 latinsquare.py 6").
 
-:download:`latinsquare.py<../../web/TUTORIALS/latinsquare.py>`
+:download:`latinsquare.py<../../../web/TUTORIALS/latinsquare.py>`
 
-.. literalinclude:: ../../web/TUTORIALS/latinsquare.py
+.. literalinclude:: ../../../web/TUTORIALS/latinsquare.py
 

@@ -19,7 +19,7 @@ Example for N=4 in JSON .cfn format
 
 *More details :*
 
-.. image:: ../../web/IMAGES/queen4_details.png
+.. image:: ../../../web/IMAGES/queen4_details.png
    :width: 250px
 
 ::
@@ -58,7 +58,7 @@ Example for N=4 in JSON .cfn format
 
 Optimal solution with cost 11 for the 4-queen example :
 
-.. image:: ../../web/IMAGES/queen4.png
+.. image:: ../../../web/IMAGES/queen4.png
    :height: 250px
 
 Python model generator
@@ -69,7 +69,7 @@ The following code using python3 interpreter will generate the previous example 
 .. note::
    Notice that the first lines of code (import and functions flatten and cfn) are needed by all the other tutorial examples.
 
-:download:`queens.py<../../web/TUTORIALS/queens.py>`
+:download:`queens.py<../../../web/TUTORIALS/queens.py>`
 
-.. literalinclude:: ../../web/TUTORIALS/queens.py
+.. literalinclude:: ../../../web/TUTORIALS/queens.py
 

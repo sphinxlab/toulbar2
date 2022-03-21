@@ -24,16 +24,16 @@ Python model generator
 
 The following code using python3 interpreter will generate the corresponding cost function network with a user given floating-point precision (e.g. "python3 warehouse.py cap44.txt 5").
 
-:download:`warehouse.py<../../web/TUTORIALS/warehouse.py>`
+:download:`warehouse.py<../../../web/TUTORIALS/warehouse.py>`
 
-.. literalinclude:: ../../web/TUTORIALS/warehouse.py
+.. literalinclude:: ../../../web/TUTORIALS/warehouse.py
 
 Python model and solve using pytoulbar2
 =======================================
 
 The following code uses the pytoulbar2 module to generate the cost function network and solve it (e.g. "python3 warehouse2.py cap44.txt 1" found optimum value equal to 10349757). Other instances are available `here <https://forgemia.inra.fr/thomas.schiex/cost-function-library/tree/master/crafted/warehouses/instances/cfn>`_ in cfn format. Compile toulbar2 with "cmake -DPYTB2=ON . ; make" and copy the resulting module in pytoulbar2 folder "cp lib/Linux/pytb2.cpython* pytoulbar2".
 
-:download:`warehouse2.py<../../web/TUTORIALS/warehouse2.py>`
+:download:`warehouse2.py<../../../web/TUTORIALS/warehouse2.py>`
 
-.. literalinclude:: ../../web/TUTORIALS/warehouse2.py
+.. literalinclude:: ../../../web/TUTORIALS/warehouse2.py
 

@@ -70,5 +70,5 @@ Acknowledgements
 License
 =======
 
-.. literalinclude:: ../LICENSE
+.. literalinclude:: ../../LICENSE
 

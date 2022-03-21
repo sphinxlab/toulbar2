@@ -20,14 +20,14 @@ We create N variables for every plane landing time. Binary cost functions expres
 Data
 ====
 
-Original data files can be download from the cost function library `airland <https://forgemia.inra.fr/thomas.schiex/cost-function-library/tree/master/crafted/airland/data>`_. Their format is described `here <http://people.brunel.ac.uk/~mastjjb/jeb/orlib/airlandinfo.html>`_. You can try a small example :download:`airland1.txt<../../web/TUTORIALS/airland1.txt>` with optimum value equal to 700.
+Original data files can be download from the cost function library `airland <https://forgemia.inra.fr/thomas.schiex/cost-function-library/tree/master/crafted/airland/data>`_. Their format is described `here <http://people.brunel.ac.uk/~mastjjb/jeb/orlib/airlandinfo.html>`_. You can try a small example :download:`airland1.txt<../../../web/TUTORIALS/airland1.txt>` with optimum value equal to 700.
 
 Python model and solve
 ======================
 
 The following code uses the pytoulbar2 module to generate the cost function network and solve it (e.g. "python3 airland.py airland1.txt"). Compile toulbar2 with "cmake -DPYTB2=ON . ; make" and copy the resulting module in pytoulbar2 folder "cp lib/Linux/pytb2.cpython* pytoulbar2".
 
-:download:`airland.py<../../web/TUTORIALS/airland.py>`
+:download:`airland.py<../../../web/TUTORIALS/airland.py>`
 
-.. literalinclude:: ../../web/TUTORIALS/airland.py
+.. literalinclude:: ../../../web/TUTORIALS/airland.py
 

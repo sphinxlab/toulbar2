@@ -18,41 +18,41 @@ We create N variables for every node of the graph with domain size k. We add k*k
 Data
 ====
 
-You can try a small example :download:`simple.mat <../../web/TUTORIALS/simple.mat>` with optimum value equal to 0 for 3 clusters.
+You can try a small example :download:`simple.mat <../../../web/TUTORIALS/simple.mat>` with optimum value equal to 0 for 3 clusters.
 
 Perfect solution for the small example with k=3 (Mattenet et al, CP 2019)
 
-.. image:: ../../web/IMAGES/simple.png
+.. image:: ../../../web/IMAGES/simple.png
    :height: 250px
 
 More examples with 3 clusters (Stochastic Block Models `[Funke and Becker, Plos One 2019] <https://doi.org/10.1371/journal.pone.0215296>`_)
 
-.. image:: ../../web/IMAGES/SBM.png
+.. image:: ../../../web/IMAGES/SBM.png
    :height: 250px
 
 See other examples, such as `PoliticalActor <https://www.ifip.com/Partitioning_Political_Actor.html>`_ and more, here :
-:download:`100.mat <../../web/TUTORIALS/100.mat>` |
-:download:`150.mat <../../web/TUTORIALS/150.mat>` |
-:download:`200.mat <../../web/TUTORIALS/200.mat>` |
-:download:`30.mat <../../web/TUTORIALS/30.mat>` |
-:download:`50.mat <../../web/TUTORIALS/50.mat>` |
-:download:`hartford_drug.mat <../../web/TUTORIALS/hartford_drug.mat>` |
-:download:`kansas.mat <../../web/TUTORIALS/kansas.mat>` |
-:download:`politicalactor.mat <../../web/TUTORIALS/politicalactor.mat>` |
-:download:`sharpstone.mat <../../web/TUTORIALS/sharpstone.mat>` |
-:download:`transatlantic.mat <../../web/TUTORIALS/transatlantic.mat>`.
+:download:`100.mat <../../../web/TUTORIALS/100.mat>` |
+:download:`150.mat <../../../web/TUTORIALS/150.mat>` |
+:download:`200.mat <../../../web/TUTORIALS/200.mat>` |
+:download:`30.mat <../../../web/TUTORIALS/30.mat>` |
+:download:`50.mat <../../../web/TUTORIALS/50.mat>` |
+:download:`hartford_drug.mat <../../../web/TUTORIALS/hartford_drug.mat>` |
+:download:`kansas.mat <../../../web/TUTORIALS/kansas.mat>` |
+:download:`politicalactor.mat <../../../web/TUTORIALS/politicalactor.mat>` |
+:download:`sharpstone.mat <../../../web/TUTORIALS/sharpstone.mat>` |
+:download:`transatlantic.mat <../../../web/TUTORIALS/transatlantic.mat>`.
 
 Python model generator
 ======================
 
-The following code using python3 interpreter will generate the corresponding cost function network (e.g. "python3 blockmodel.py simple.mat 3"). Download the AWK script :download:`sol2block.awk <../../web/TUTORIALS/sol2block.awk>` to pretty print the results (e.g., "python3 blockmodel.py simple.mat 3 | toulbar2 --stdin=cfn -s=3 | awk -f ./sol2block.awk").
+The following code using python3 interpreter will generate the corresponding cost function network (e.g. "python3 blockmodel.py simple.mat 3"). Download the AWK script :download:`sol2block.awk <../../../web/TUTORIALS/sol2block.awk>` to pretty print the results (e.g., "python3 blockmodel.py simple.mat 3 | toulbar2 --stdin=cfn -s=3 | awk -f ./sol2block.awk").
 
-:download:`blockmodel.py<../../web/TUTORIALS/blockmodel.py>`
+:download:`blockmodel.py<../../../web/TUTORIALS/blockmodel.py>`
 
-.. literalinclude:: ../../web/TUTORIALS/blockmodel.py
+.. literalinclude:: ../../../web/TUTORIALS/blockmodel.py
 
 We improve the previous model by sorting node variables by decreasing out degree and removing the lower triangular matrix of M if the input graph is undirected (symmetric adjacency matrix).
 
-:download:`blockmodel2.py<../../web/TUTORIALS/blockmodel2.py>`
+:download:`blockmodel2.py<../../../web/TUTORIALS/blockmodel2.py>`
 
-.. literalinclude:: ../../web/TUTORIALS/blockmodel2.py
+.. literalinclude:: ../../../web/TUTORIALS/blockmodel2.py

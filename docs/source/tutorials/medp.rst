@@ -20,14 +20,14 @@ We create N variables for every individual genotype with domain being all possib
 Data
 ====
 
-Original data files can be download from the cost function library `pedigree <https://forgemia.inra.fr/thomas.schiex/cost-function-library/tree/master/real/pedigree/data/pre>`_. Their format is described `here <http://miat.inrae.fr/MendelSoft>`_. You can try a small example simple.pre (:download:`simple.pre <../../web/TUTORIALS/simple.pre>`) with optimum value equal to 1.
+Original data files can be download from the cost function library `pedigree <https://forgemia.inra.fr/thomas.schiex/cost-function-library/tree/master/real/pedigree/data/pre>`_. Their format is described `here <http://miat.inrae.fr/MendelSoft>`_. You can try a small example simple.pre (:download:`simple.pre <../../../web/TUTORIALS/simple.pre>`) with optimum value equal to 1.
 
 Python model generator
 ======================
 
 The following code using python3 interpreter will generate the corresponding cost function network (e.g. "python3 mendel.py simple.pre").
 
-:download:`mendel.py<../../web/TUTORIALS/mendel.py>`
+:download:`mendel.py<../../../web/TUTORIALS/mendel.py>`
 
-.. literalinclude:: ../../web/TUTORIALS/mendel.py
+.. literalinclude:: ../../../web/TUTORIALS/mendel.py
 
