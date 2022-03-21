@@ -35,9 +35,9 @@ Voir document NotesReunions.odt pour plus de details.
   'toulbar2/misc/doc' *(a)*.
 
 - Documentation also containing generated (by Doxygen+Breathe) 
-  documentation of toulbar2 python code and of toulbar2 C++ code.
+  documentation of toulbar2 **python code** and of toulbar2 **C++ code**.
 
-- Generated : .html pages and .pdf files.
+- Generated : **.html** pages and **.pdf** files.
 
 - Documentation **hosted on GitHub Pages**, built with
   **GitHub free CI/CD tool** ; with a **redirection** of current toulbar2 site
@@ -50,12 +50,9 @@ Voir document NotesReunions.odt pour plus de details.
 - Sphinx :
 
   Install sphinx :
-
         sudo apt-get install -y python3-sphinx
         sudo apt-get install -y python3-sphinx-rtd-theme
-
   Setup sphinx site  :
-
         cd docs
         sphinx-quickstart
 
