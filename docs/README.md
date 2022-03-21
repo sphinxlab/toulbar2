@@ -74,14 +74,14 @@ Voir document NotesReunions.odt pour plus de details.
 
 ## Deploy by CI/CD
 
-- Documentation installed by CI/CD on GitHub Pages
+- Documentation installed by CI/CD
+  (file **.github/workflows/docs-deploy.yml** + on the repository :
+  "Settings" / "Pages" choose 'gh-pages branch' under "Source")
+  on GitHub Pages
   [toulbar2.github.io/toulbar2](toulbar2.github.io/toulbar2).
   With redirections from the toulbar2 site main URL
   **miat.inrae.fr/toulbar2** to the documentation on GitHub Pages
   **toulbar2.github.io/toulbar2**.
-
-- Install file **.github/workflows/docs-deploy.yml** (+ on the repository :
-  "Settings" / "Pages" choose 'gh-pages branch' under "Source").
 
 - CI/CD production :
 
