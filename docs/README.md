@@ -49,13 +49,13 @@ Voir document NotesReunions.odt pour plus de details.
 
 - Sphinx :
 
-    # Install sphinx :
-    sudo apt-get install -y python3-sphinx
-    sudo apt-get install -y python3-sphinx-rtd-theme
+      # Install sphinx
+      sudo apt-get install -y python3-sphinx
+      sudo apt-get install -y python3-sphinx-rtd-theme
 
-    # Setup sphinx site  :
-    cd docs
-    sphinx-quickstart
+      # Setup sphinx site
+      cd docs
+      sphinx-quickstart
 
   Modify conf.py : change theme from 'alabaster' to 'sphinx_rtd_theme',
   define python code path
