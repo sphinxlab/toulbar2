@@ -18,7 +18,7 @@ import sys
 docs_path = os.path.normpath(os.path.abspath('.'))
 
 # python source code path
-pytoulbar2_code_path = os.path.normpath(os.path.join(docs_path, "..",
+pytoulbar2_code_path = os.path.normpath(os.path.join(docs_path, "..", ".."
                                                                 "pytoulbar2"))
 sys.path.insert(0, pytoulbar2_code_path)
 
@@ -60,8 +60,8 @@ extensions = [
 # Breathe
 breathe_default_project = "toulbar2cpp"
 breathe_projects = {
-    "toulbar2cpp" : os.path.normpath(os.path.join(docs_path,
-                                                  "..", "build", "xml")),
+    "toulbar2cpp" : os.path.normpath(os.path.join(docs_path, "..", "..",
+                                                  "build", "xml")),
 }
 #breathe_implementation_filename_extensions = ['.c', '.cc', '.cpp']
 
@@ -89,8 +89,8 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store',
-                    '_pyvenv', 'README.md',
+exclude_patterns = ['Thumbs.db', '.DS_Store',
+                    #'_build', _pyvenv', 'README.md',
                    ]
 
 # The name of the Pygments (syntax highlighting) style to use.
