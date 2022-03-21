@@ -127,7 +127,7 @@ Voir document NotesReunions.odt pour plus de details.
 
 ## Local build
 
-### To work with a 'pyvenv' python virtual environment
+### To work with a python virtual environment
 
   Install some required basic tools 
   python 3, pip3, python3 virtual environment tool :
@@ -146,13 +146,7 @@ Voir document NotesReunions.odt pour plus de details.
 
       source _pyvenv/bin/activate
 
-### To generate documentation
-
-- Clear all
-
-      cd .. ; ./clean ; cd docs ;
-  
-- Doxygen
+### To use Doxygen
 
   The **'toulbar2/build/xml'** folder content, built by Doxygen, is required
   as input data by Sphinx (via Breathe).
@@ -164,14 +158,22 @@ Voir document NotesReunions.odt pour plus de details.
       sudo apt-get install texlive-latex-recommended texlive-fonts-recommended
       sudo apt-get install doxygen
 
-      # for generating documentation use the following command:
-      mkdir build ; cd build
-      cmake -DBUILD_API_DOC=ON .. ; make doc
+### To generate documentation
 
-- Sphinx
+    # Clear all
 
-      source _pyvenv/bin/activate
-      make docs
+    cd .. ; ./clean ; cd docs ;
+
+    # Doxygen (see HowTo.build.Toulbar2)
+
+    # for generating documentation use the following command:
+    mkdir build ; cd build
+    cmake -DBUILD_API_DOC=ON .. ; make doc
+
+    # Sphinx
+
+    source _pyvenv/bin/activate
+    make docs
 
 ### Productions
     
