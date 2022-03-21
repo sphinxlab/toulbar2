@@ -68,14 +68,12 @@ Documentation **hosted on GitHub Pages**, built with **GitHub free CI/CD tool** 
   Add 'Breathe' into requirement.txt file and conf.py
   (extensions, breathe_projects).
 
-## [Local build](README/local_build.md)
-
 ## Deploy by CI/CD
 
 - Documentation installed by CI/CD on GitHub Pages
   [toulbar2.github.io/toulbar2](toulbar2.github.io/toulbar2).
 
-  Redirections from the toulbar2 site main URL
+  With redirections from the toulbar2 site main URL
   **miat.inrae.fr/toulbar2** to the documentation on GitHub Pages
   **toulbar2.github.io/toulbar2**.
 
@@ -87,7 +85,7 @@ Documentation **hosted on GitHub Pages**, built with **GitHub free CI/CD tool** 
 
 - CI/CD result/production :
 
-  - **Doc online at : https://toulbar2.github.io/toulbar2**
+  - **Documentation online at : https://toulbar2.github.io/toulbar2**
 
   - **.pdf** are accessible from .html pages (see "Resources" page).
 
@@ -122,4 +120,81 @@ Documentation **hosted on GitHub Pages**, built with **GitHub free CI/CD tool** 
   So if C++ comments (about generated documentation) contains some 
   notes or warnings, **do not use Doxygen keywords** (use *normal* text)
   in order to keep text order (especially into *'defgroup'* parts).
+
+## Local build
+
+### Install 'pyvenv' python virtual environment
+
+- Some required basic tools to be installed if not already installed :
+
+  python 3, pip3, python3 virtual environment tool :
+
+      apt-get install python3
+      apt-get install python3-pip
+      apt-get install python3-venv
+
+- Install _pyvenv virtual environment
+
+  Commands to create, activate, then install from requirement.txt :
+
+      python3 -m venv _pyvenv
+      source _pyvenv/bin/activate
+      pip3 install -r requirement.txt
+
+- Use _pyvenv virtual environment
+
+  Activate :
+
+      source _pyvenv/bin/activate
+
+### Commands to generate documentation
+
+#### Doxygen
+
+_The build/xml folder content, built by Doxygen, will be used by Sphinx
+(via breathe).
+
+- see HowTo.build.Toulbar2 ::
+
+      # Howto generate toulbar2 source documentation
+      # first install the following package required
+
+      sudo apt-get install texlive-latex-recommended texlive-fonts-recommended
+      sudo apt-get install doxygen
+
+      # for generating documentation use the following command:
+
+      mkdir build ; cd build
+      cmake -DBUILD_API_DOC=ON .. ; make doc
+
+#### Sphinx
+
+- init and clear ::
+
+    source _local/_pyvenv/bin/activate
+    cd .. ; ./clean ; cd docs ;
+
+- pdf then html ::
+
+    make docs
+
+- or : 
+
+  - pdf with latex ::
+
+      make files
+
+  - html ::
+
+      make html ;
+
+- epub ::
+
+    make epub ;
+
+### Productions
+    
+- _build/html folder where index.html
+- .pdf under _files (and _build/latex)
+- .epub under _build/epub
 
