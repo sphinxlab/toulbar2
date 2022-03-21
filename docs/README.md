@@ -50,9 +50,12 @@ Voir document NotesReunions.odt pour plus de details.
 - Sphinx :
 
   Install sphinx :
+
         sudo apt-get install -y python3-sphinx
         sudo apt-get install -y python3-sphinx-rtd-theme
+
   Setup sphinx site  :
+
         cd docs
         sphinx-quickstart
 
@@ -77,18 +80,14 @@ Voir document NotesReunions.odt pour plus de details.
 
 - Documentation installed by CI/CD on GitHub Pages
   [toulbar2.github.io/toulbar2](toulbar2.github.io/toulbar2).
-
   With redirections from the toulbar2 site main URL
   **miat.inrae.fr/toulbar2** to the documentation on GitHub Pages
   **toulbar2.github.io/toulbar2**.
 
-- Install :
+- Install file **.github/workflows/docs-deploy.yml** (+ on the repository :
+  "Settings" / "Pages" choose 'gh-pages branch' under "Source").
 
-  - File .github/workflows/docs-deploy.yml
-  - On the repository :
-    "Settings" / "Pages" choose 'gh-pages branch' under "Source"
-
-- CI/CD result/production :
+- CI/CD production :
 
   - **Documentation online at : https://toulbar2.github.io/toulbar2**
 
