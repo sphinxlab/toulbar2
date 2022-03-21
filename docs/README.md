@@ -1,25 +1,14 @@
 # Sphinx documentation of toulbar2
 
-**Table of contents :**
+  **Table of contents :**
 
-      * [General](#general)
-      * [Documentation](#documentation)
-      * [Creation](#creation)
-      * [Deploy by CI/CD](#deploy-by-cicd)
-      * [Required](#required)
-      * [Warnings](#warnings)
-      * [Local build](#local-build)
-
-
-      * [General](#General)
-      * [Documentation](#Documentation)
-      * [Creation](#Creation)
-      * [Deploy by CI/CD](#Deploy by CI/CD)
-      * [Required](#Required)
-      * [Warnings](#Warnings)
-      * [Local build](#Local build)
-
-
+  * [General](#general)
+  * [Documentation](#documentation)
+  * [Creation](#creation)
+  * [Deploy by CI/CD](#deploy-by-cicd)
+  * [Required](#required)
+  * [Warnings](#warnings)
+  * [Local build](#local-build)
 
 ## step3
 
