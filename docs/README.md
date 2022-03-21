@@ -65,7 +65,7 @@ Documentation **hosted on GitHub Pages**, built with **GitHub free CI/CD tool** 
 
         GENERATE_XML = YES
 
-  Add 'Breathe' into requirement.txt file and conf.py
+  Add 'Breathe' into requirements.txt file and conf.py
   (extensions, breathe_projects).
 
 ## Deploy by CI/CD
@@ -135,11 +135,11 @@ Documentation **hosted on GitHub Pages**, built with **GitHub free CI/CD tool** 
 
 - Install _pyvenv virtual environment
 
-  Commands to create, activate, then install from requirement.txt :
+  Commands to create, activate, then install from requirements.txt :
 
       python3 -m venv _pyvenv
       source _pyvenv/bin/activate
-      pip3 install -r requirement.txt
+      pip3 install -r requirements.txt
 
 - Use _pyvenv virtual environment
 
@@ -171,7 +171,7 @@ _The build/xml folder content, built by Doxygen, will be used by Sphinx
 
 - init and clear ::
 
-    source _local/_pyvenv/bin/activate
+    source _pyvenv/bin/activate
     cd .. ; ./clean ; cd docs ;
 
 - pdf then html ::
