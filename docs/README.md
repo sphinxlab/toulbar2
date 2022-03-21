@@ -74,14 +74,12 @@ Voir document NotesReunions.odt pour plus de details.
 
 ## Deploy by CI/CD
 
-- Documentation installed by CI/CD
-  (file **.github/workflows/docs-deploy.yml** + on the repository :
-  "Settings" / "Pages" choose 'gh-pages branch' under "Source")
-  on GitHub Pages
-  [toulbar2.github.io/toulbar2](toulbar2.github.io/toulbar2).
+- Documentation installed on GitHub Pages by CI/CD
+  (file .github/workflows/**docs-deploy.yml** + on repository :
+  "Settings" / "Pages" choose 'gh-pages branch' under "Source").
   With redirections from the toulbar2 site main URL
-  **miat.inrae.fr/toulbar2** to the documentation on GitHub Pages
-  **toulbar2.github.io/toulbar2**.
+  [miat.inrae.fr/toulbar2](miat.inrae.fr/toulbar2) to the documentation
+  on GitHub Pages [toulbar2.github.io/toulbar2](toulbar2.github.io/toulbar2).
 
 - CI/CD production :
 
@@ -160,15 +158,11 @@ See HowTo.build.Toulbar2 :
     source _pyvenv/bin/activate
 
     # Clear all
-    cd ..
-    ./clean
-    cd docs
+    cd .. ; ./clean ; cd docs
 
     # Doxygen (see HowTo.build.Toulbar2)
     # for generating documentation use the following command:
-    cd ..
-    mkdir build
-    cd build
+    cd .. ; mkdir build ; cd build
     cmake -DBUILD_API_DOC=ON ..
     make doc
     cd ../docs
@@ -182,7 +176,7 @@ See HowTo.build.Toulbar2 :
 
 - .pdf files : into _build/latex and also copied into _files
 
-- .epub under _build/epub
+- *.epub under _build/epub*
 
 ### Partial commands
 
