@@ -148,48 +148,44 @@ Voir document NotesReunions.odt pour plus de details.
 
 ### Generate documentation
 
-#### Doxygen
+- Doxygen
 
-_The build/xml folder content, built by Doxygen, will be used by Sphinx
-(via breathe).
+  The **'toulbar2/build/xml'** folder content, built by Doxygen, is required
+  as input data by Sphinx (via Breathe).
 
-- see HowTo.build.Toulbar2 ::
+  See HowTo.build.Toulbar2 :
 
       # Howto generate toulbar2 source documentation
       # first install the following package required
-
       sudo apt-get install texlive-latex-recommended texlive-fonts-recommended
       sudo apt-get install doxygen
 
       # for generating documentation use the following command:
-
       mkdir build ; cd build
       cmake -DBUILD_API_DOC=ON .. ; make doc
 
 #### Sphinx
 
-- init and clear ::
+  - init and clear :
 
-    source _pyvenv/bin/activate
-    cd .. ; ./clean ; cd docs ;
+        source _pyvenv/bin/activate
+        cd .. ; ./clean ; cd docs ;
 
-- pdf then html ::
+  - all (.pdf and .html) :
 
-    make docs
+        make docs
 
-- or : 
+  - only .pdf : 
 
-  - pdf with latex ::
+        make files
 
-      make files
+  - only .html :
 
-  - html ::
+        make html
 
-      make html ;
+  - epub :
 
-- epub ::
-
-    make epub ;
+        make epub
 
 ### Productions
     
