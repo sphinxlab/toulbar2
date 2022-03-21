@@ -24,14 +24,18 @@ Documentation **using files of some other folders**, such as 'toulbar2/web', 'to
 
 Documentation **hosted on GitHub Pages**, built with **GitHub free CI/CD tool** ; with a **redirection** of current toulbar2 site to those GitHub Pages.
 
-## Documentation content
+## Documentation
 
-- The .rst pages have been created from .html pages of 'toulbar2/web'.
-- The documentation also contains generated (by Doxygen+Breathe) 
-  documentation of toulbar2 python code (toulbar2/pytoulbar2) and
-  of toulbar2 C++ code (toulbar2/src).
-- Most of the documentation previously into 'doc' folder has been rewritten
-  as .rst pages.
+- Content :
+
+  - The .rst pages have been created from .html pages of 'toulbar2/web'.
+  - The documentation also contains generated (by Doxygen+Breathe) 
+    documentation of toulbar2 python code (toulbar2/pytoulbar2) and
+    of toulbar2 C++ code (toulbar2/src).
+  - Most of the documentation previously into 'doc' folder has been rewritten
+    as .rst pages.
+
+- Generated : .html pages and .pdf files.
 
 ## Creation
 
