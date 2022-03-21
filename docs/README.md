@@ -127,31 +127,26 @@ Voir document NotesReunions.odt pour plus de details.
 
 ## Local build
 
-### Install 'pyvenv' python virtual environment
+### Work with a 'pyvenv' python virtual environment
 
-- Some required basic tools to be installed if not already installed :
-
+- Install some required basic tools 
   python 3, pip3, python3 virtual environment tool :
 
       apt-get install python3
       apt-get install python3-pip
       apt-get install python3-venv
 
-- Install _pyvenv virtual environment
-
-  Commands to create, activate, then install from requirements.txt :
+- Create _pyvenv virtual environment :
 
       python3 -m venv _pyvenv
       source _pyvenv/bin/activate
       pip3 install -r requirements.txt
 
-- Use _pyvenv virtual environment
-
-  Activate :
+- To use/activate _pyvenv virtual environment :
 
       source _pyvenv/bin/activate
 
-### Commands to generate documentation
+### Generate documentation
 
 #### Doxygen
 
