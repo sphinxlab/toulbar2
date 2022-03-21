@@ -29,22 +29,21 @@ Voir document NotesReunions.odt pour plus de details.
   of toulbar2.
 
 - Documentation replacing the previous .html pages of **'toulbar2/web'**
-  folder and also most of the **'doc'** folder (a).
+  folder and also most of the **'doc'** folder *(a)*.
 
 - Documentation **using files of some other folders**, such as 'toulbar2/web',
-  'toulbar2/misc/doc' (a).
-
-(a) *The 'doc' folder does not exist anymore : most of the documentation previously into 'doc' folder has been rewritten into 'docs' as .rst pages, and remaining 'doc' content now into 'misc/doc'*.
+  'toulbar2/misc/doc' *(a)*.
 
 - Documentation also containing generated (by Doxygen+Breathe) 
-  documentation of toulbar2 python code (toulbar2/pytoulbar2) and
-  of toulbar2 C++ code (toulbar2/src).
+  documentation of toulbar2 python code and of toulbar2 C++ code.
 
 - Generated : .html pages and .pdf files.
 
 - Documentation **hosted on GitHub Pages**, built with
   **GitHub free CI/CD tool** ; with a **redirection** of current toulbar2 site
   to those GitHub Pages.
+
+*(a) The 'doc' folder does not exist anymore : most of the documentation previously into 'doc' folder has been rewritten into 'docs' as .rst pages, and remaining 'doc' content now into 'misc/doc'*.
 
 ## Creation
 
