@@ -142,37 +142,42 @@ Create _pyvenv virtual environment :
     source _pyvenv/bin/activate
     pip3 install -r requirements.txt
 
-To use/activate _pyvenv virtual environment :
+Use/activate _pyvenv virtual environment :
 
-      source _pyvenv/bin/activate
+    source _pyvenv/bin/activate
 
 ### To use Doxygen
 
-  The **'toulbar2/build/xml'** folder content, built by Doxygen, is required
-  as input data by Sphinx (via Breathe).
+The **'toulbar2/build/xml'** folder content, built by Doxygen, is required
+as input data by Sphinx (via Breathe).
 
-  See HowTo.build.Toulbar2 :
+See HowTo.build.Toulbar2 :
 
-      # Howto generate toulbar2 source documentation
-      # first install the following package required
-      sudo apt-get install texlive-latex-recommended texlive-fonts-recommended
-      sudo apt-get install doxygen
+    # Howto generate toulbar2 source documentation
+    # first install the following package required
+    sudo apt-get install texlive-latex-recommended texlive-fonts-recommended
+    sudo apt-get install doxygen
 
 ### To generate documentation
 
-    # Clear all
+    # Activate pyvenv
+    source _pyvenv/bin/activate
 
-    cd .. ; ./clean ; cd docs ;
+    # Clear all
+    cd ..
+    ./clean
+    cd docs
 
     # Doxygen (see HowTo.build.Toulbar2)
-
     # for generating documentation use the following command:
-    mkdir build ; cd build
-    cmake -DBUILD_API_DOC=ON .. ; make doc
+    cd ..
+    mkdir build
+    cd build
+    cmake -DBUILD_API_DOC=ON ..
+    make doc
+    cd ../docs
 
     # Sphinx
-
-    source _pyvenv/bin/activate
     make docs
 
 ### Productions
@@ -183,25 +188,32 @@ To use/activate _pyvenv virtual environment :
 
 - .epub under _build/epub
 
+
+-------------- ------------------------------------------------
+ .html pages    into _build/html folder where index.html
+-------------- ------------------------------------------------
+ .pdf files     into _build/latex and also copied into _files
+-------------- ------------------------------------------------
+ .epub          under _build/epub
+-------------- ------------------------------------------------
+
+
+
+
+
 ### Partial commands
 
-  - Clear only Sphinx (_build)
+    # Clear only Sphinx (_build but not _files)
+    make clean
 
-      make clean
+    # to generate only .pdf
+    make files
 
-  - to generate only .pdf : 
+    # to generate only .html
+    make readme
+    make html
+    # (but .html pages also requires _files/*.pdf)
 
-        make files
-
-  - to generate only .html :
-
-        make readme
-        make html
-
-    but .html pages also requires (into _files) the generated .pdf files
-
-  - to generate epub :
-
-        make epub
-
+    # to generate epub
+    make epub
 
