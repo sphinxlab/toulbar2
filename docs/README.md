@@ -2,8 +2,7 @@
 
   **Table of contents :**
 
-  * [General](#general)
-  * [Documentation](#documentation)
+  * [Overview](#overview)
   * [Creation](#creation)
   * [Deploy by CI/CD](#deploy-by-cicd)
   * [Required](#required)
@@ -24,28 +23,23 @@ Livraison d’une version :
 Voir document NotesReunions.odt pour plus de details.
 
 
-## General
+## Overview
 
 The **'toulbar2/docs'** folder is dedicated to the **Sphinx** documentation of toulbar2.
 
-Documentation replacing the previous .html pages of **'toulbar2/web'** folder and also most of the **'doc'** folder that does not exist anymore.
+Documentation replacing the previous .html pages of **'toulbar2/web'** folder and also most of the **'doc'** folder (a).
 
 Documentation **using files of some other folders**, such as 'toulbar2/web', 'toulbar2/misc/doc'.
 
+  (a) *The 'doc' folder does not exist anymore : most of the documentation previously into 'doc' folder has been rewritten into 'docs' as .rst pages, and remaining 'doc' content now into 'misc/doc'*.
+
+Documentation also containing generated (by Doxygen+Breathe) 
+documentation of toulbar2 python code (toulbar2/pytoulbar2) and
+of toulbar2 C++ code (toulbar2/src).
+
+Generated : .html pages and .pdf files.
+
 Documentation **hosted on GitHub Pages**, built with **GitHub free CI/CD tool** ; with a **redirection** of current toulbar2 site to those GitHub Pages.
-
-## Documentation
-
-- Content :
-
-  - The .rst pages have been created from .html pages of 'toulbar2/web'.
-  - The documentation also contains generated (by Doxygen+Breathe) 
-    documentation of toulbar2 python code (toulbar2/pytoulbar2) and
-    of toulbar2 C++ code (toulbar2/src).
-  - Most of the documentation previously into 'doc' folder has been rewritten
-    as .rst pages.
-
-- Generated : .html pages and .pdf files.
 
 ## Creation
 
