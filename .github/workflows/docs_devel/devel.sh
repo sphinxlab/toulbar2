@@ -47,7 +47,7 @@ versions="sphinx-nr step3"
 
 for current_version in ${versions}; do
    git checkout ${current_version}
-   docs/_cicd/build.sh ${docroot} ${current_version}
+   .github/workflows/docs_devel/build.sh ${docroot} ${current_version}
    git checkout master # return to master branch
 done
 
