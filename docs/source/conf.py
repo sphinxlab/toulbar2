@@ -20,8 +20,6 @@ docs_path = os.path.normpath(os.path.abspath('.'))
 # python source code path
 pytoulbar2_code_path = os.path.normpath(os.path.join(docs_path, "..", "..",
                                                                 "pytoulbar2"))
-print("\n\n\n   pytoulbar2_code_path: ", pytoulbar2_code_path, "\n\n\n")
-
 sys.path.insert(0, pytoulbar2_code_path)
 
 # -- Project information -----------------------------------------------------
