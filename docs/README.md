@@ -114,10 +114,10 @@ Voir document NotesReunions.odt pour plus de details.
   => **NOT** generated from C++ source code.
 
 - "Breathe" puts the text of some Doxygen keywords
-  (such as "Warning" and "Note") at the end of the generated text.
-  So if C++ comments (about generated documentation) contains some 
-  notes or warnings, **do not use Doxygen keywords** (use *normal* text)
-  in order to keep text order (especially into *'defgroup'* parts).
+  (such as *'warning'*, *'note'*, *'see'*) at the end of the generated text.
+  So if C++ comments (about generated documentation) contains such information 
+  (notes, warnings, see also), **do not use Doxygen keywords** (use *normal*
+  text) in order to keep text order (especially into *'defgroup'* parts).
 
 ## Local build
 
