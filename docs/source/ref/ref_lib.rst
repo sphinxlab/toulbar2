@@ -12,11 +12,6 @@ Libraries
        C++ Library <ref_cpp.rst>
        Python Library <ref_python.rst>
 
-    .. toctree::
-       :maxdepth: 3
-
-       TEMPORAIRE <ref_TMP.rst>
-
 .. only:: latex
 
     - C++ Library : see "C++ Library of toulbar2" document.
