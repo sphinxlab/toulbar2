@@ -77,8 +77,9 @@ Voir document NotesReunions.odt pour plus de details.
   (file .github/workflows/**docs-deploy.yml** + on repository :
   "Settings" / "Pages" choose 'gh-pages branch' under "Source").
   With redirections from the toulbar2 site main URL
-  [http://miat.inrae.fr/toulbar2](miat.inrae.fr/toulbar2) to the documentation
-  on GitHub Pages [https://toulbar2.github.io/toulbar2](toulbar2.github.io/toulbar2).
+  [miat.inrae.fr/toulbar2](http://miat.inrae.fr/toulbar2) to the documentation
+  on GitHub Pages
+  [toulbar2.github.io/toulbar2](https://toulbar2.github.io/toulbar2).
 
 - CI/CD production :
 
