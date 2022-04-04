@@ -10,7 +10,9 @@
   * [Local build](#local-build)
   * [Quick local build](#quick-local-build)
 
-## step3
+## deliv2
+
+Rename de sphinx-nr dans son etat de livraison a toulbar2/toulbar2 (4 avril 2022, 2nde livraison)
 
 Livraison d’une version :
 
