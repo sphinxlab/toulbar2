@@ -40,17 +40,13 @@ pushd docs
 make docs
 popd
 
-# epub
-sphinx-build -b epub docs/ docs/_build/epub
-mkdir -p "${docroot}/${current_version}"
-cp "docs/_build/epub/toulbar2.epub" "${docroot}/${current_version}/toulbar2_${current_version}.epub"
+# epub (not ok)
+#nok sphinx-build -b epub docs/ docs/_build/epub
+#nok mkdir -p "${docroot}/${current_version}"
+#nok cp "docs/_build/epub/toulbar2.epub" "${docroot}/${current_version}/toulbar2_${current_version}.epub"
  
 # copy into docroot the static assets produced by the above build
-rsync -av "docs/_build/html/" "${docroot}/"
+rsync -av "docs/_build/html/" "${docroot}/${current_version}/"
  
-# clean
-cp -f docs/_files/tmp/*.* docs/_files/.
-rm -fr docs/_files/tmp
-
 exit 0
 

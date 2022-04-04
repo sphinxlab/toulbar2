@@ -40,10 +40,10 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
 # get a list of branches, excluding 'HEAD' and 'gh-pages'
 #versions="`git for-each-ref '--format=%(refname:lstrip=-1)' refs/remotes/origin/ | grep -viE '^(HEAD|gh-pages)$'`"
 
-# manual selection of a list of branches (at least master !)
+# manual selection of a list of branches
 ###versions="master sphinx-nr sphinx-usr"
 #versions="sphinx-nr step1 step2"
-versions="sphinx-nr step3"
+versions="sphinx-nr"
 
 for current_version in ${versions}; do
    git checkout ${current_version}
