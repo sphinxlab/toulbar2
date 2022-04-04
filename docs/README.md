@@ -201,9 +201,9 @@ See HowTo.build.Toulbar2 :
 
 To build **only .html pages**, without .pdf files and without documentation of python and C++ code.
 
-*If more or if problem : see* "[Local build](#local-build)").
+*If more or if problem : see* "[Local build](#local-build)".
 
-Note : if no Doxygen generation before, then add comment into docs/source/conf.py for : # breathe_projects = { ... }
+*Note : if no Doxygen generation before, then add comment into docs/source/conf.py for : # breathe_projects = { ... }*
 
 Commands :
 
