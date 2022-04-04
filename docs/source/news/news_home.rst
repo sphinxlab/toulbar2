@@ -13,7 +13,7 @@
 
         <span style="color:Firebrick; font-weight:bold;"> New! </span>
 
-        binaries for Linux, MacOS and Windows on <a href={{pathto('downloads')}}>Downloads</a></br>
+        binaries for Linux, MacOS and Windows on <a href="resources.html">Resources</a></br>
 
     </div>
 
