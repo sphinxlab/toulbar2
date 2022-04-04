@@ -8,6 +8,7 @@
   * [Required](#required)
   * [Warnings](#warnings)
   * [Local build](#local-build)
+  * [Quick local build](#quick-local-build)
 
 ## step3
 
@@ -140,10 +141,12 @@ Use/activate _pyvenv virtual environment :
 
     source _pyvenv/bin/activate
 
-### To use Doxygen
+### To use Doxygen and LaTeX
 
 The **'toulbar2/build/xml'** folder content, built by Doxygen, is required
 as input data by Sphinx (via Breathe).
+
+LaTeX is used by Sphinx to build .pdf files.
 
 See HowTo.build.Toulbar2 :
 
@@ -193,4 +196,29 @@ See HowTo.build.Toulbar2 :
 
     # to generate epub
     make epub
+
+## Quick local build of .html pages
+
+To build **only .html pages**, without .pdf files and without documentation of python and C++ code.
+
+*If more or if problem : see* "[Local build](#local-build)").
+
+Note : if no Doxygen generation before, then add comment into docs/source/conf.py for : # breathe_projects = { ... }
+
+Commands :
+
+    # create _pyvenv virtual environment
+    python3 -m venv _pyvenv
+    source _pyvenv/bin/activate
+    pip3 install -r requirements.txt
+
+    # to activate _pyvenv
+    source _pyvenv/bin/activate
+
+    # to generate only .html
+    make readme
+    make html
+
+    # to clear .html
+    make clean
 
