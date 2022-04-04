@@ -197,7 +197,7 @@ See HowTo.build.Toulbar2 :
     # to generate epub
     make epub
 
-## Quick local build of .html pages
+## Quick local build
 
 To build **only .html pages**, without .pdf files and without documentation of python and C++ code.
 
