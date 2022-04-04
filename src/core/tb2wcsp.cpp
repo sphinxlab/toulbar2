@@ -204,13 +204,13 @@ int ToulBar2::rootHeuristic;
 bool ToulBar2::reduceHeight;
 
 double ToulBar2::startCpuTime;
+double ToulBar2::startRealTime;
+double ToulBar2::startRealTimeAfterPreProcessing;
 
 int ToulBar2::splitClusterMaxSize;
 double ToulBar2::boostingBTD;
 int ToulBar2::maxSeparatorSize;
 int ToulBar2::minProperVarSize;
-
-int ToulBar2::smallSeparatorSize;
 
 bool ToulBar2::heuristicFreedom;
 int ToulBar2::heuristicFreedomLimit;
@@ -260,6 +260,9 @@ Long ToulBar2::hbfsAlpha; // inverse of minimum node redundancy goal limit
 Long ToulBar2::hbfsBeta; // inverse of maximum node redundancy goal limit
 ptrdiff_t ToulBar2::hbfsCPLimit; // limit on the number of choice points stored inside open node list
 ptrdiff_t ToulBar2::hbfsOpenNodeLimit; // limit on the number of open nodes
+#ifdef OPENMPI
+bool ToulBar2::burst;
+#endif
 Long ToulBar2::eps;
 string ToulBar2::epsFilename;
 
@@ -405,13 +408,13 @@ void tb2init()
     ToulBar2::reduceHeight = false;
 
     ToulBar2::startCpuTime = 0;
+    ToulBar2::startRealTime = 0;
+    ToulBar2::startRealTimeAfterPreProcessing = 0;
 
     ToulBar2::splitClusterMaxSize = 0;
     ToulBar2::boostingBTD = 0.;
     ToulBar2::maxSeparatorSize = -1;
     ToulBar2::minProperVarSize = 0;
-
-    ToulBar2::smallSeparatorSize = 4;
 
     ToulBar2::heuristicFreedom = false;
     ToulBar2::heuristicFreedomLimit = 5;
@@ -461,6 +464,9 @@ void tb2init()
     ToulBar2::hbfsBeta = 10LL; // i.e., beta = 1/10 = 0.1
     ToulBar2::hbfsCPLimit = CHOICE_POINT_LIMIT;
     ToulBar2::hbfsOpenNodeLimit = OPEN_NODE_LIMIT;
+#ifdef OPENMPI
+    ToulBar2::burst = true;
+#endif
     ToulBar2::eps = 0;
     ToulBar2::epsFilename = "subproblems.txt";
 
@@ -507,7 +513,7 @@ void tb2checkOptions()
         cerr << "Error: cannot find all solutions or compute a partition function with VNS. Deactivate either option." << endl;
         throw BadConfiguration();
     }
-    if ((ToulBar2::allSolutions || ToulBar2::isZ) && ToulBar2::parallel) {
+    if ((ToulBar2::allSolutions || ToulBar2::isZ) && ToulBar2::parallel && ToulBar2::hbfs) {
         cerr << "Error: cannot find all solutions or compute a partition function with parallel HBFS. Deactivate either option." << endl;
         throw BadConfiguration();
     }
@@ -652,6 +658,12 @@ void tb2checkOptions()
         cout << "Error: embarrassingly parallel search works only with hybrid best-first search (use -eps with -hbfs)." << endl;
         throw BadConfiguration();
     }
+#ifdef OPENMPI
+    if (ToulBar2::parallel && ToulBar2::hbfs && ToulBar2::burst && ToulBar2::btdMode >= 1) {
+        cout << "Sorry: burst mode does not work with parallel hybrid best-first search exploiting tree decomposition (add option -burst:)." << endl;
+        throw BadConfiguration();
+    }
+#endif
     if (ToulBar2::verifyOpt && (ToulBar2::elimDegree >= 0 || ToulBar2::elimDegree_preprocessing >= 0)) {
         cout << "Warning! Cannot perform variable elimination while verifying that the optimal solution is preserved." << endl;
         ToulBar2::elimDegree = -1;
@@ -718,7 +730,7 @@ WCSP::~WCSP()
         for (unsigned int i = 0; i < vars.size(); i++)
             delete vars[i];
     if (constrs.size())
-        for (unsigned int i = 0; i < constrs.size() - ((nbNodes==0&&solutionCost==MAX_COST)?1:0); i++)
+        for (unsigned int i = 0; i < constrs.size() - ((nbNodes == 0 && solutionCost == MAX_COST) ? 1 : 0); i++)
             delete constrs[i]; // Warning! The last constraint may be badly allocated due to an exception occuring in its constructor (because of propagate) // If there is no constraint then (constrs.size()-1) overflow!
     if (elimBinConstrs.size())
         for (unsigned int i = 0; i < elimBinConstrs.size(); i++)
@@ -2819,7 +2831,7 @@ void WCSP::processTernary()
 /// -# creates new ternary cost functions for all triangles (\e ie occurences of three binary cost functions \e xy, \e yz, \e zx)
 /// -# removes empty cost functions while repeating #1 and #2 until no new cost functions can be removed
 ///
-/// \note the propagation loop is called after each preprocessing technique (see \ref WCSP::propagate)
+/// Note : the propagation loop is called after each preprocessing technique (see \ref WCSP::propagate)
 
 void WCSP::preprocessing()
 {
@@ -3348,9 +3360,9 @@ void WCSP::printNCBuckets()
  * -# (level 2) idem
  * -# (level 3) also saves current problem into a file before each search choice
  *
- * \note \p toulbar2, compiled in debug mode, can be more verbose and it checks a lot of assertions (pre/post conditions in the code)
+ * Note : \p toulbar2, compiled in debug mode, can be more verbose and it checks a lot of assertions (pre/post conditions in the code)
  *
- * \note \p toulbar2 will output an help message giving available options if run without any parameters
+ * Note : \p toulbar2 will output an help message giving available options if run without any parameters
  *
  */
 
@@ -4263,10 +4275,14 @@ void WCSP::propagateFEAC()
 /// - \e i-bounded variable elimination with i-bound less than or equal to two can be done during the search.
 /// - functional variable elimination eliminates all variables which have a bijective or functional binary hard constraint (\e ie ensuring a one-to-one or several-to-one value mapping) and iff all their cost functions are in extension.
 ///		It can be done without limit on their degree, in preprocessing only.
-/// \note Variable elimination order used in preprocessing is either lexicographic or given by an external file *.order (see toulbar2 options)
-/// \note 2-bounded variable elimination during search is optimal in the sense that any elimination order should result in the same final graph
-/// \warning It is not possible to display/save solutions when bounded variable elimination is applied in preprocessing
-/// \warning toulbar2 maintains a list of current cost functions for each variable.
+///
+/// Note : Variable elimination order used in preprocessing is either lexicographic or given by an external file *.order (see toulbar2 options)
+///
+/// Note : 2-bounded variable elimination during search is optimal in the sense that any elimination order should result in the same final graph
+///
+/// Warning : It is not possible to display/save solutions when bounded variable elimination is applied in preprocessing
+///
+/// Warning : toulbar2 maintains a list of current cost functions for each variable.
 ///		It uses the size of these lists as an approximation of variable degrees.
 ///		During the search, if variable \e x has three cost functions \e xy, \e xz, \e xyz, its true degree is two but its approximate degree is three.
 ///		In toulbar2 options, it is the approximate degree which is given by the user for variable elimination during the search (thus, a value at most three).
@@ -4292,11 +4308,15 @@ void WCSP::eliminate()
 /// Soft arc consistency is an incremental lower bound technique for optimization problems.
 /// Its goal is to move costs from high-order (typically arity two or three) cost functions towards the problem lower bound and unary cost functions.
 /// This is achieved by applying iteratively local equivalence-preserving problem transformations (EPTs) until some terminating conditions are met.
-/// \note \e eg an EPT can move costs between a binary cost function and a unary cost function such that the sum of the two functions remains the same for any complete assignment.
-/// \see <em> Arc consistency for Soft Constraints. </em> T. Schiex. Proc. of CP'2000. Singapour, 2000.
-/// \note Soft Arc Consistency in toulbar2 is limited to binary and ternary and some global cost functions (\e eg alldifferent, gcc, regular, same).
+///
+/// Note : \e eg an EPT can move costs between a binary cost function and a unary cost function such that the sum of the two functions remains the same for any complete assignment.
+///
+/// See : <em> Arc consistency for Soft Constraints. </em> T. Schiex. Proc. of CP'2000. Singapour, 2000.
+///
+/// Note : Soft Arc Consistency in toulbar2 is limited to binary and ternary and some global cost functions (\e eg alldifferent, gcc, regular, same).
 ///		Other n-ary cost functions are delayed for propagation until their number of unassigned variables is three or less.
-/// \see <em> Towards Efficient Consistency Enforcement for Global Constraints in Weighted Constraint Satisfaction. </em> Jimmy Ho-Man Lee, Ka Lun Leung. Proc. of IJCAI 2009, pages 559-565. Pasadena, USA, 2009.
+///
+/// See : <em> Towards Efficient Consistency Enforcement for Global Constraints in Weighted Constraint Satisfaction. </em> Jimmy Ho-Man Lee, Ka Lun Leung. Proc. of IJCAI 2009, pages 559-565. Pasadena, USA, 2009.
 
 /// \defgroup propagation Propagation loop
 /// Propagates soft local consistencies and bounded variable elimination until all the propagation queues are empty or a contradiction occurs.\n
@@ -4729,6 +4749,8 @@ Constraint* WCSP::sum(Constraint* ctr1, Constraint* ctr2)
         if (tupleXtuple) {
             ctr1->first();
             while (ctr1->next(tuple1, cost1)) {
+                if (ToulBar2::interrupted)
+                    throw TimeOut();
                 ctr2->first();
                 while (ctr2->next(tuple2, cost2)) {
                     nary->insertSum(tuple1, cost1, ctr1, tuple2, cost2, ctr2, true);
@@ -4737,6 +4759,8 @@ Constraint* WCSP::sum(Constraint* ctr1, Constraint* ctr2)
         } else {
             nary->firstlex();
             while (nary->nextlex(tuple, cost)) {
+                if (ToulBar2::interrupted)
+                    throw TimeOut();
                 cost1 = ctr1->evalsubstr(tuple, nary);
                 cost2 = ctr2->evalsubstr(tuple, nary);
                 if (cost1 + cost2 < Top)

@@ -165,11 +165,12 @@ PYBIND11_MODULE(pytb2, m)
         .def_readwrite_static("uaieval", &ToulBar2::uaieval)
         .def_readwrite_static("stdin_format", &ToulBar2::stdin_format)
         .def_readwrite_static("startCpuTime", &ToulBar2::startCpuTime)
+        .def_readwrite_static("startRealTime", &ToulBar2::startRealTime)
+        .def_readwrite_static("startRealTimeAfterPreProcessing", &ToulBar2::startRealTimeAfterPreProcessing)
         .def_readwrite_static("splitClusterMaxSize", &ToulBar2::splitClusterMaxSize)
         .def_readwrite_static("boostingBTD", &ToulBar2::boostingBTD)
         .def_readwrite_static("maxSeparatorSize", &ToulBar2::maxSeparatorSize)
         .def_readwrite_static("minProperVarSize", &ToulBar2::minProperVarSize)
-        .def_readwrite_static("smallSeparatorSize", &ToulBar2::smallSeparatorSize)
         .def_readwrite_static("Berge_Dec", &ToulBar2::Berge_Dec)
         .def_readwrite_static("learning", &ToulBar2::learning)
         //        .def_readwrite_static("interrupted", &ToulBar2::interrupted) // pybind11 not compatible with type atomic<bool>?
@@ -201,6 +202,9 @@ PYBIND11_MODULE(pytb2, m)
         .def_readwrite_static("hbfsCPLimit", &ToulBar2::hbfsCPLimit)
         .def_readwrite_static("hbfsOpenNodeLimit", &ToulBar2::hbfsOpenNodeLimit)
         .def_readwrite_static("eps", &ToulBar2::eps)
+#ifdef OPENMPI
+        .def_readwrite_static("burst", &ToulBar2::burst)
+#endif
         .def_readwrite_static("epsFilename", &ToulBar2::epsFilename)
         .def_readwrite_static("verifyOpt", &ToulBar2::verifyOpt)
         .def_readwrite_static("verifiedOptimum", &ToulBar2::verifiedOptimum);
@@ -373,6 +377,7 @@ PYBIND11_MODULE(pytb2, m)
     py::class_<WeightedCSPSolver>(m, "Solver")
         .def(py::init([](Cost ub) {
             ToulBar2::startCpuTime = cpuTime();
+            ToulBar2::startRealTime = realTime();
             initCosts();
             if (ToulBar2::seed < 0) { // initialize seed using current time
                 ToulBar2::seed = abs((int)time(NULL) * getpid() * ToulBar2::seed);

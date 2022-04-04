@@ -1,5 +1,6 @@
 #ifndef TB2KNAPSACK_HPP_
 #define TB2KNAPSACK_HPP_
+
 #include <utility>
 #include <variant>
 #include "tb2abstractconstr.hpp"
@@ -7,9 +8,7 @@
 #include "tb2enumvar.hpp"
 #include "tb2wcsp.hpp"
 #include "../utils/tb2store.hpp"
-#include <numeric>
-#include <chrono>
-#include <thread>
+
 class KnapsackConstraint : public AbstractNaryConstraint {
     int carity;
     Long Original_capacity;
@@ -380,25 +379,25 @@ public:
 
     double computeTightness() override
     {
-//TODO: check if multiplying by the sum of median/mean unary costs (only on VarVal?) improve the results
-//TODO: see if arity plays a role (small arity first?)
-//        double ucost = UNIT_COST;
-//        for (int i = 0; i < arity_; i++) {
-//            EnumeratedVariable* var = (EnumeratedVariable*)getVar(i);
-//            int domsize = var->getDomainSize();
-//            ValueCost array[domsize];
-//            wcsp->getEnumDomainAndCost(var->wcspIndex, array);
-//            if (ToulBar2::weightedTightness == 2) {
-//                Cost unarymediancost = stochastic_selection<ValueCost>(array, 0, domsize - 1, domsize / 2).cost;
-//                ucost += (double)unarymediancost;
-//            } else {
-//                Cost unarytotalcost = MIN_COST;
-//                for (auto& elt : array) {
-//                    unarytotalcost += elt.cost;
-//                }
-//                ucost += (double)unarytotalcost / (double)domsize;
-//            }
-//        }
+        //TODO: check if multiplying by the sum of median/mean unary costs (only on VarVal?) improve the results
+        //TODO: see if arity plays a role (small arity first?)
+        //        double ucost = UNIT_COST;
+        //        for (int i = 0; i < arity_; i++) {
+        //            EnumeratedVariable* var = (EnumeratedVariable*)getVar(i);
+        //            int domsize = var->getDomainSize();
+        //            ValueCost array[domsize];
+        //            wcsp->getEnumDomainAndCost(var->wcspIndex, array);
+        //            if (ToulBar2::weightedTightness == 2) {
+        //                Cost unarymediancost = stochastic_selection<ValueCost>(array, 0, domsize - 1, domsize / 2).cost;
+        //                ucost += (double)unarymediancost;
+        //            } else {
+        //                Cost unarytotalcost = MIN_COST;
+        //                for (auto& elt : array) {
+        //                    unarytotalcost += elt.cost;
+        //                }
+        //                ucost += (double)unarytotalcost / (double)domsize;
+        //            }
+        //        }
         assert(capacity > 0);
         assert(MaxWeight > 0);
         return ((double)capacity / (double)MaxWeight); // * ucost ???
@@ -452,6 +451,7 @@ public:
                 Cost TobeProjected = -lb + assigneddeltas;
                 lb = MIN_COST;
                 Cost mindelta;
+                wcsp->revise(this);
                 for (int i = 0; i < carity; i++) {
                     mindelta = MAX_COST;
                     for (int j = 0; j < nbValue[i]; ++j) {
@@ -678,24 +678,24 @@ public:
     {
         for (int i = 0; i < carity; i++) {
             for (int j = 0; j < nbValue[i]; ++j) {
-                if (OptSol[current_scope_idx[i]][current_val_idx[i][j]] == 1) {
+                if (OptSol[current_scope_idx[i]][current_val_idx[i][j]] > 0) {
                     if (current_val_idx[i][j] == (int)VarVal[current_scope_idx[i]].size() - 1) {
-                        Group_extendNVV(current_scope_idx[i], UnaryCost0[current_scope_idx[i]]);
-                        deltaCosts[current_scope_idx[i]][current_val_idx[i][j]] += UnaryCost0[current_scope_idx[i]];
+                        Cost C = UnaryCost0[current_scope_idx[i]];
+                        if (C > MIN_COST) {
+                            Group_extendNVV(current_scope_idx[i], C);
+                            deltaCosts[current_scope_idx[i]][current_val_idx[i][j]] += C;
+                        }
                     } else {
-                        deltaCosts[current_scope_idx[i]][current_val_idx[i][j]] += scope[current_scope_idx[i]]->getCost(VarVal[current_scope_idx[i]][current_val_idx[i][j]]);
-                        scope[current_scope_idx[i]]->extend(VarVal[current_scope_idx[i]][current_val_idx[i][j]], scope[current_scope_idx[i]]->getCost(VarVal[current_scope_idx[i]][current_val_idx[i][j]]));
+                        Cost C = scope[current_scope_idx[i]]->getCost(VarVal[current_scope_idx[i]][current_val_idx[i][j]]);
+                        if (C > MIN_COST) {
+                            deltaCosts[current_scope_idx[i]][current_val_idx[i][j]] += C;
+                            scope[current_scope_idx[i]]->extend(VarVal[current_scope_idx[i]][current_val_idx[i][j]], C);
+                        }
                     }
-                } else if (OptSol[current_scope_idx[i]][current_val_idx[i][j]] == 0) {
-                    if (Ceil(-deltaCosts[current_scope_idx[i]][current_val_idx[i][j]] + y_i[i] + y_cc * weights[current_scope_idx[i]][current_val_idx[i][j]]) != 0)
-                        ExtOrProJ(current_scope_idx[i], current_val_idx[i][j], Ceil(-deltaCosts[current_scope_idx[i]][current_val_idx[i][j]] + y_i[i] + y_cc * weights[current_scope_idx[i]][current_val_idx[i][j]]));
                 } else {
-                    if (current_val_idx[i][j] == (int)VarVal[current_scope_idx[i]].size() - 1) {
-                        Group_extendNVV(current_scope_idx[i], UnaryCost0[current_scope_idx[i]]);
-                        deltaCosts[current_scope_idx[i]][current_val_idx[i][j]] += UnaryCost0[current_scope_idx[i]];
-                    } else {
-                        deltaCosts[current_scope_idx[i]][current_val_idx[i][j]] += scope[current_scope_idx[i]]->getCost(VarVal[current_scope_idx[i]][current_val_idx[i][j]]);
-                        scope[current_scope_idx[i]]->extend(VarVal[current_scope_idx[i]][current_val_idx[i][j]], scope[current_scope_idx[i]]->getCost(VarVal[current_scope_idx[i]][current_val_idx[i][j]]));
+                    Cost C = Ceil(-deltaCosts[current_scope_idx[i]][current_val_idx[i][j]] + y_i[i] + y_cc * weights[current_scope_idx[i]][current_val_idx[i][j]]);
+                    if (C != MIN_COST) {
+                        ExtOrProJ(current_scope_idx[i], current_val_idx[i][j], C);
                     }
                 }
             }
@@ -718,6 +718,7 @@ public:
                 }
             }
             if (connected() && !b) {
+                wcsp->revise(this);
                 if (!verify()) {
                     THROWCONTRADICTION;
                 } else if (nonassigned > 3 && ToulBar2::LcLevel >= LC_AC) {
@@ -795,7 +796,7 @@ public:
                             if (W < capacity) {
                                 //Sort the Slopes
                                 sort(Slopes.begin(), Slopes.end(),
-                                     [&](std::array<Double, 4>& x, std::array<Double, 4>& y) {
+                                    [&](std::array<Double, 4>& x, std::array<Double, 4>& y) {
                                         if (x[3] == y[3]) {
                                             if (x[0] == y[0])
                                                 return weights[int(x[0])][int(x[1])] <= weights[int(y[0])][int(y[1])];
@@ -974,7 +975,7 @@ public:
         return result;
     }
 
-    void print(ostream& os)
+    void print(ostream& os) override
     {
         os << endl
            << this << " knapsackp(";

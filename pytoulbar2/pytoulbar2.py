@@ -1,18 +1,29 @@
-import pytoulbar2.pytb2 as tb2
+"""pytoulbar2 module
+
+This module is the Python interface of toulbar2.
+
+"""
+
+try :
+    import pytoulbar2.pytb2 as tb2
+except :
+    pass
+#import pytoulbar2.pytb2 as tb2
 
 class CFN:
-    def __init__(self, ubinit, resolution = 0, vac = 0, configuration = False, vns = None):
+    def __init__(self, ubinit, resolution = 0, vac = 0, configuration = False, vns = None, seed = 1, verbose = -1, showSolutions = 0):
         tb2.init()
         tb2.option.decimalPoint = resolution   # decimal precision of costs
         tb2.option.vac = vac   # if no zero, maximum search depth-1 where VAC algorithm is performed (use 1 for preprocessing only)
+        tb2.option.seed = seed    # random seed number (use -1 if a pseudo-randomly generated seed is wanted)
+        tb2.option.verbose = verbose   # verbosity level of toulbar2 (-1:no message, 0:search statistics, 1:search tree, 2-7: propagation information)
+        tb2.option.showSolutions = showSolutions   # show solutions found (0: none, 1: value indexes, 2: value names, 3: variable and value names if available)
         tb2.option.FullEAC = True   # if True, exploit VAC integrality variable orderding heuristic or just Full-EAC heuristic if VAC diseable 
 #        tb2.option.VACthreshold = True  # if True, reuse VAC auto-threshold value found in preprocessing during search 
 #        tb2.option.useRASPS = 1   # if 1 or greater, perform iterative RASPS depth-first search (or LDS if greater than 1) in preprocessing during 1000 backtracks to find good initial upperbound (use with VAC)
 #        tb2.option.hbfs = False   # if True, apply hybrid best-first search algorithm, else apply depth-first search algorithm
 #        tb2.option.backtrackLimit = 50000   # maximum number of backtracks before restart
 #        tb2.option.weightedTightness = False   # variable ordering heuristic exploiting cost distribution information (0: none, 1: mean cost, 2: median cost)
-        tb2.option.verbose = -1   # verbosity level of toulbar2 (-1:no message, 0:search statistics, 1:search tree, 2-7: propagation information)
-        tb2.option.showSolutions = 0   # show solutions found (0: none, 1: value indexes, 2: value names, 3: variable and value names if available)
 #        tb2.option.allSolutions = 1000   # find all solutions up to a maximum limit
 
         self.configuration = configuration   # if True then special settings for learning
@@ -57,6 +68,17 @@ class CFN:
         tb2.option.trwsAccuracy = -1
 
     def AddVariable(self, name, values):
+        """AddVariable summary line description (todo)
+
+        Args:
+            name (type (todo)):  (todo)
+            values (type (todo)):  (todo)
+
+        Returns:
+             (todo)
+
+        """
+
         if name in self.Variables:
             raise RuntimeError(name+" already defined")
         self.Variables[name] = values
@@ -76,6 +98,20 @@ class CFN:
         return vIdx
 
     def AddFunction(self, scope, costs, incremental = False):
+        """AddFunction summary line description (todo)
+
+        Description text (todo)
+     
+        Args:
+           scope (type (todo)): Description text (todo)
+           costs (type (todo)): Description text (todo)
+           incremental (type (todo)): Description text (todo)
+
+        Returns:
+             (todo)
+
+        """
+
         sscope = set(scope)
         if len(scope) != len(sscope):
             raise RuntimeError("Duplicate variable in scope:"+str(scope))
