@@ -13,14 +13,14 @@ Renault car configuration system: learning user preferences.
   |github_logo_renault|
 
 
-.. |github_logo_renault| image:: /_static/img/logo-github.svg
+.. |github_logo_renault| image:: /_static/img/logo-github.png
    :width: 30
    :alt: `github_url_renault`_
    :target: `github_url_renault`_
 
 .. _github_url_renault: https://github.com/toulbar2/CFN-learn/tree/master/renault
 
-.. |github_logo_CFNlearn| image:: /_static/img/logo-github.svg
+.. |github_logo_CFNlearn| image:: /_static/img/logo-github.png
    :width: 30
    :alt: `github_url_CFNlearn`_
    :target: `github_url_CFNlearn`_

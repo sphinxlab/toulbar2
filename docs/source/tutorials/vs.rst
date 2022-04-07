@@ -12,7 +12,7 @@ A simple case mixing **Deep Learning** and **Graphical models**.
 You can run it directly from your browser as a `Jupyter Notebook <https://colab.research.google.com/drive/1ew7IceldcAhyZZ0bHvaHynZyM-s-ne0l#scrollTo=tBwwmI21cFVZ>`_
 |colab_logo_visualsudoku|
 
-.. |colab_logo_visualsudoku| image:: /_static/img/logo-colab.svg
+.. |colab_logo_visualsudoku| image:: /_static/img/logo-colab.png
    :width: 30
    :alt: `colab_url_visualsudoku`_
    :target: `colab_url_visualsudoku`_
@@ -49,7 +49,7 @@ Available as a web service :
 
       curl --output mysolutionfilename.jpg -F 'file=@mygridfilename.jpg' -F 'keep=40' -F 'border=15' http://147.100.179.250/api/tool/vsudoku
 
-.. |github_logo_vsudoku| image:: /_static/img/logo-github.svg
+.. |github_logo_vsudoku| image:: /_static/img/logo-github.png
    :width: 30
    :alt: https://forgemia.inra.fr/thomas.schiex/cost-function-library/-/tree/master/crafted/visualsudoku
    :target: https://forgemia.inra.fr/thomas.schiex/cost-function-library/-/tree/master/crafted/visualsudoku
