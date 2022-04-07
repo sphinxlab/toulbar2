@@ -17,6 +17,7 @@ Detailed Content
 
      presentation.rst
      tutorials.rst
+     Other examples <examples.rst>
      userdoc.rst
      refman.rst
      publications.rst

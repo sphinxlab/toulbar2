@@ -1,13 +1,11 @@
 .. _tutorials:
 
-.. include:: news/news_tutorials.rst
-
 =========
 Tutorials
 =========
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    tutorials/wnqp.rst
    tutorials/wlsp.rst
@@ -19,7 +17,9 @@ Tutorials
    tutorials/wlp.rst
    tutorials/spp.rst
    tutorials/sspp.rst
-   tutorials/ltps.rst
-   tutorials/rccs.rst
-   tutorials/vs.rst
+
+.. seealso::
+
+   - :ref:`Other examples <examples>`
+
 

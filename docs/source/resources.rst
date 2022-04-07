@@ -18,6 +18,11 @@ Binaries
   `MacOs 64bit <https://github.com/toulbar2/toulbar2/releases/download/v1.1.1/toulbar2mac>`_ |
   `Windows 64bit <https://github.com/toulbar2/toulbar2/releases/download/v1.1.1/toulbar2.exe>`_
 
+Python package
+--------------
+
+- pytoulbar2 module for Linux and MacOS on `PyPI <https://pypi.org/project/pytoulbar2>`_ 
+
 Open-source code
 ----------------
 
@@ -64,4 +69,23 @@ Manuals
   :download:`Tutorials<_files/tutorials.pdf>` |
   :download:`WCSP format<_files/WCSP_format.pdf>` |
   :download:`CFN format<_files/CFN_format.pdf>` 
+
+Other productions
+=================
+
+- ANITI webinar on toulbar2 for industrial applications :
+  `slides <https://miat.inrae.fr/degivry/GivryANITI2021.pdf>`_ in English |
+  `talk <https://youtu.be/lH04asuheo8>`_ in French
+
+- tutorial `materials <https://forgemia.inra.fr/thomas.schiex/acpaior20>`_ on
+  cost function networks at `ACP/ANITI/GDR-IA/RO Autumn School 2020
+  <https://acp-iaro-school.sciencesconf.org>`_.
+
+- tutorial on cost function networks at CP2020 (`teaser <https://www.youtube.com/watch?v=g8lgoR4XufU>`_, `part1 <https://www.youtube.com/watch?v=HHsqdVSJL8g>`_, `part2 <https://youtu.be/BYhhyiPFPGw>`_ videos, and `script <https://github.com/toulbar2/toulbar2/blob/master/web/TUTORIALS/tutorialCP2020.md>`_
+
+- tutorial on cost function networks at PFIA 2019 (`part1 <http://miat.inrae.fr/degivry/talkPFIA2019part1.pdf>`_, `part2 <http://miat.inrae.fr/degivry/talkPFIA2019part2.pdf>`_, `demo <https://miat.inrae.fr/degivry/talkPFIA2019demo.pdf>`_), Toulouse, France, July 4th, 2019.
+
+- talk on toulbar2 latest algorithmic features at `ISMP 2018 <http://miat.inrae.fr/degivry/GivryISMP2018.pdf>`_, Bordeaux, France, July 6, 2018.
+
+- toulbar2 projects meeting at `CP 2016 <https://cp2016.sched.org/event/89xl>`_, Toulouse, France, September 5, 2016.
 
