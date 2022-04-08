@@ -7,7 +7,7 @@
         <span style="color:Firebrick; font-weight:bold;"> New! </span>
 
         web site now in Sphinx (more documentation
-        on <a href="resources.html">Resources</a>)</br>
+        on <a href="pdfmanuals.html">Manuals (pdf version)</a>)</br>
         </br>
         
     </div>

@@ -16,10 +16,11 @@ Detailed Content
      :maxdepth: 3
 
      presentation.rst
+     downloads.rst
+     benchmarks.rst
      tutorials.rst
      Other examples <examples.rst>
      userdoc.rst
      refman.rst
+     pdfmanuals.rst
      publications.rst
-     resources.rst
-
