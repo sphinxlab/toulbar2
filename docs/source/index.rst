@@ -20,7 +20,7 @@ Detailed Content
    benchmarks.rst
    tutorials.rst
    usecases.rst
-   examples/examples_toc.rst
+   All examples <examples/examples_toc.rst>
    userdoc.rst
    refman.rst
    pdfmanuals.rst

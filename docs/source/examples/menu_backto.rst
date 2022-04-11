@@ -7,6 +7,7 @@
     <div align=right>
         <span style="color:Firebrick; font-weight:bold;"> Back to </span>
         <a href="../tutorials.html">Tutorials</a> | 
-        <a href="../usecases.html">Use cases</a>
+        <a href="../usecases.html">Projects using toulbar2</a>
+        <br>
     </div>
 

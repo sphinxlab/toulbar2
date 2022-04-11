@@ -4,6 +4,17 @@
 Publications
 ============
 
+Conference talks
+================
+
+- ANITI webinar on toulbar2 for industrial applications :
+  `slides <https://miat.inrae.fr/degivry/GivryANITI2021.pdf>`_ in English |
+  `talk <https://youtu.be/lH04asuheo8>`_ in French
+
+- talk on toulbar2 latest algorithmic features at `ISMP 2018 <http://miat.inrae.fr/degivry/GivryISMP2018.pdf>`_, Bordeaux, France, July 6, 2018.
+
+- toulbar2 projects meeting at `CP 2016 <https://cp2016.sched.org/event/89xl>`_, Toulouse, France, September 5, 2016.
+
 Related publications
 ====================
 

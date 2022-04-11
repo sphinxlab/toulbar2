@@ -1,22 +1,22 @@
 .. _examples_toc:
 
-============
-All examples
-============
+====================
+List of all examples
+====================
 
 .. toctree::
    :maxdepth: 1
 
-   wnqp.rst
-   wlsp.rst
-   rlfap.rst
-   fapwp.rst
-   medp.rst
-   bmp.rst
-   alp.rst
-   wlp.rst
-   spp.rst
-   sspp.rst
+   tuto_wnqp.rst
+   tuto_wlsp.rst
+   tuto_rlfap.rst
+   tuto_fapwp.rst
+   tuto_medp.rst
+   tuto_bmp.rst
+   tuto_alp.rst
+   tuto_wlp.rst
+   tuto_spp.rst
+   tuto_sspp.rst
 
    ltps.rst
    rccs.rst

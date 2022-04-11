@@ -18,5 +18,10 @@ Tutorials materials
 Tutorials relying on examples
 =============================
 
+Here are several examples using toulbar2 in order to resolve different problems.
+They can be followed as tutorials.
+
+According to cases, they may contain source code, tutorials explaining the examples, possibility to try yourself...
+
 .. include:: examples/tutorials_list.rst
 
