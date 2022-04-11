@@ -6,12 +6,17 @@ Learning to play the Sudoku
 
 .. include:: menu_backto.rst
 
-`Presentation <https://github.com/toulbar2/CFN-learn/tree/master/Sudoku#readme>`_ |
-`GitHub code <https://github.com/toulbar2/CFN-learn>`_
-|github_logo_CFNlearn| |
-Data
-`GitHub code <https://github.com/toulbar2/CFN-learn/tree/master/Sudoku>`_
-|github_logo_sudoku|
+Available
+=========
+
+- `Presentation <https://github.com/toulbar2/CFN-learn/tree/master/Sudoku#readme>`_
+
+- `GitHub code <https://github.com/toulbar2/CFN-learn>`_
+  |github_logo_CFNlearn|
+
+- Data
+  `GitHub code <https://github.com/toulbar2/CFN-learn/tree/master/Sudoku>`_
+  |github_logo_sudoku|
 
 .. |github_logo_sudoku| image:: /_static/img/logo-github.png
    :width: 30

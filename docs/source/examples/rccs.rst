@@ -6,12 +6,20 @@ Learning car configuration preferences
 
 .. include:: menu_backto.rst
 
+Brief description
+=================
+
 Renault car configuration system: learning user preferences.
  
-  `Presentation <https://github.com/toulbar2/CFN-learn/tree/master/renault#readme>`_ |
-  `GitHub code <https://github.com/toulbar2/CFN-learn>`_ 
-  |github_logo_CFNlearn| |
-  Data `GitHub code <https://github.com/toulbar2/CFN-learn/tree/master/renault>`_
+Available
+=========
+
+- `Presentation <https://github.com/toulbar2/CFN-learn/tree/master/renault#readme>`_
+
+- `GitHub code <https://github.com/toulbar2/CFN-learn>`_ 
+  |github_logo_CFNlearn|
+
+- Data `GitHub code <https://github.com/toulbar2/CFN-learn/tree/master/renault>`_
   |github_logo_renault|
 
 

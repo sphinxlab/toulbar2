@@ -6,25 +6,31 @@ Visual Sudoku Application
 
 .. include:: menu_backto.rst
 
+Brief description
+=================
+
 An automatic Sudoku puzzle **solver** using **OpenCV**, **Deep Learning**, and **Optical Character Recognition** (**OCR**).
 
-Software adapted by Simon de Givry (@ INRAE, 2022)
-in order to use **toulbar2** solver, from a
-`tutorial <https://pyimagesearch.com/2020/08/10/opencv-sudoku-solver-and-ocr>`_
-by Adrian Rosebrock (@ PyImageSearch, 2022).
+Available
+=========
 
-`GitHub code <https://forgemia.inra.fr/thomas.schiex/cost-function-library/-/tree/master/crafted/visualsudoku>`_
-|github_logo_vsudoku|
+- **Software** adapted by Simon de Givry (@ INRAE, 2022)
+  in order to use **toulbar2** solver, from a
+  `tutorial <https://pyimagesearch.com/2020/08/10/opencv-sudoku-solver-and-ocr>`_
+  by Adrian Rosebrock (@ PyImageSearch, 2022) :
 
-Available as a web service :
+  `GitHub code <https://forgemia.inra.fr/thomas.schiex/cost-function-library/-/tree/master/crafted/visualsudoku>`_
+  |github_logo_vsudoku|
+  
+- **As a web service** :
 
-  - You can `try it <http://147.100.179.250/api/ui/vsudoku>`_
-    directly from your browser as a `web service <http://147.100.179.250/api/ui/vsudoku>`_
+  - You can run this software directly from your browser as a
+    `web service <http://147.100.179.250/api/ui/vsudoku>`_
     |qrcode_ui_vsudoku| 
 
   - Other ways to call the web service :
 
-    The visual sudoku web service is hosted by the `ws <http://147.100.179.250>`_ web services that are based on HTTP protocol, so it can be called by many ways : from a browser (like above), or any softwares written in a language supporting HTTP protocol (Python, R, C++, Java, Php...), or command line tools (cURL...)...
+    The **visual sudoku web service**, hosted by the `ws <http://147.100.179.250>`_ web services (based on HTTP protocol), can be called by many ways : from a browser (like above), from any softwares written in a language supporting HTTP protocol (Python, R, C++, Java, Php...), from command line tools (cURL...)...
 
     Example from a terminal by cURL (*replace mygridfilename.jpg by your own image file name*) : ::
 
