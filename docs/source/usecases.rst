@@ -1,19 +1,14 @@
-.. _examples:
+.. _usecases:
 
-========
-Examples
-========
+=========
+Use cases
+=========
 
 To see, learn, use...
 
 Several examples that demonstrate toulbar2 usages, that can be used to learn, discover...
 
 They may contain : source code, tutorials that explain the examples, possibility to try/run yourself...
-
-Examples to learn
-=================
-
-.. include:: examples/tutorials_list.rst
 
 Projects using toulbar2
 =======================

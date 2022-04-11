@@ -12,15 +12,19 @@
 Detailed Content
 ----------------
 
-  .. toctree::
-     :maxdepth: 3
+.. toctree::
+   :maxdepth: 3
 
-     presentation.rst
-     downloads.rst
-     benchmarks.rst
-     tutorials.rst
-     Other examples <examples.rst>
-     userdoc.rst
-     refman.rst
-     pdfmanuals.rst
-     publications.rst
+   presentation.rst
+   downloads.rst
+   benchmarks.rst
+   tutorials.rst
+   usecases.rst
+   examples/examples_toc.rst
+   userdoc.rst
+   refman.rst
+   pdfmanuals.rst
+   publications.rst
+
+.. examples/examples_toc.rst required for latex case
+

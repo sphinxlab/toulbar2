@@ -4,22 +4,19 @@
 Tutorials
 =========
 
-.. toctree::
-   :maxdepth: 1
+Tutorials materials
+===================
 
-   tutorials/wnqp.rst
-   tutorials/wlsp.rst
-   tutorials/rlfap.rst
-   tutorials/fapwp.rst
-   tutorials/medp.rst
-   tutorials/bmp.rst
-   tutorials/alp.rst
-   tutorials/wlp.rst
-   tutorials/spp.rst
-   tutorials/sspp.rst
+  - tutorial `materials <https://forgemia.inra.fr/thomas.schiex/acpaior20>`_ on
+    cost function networks at `ACP/ANITI/GDR-IA/RO Autumn School 2020
+    <https://acp-iaro-school.sciencesconf.org>`_.
 
-.. seealso::
+  - tutorial on cost function networks at CP2020 (`teaser <https://www.youtube.com/watch?v=g8lgoR4XufU>`_, `part1 <https://www.youtube.com/watch?v=HHsqdVSJL8g>`_, `part2 <https://youtu.be/BYhhyiPFPGw>`_ videos, and `script <https://github.com/toulbar2/toulbar2/blob/master/web/TUTORIALS/tutorialCP2020.md>`_
 
-   - :ref:`Other examples <examples>`
+  - tutorial on cost function networks at PFIA 2019 (`part1 <http://miat.inrae.fr/degivry/talkPFIA2019part1.pdf>`_, `part2 <http://miat.inrae.fr/degivry/talkPFIA2019part2.pdf>`_, `demo <https://miat.inrae.fr/degivry/talkPFIA2019demo.pdf>`_), Toulouse, France, July 4th, 2019.
 
+Tutorials relying on examples
+=============================
+
+.. include:: examples/tutorials_list.rst
 

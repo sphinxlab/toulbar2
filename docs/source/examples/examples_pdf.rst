@@ -1,4 +1,4 @@
-.. _examples:
+.. _examples_pdf:
 
 ========
 Examples
@@ -10,13 +10,32 @@ Several examples that demonstrate toulbar2 usages, that can be used to learn, di
 
 They may contain : source code, tutorials that explain the examples, possibility to try/run yourself...
 
+
 Examples to learn
 =================
 
-.. include:: examples/tutorials_list.rst
+.. include:: tutorials_list.rst
 
 Projects using toulbar2
 =======================
 
-.. include:: examples/usecases_list.rst
+.. include:: usecases_list.rst
+
+.. TOC :
+
+.. include:: examples_toc.rst
+
+
+
+
+
+
+.. _examples_pdf:
+  
+.. include:: ../examples.rst
+
+.. TOC :
+
+.. include:: examples_toc.rst
+
 
