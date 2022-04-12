@@ -22,3 +22,4 @@ List of all examples
    rccs.rst
    vstut.rst
    vsapp.rst
+   snum.rst

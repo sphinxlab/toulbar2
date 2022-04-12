@@ -19,4 +19,5 @@
 - :ref:`ltps`
 - :ref:`rccs`
 - :ref:`vs_tut`
+- :ref:`snum` (verbose version)
 
