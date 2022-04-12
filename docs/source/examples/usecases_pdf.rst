@@ -1,6 +1,8 @@
 .. _usecases_pdf:
 
-.. include:: ../usecases.rst
+.. include:: usecases.rst
+
+You will find those listed use cases among the following exhaustive list of examples.
 
 .. TOC :
 

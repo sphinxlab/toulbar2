@@ -18,8 +18,8 @@ Detailed Content
    presentation.rst
    downloads.rst
    benchmarks.rst
-   tutorials.rst
-   usecases.rst
+   examples/tutorials.rst
+   Use cases <examples/usecases.rst>
    All examples <examples/examples_toc.rst>
    userdoc.rst
    refman.rst
