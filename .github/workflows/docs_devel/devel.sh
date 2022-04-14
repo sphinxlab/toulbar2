@@ -27,7 +27,7 @@ apt-get -y install cmake g++ libgmp-dev libboost-graph-dev libboost-iostreams-de
  
 pwd
 ls -lah
-export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
+#export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
  
 # make a new temp dir which will be our GitHub Pages docroot
 docroot=`mktemp -d`
@@ -94,7 +94,8 @@ git add .
 
 git status
  
-msg="Updating Docs for commit ${GITHUB_SHA} made on `date -d"@${SOURCE_DATE_EPOCH}" --iso-8601=seconds` from ${GITHUB_REF} by ${GITHUB_ACTOR}"
+#msg="Updating Docs for commit ${GITHUB_SHA} made on `date -d"@${SOURCE_DATE_EPOCH}" --iso-8601=seconds` from ${GITHUB_REF} by ${GITHUB_ACTOR}"
+msg="Updating Docs for commit ${GITHUB_SHA} made from ${GITHUB_REF} by ${GITHUB_ACTOR}"
 git commit -am "${msg}"
  
 git push deploy gh-pages --force
