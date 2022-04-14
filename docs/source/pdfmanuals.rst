@@ -22,7 +22,6 @@ Documentation in pdf
     :download:`WCSP format<_files/WCSP_format.pdf>` |
     :download:`CFN format<_files/CFN_format.pdf>` 
 
-    :download:`All examples <_files/examples.pdf>` |
     :download:`Tutorials<_files/tutorials.pdf>` |
-    :download:`Projects using toulbar2<_files/usecases.pdf>`
+    :download:`Use cases<_files/usecases.pdf>`
 

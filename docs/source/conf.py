@@ -187,10 +187,6 @@ latex_documents = [
      '', # to keep .rst title
      'INRAE', 'manual'),
 
-    ('examples/examples_pdf', 'examples.tex',
-     '', # to keep .rst title
-     'INRAE', 'manual'),
-
     ('refman', 'refman.tex',
      'toulbar2 Reference Manual',
      'INRAE', 'manual'),
@@ -218,7 +214,7 @@ latex_documents = [
 
     # main
 
-    ('index', 'toulbar2.tex',
+    ('index_pdf', 'toulbar2.tex',
      'toulbar2 Documentation',
      'INRAE', 'manual'),
 ]

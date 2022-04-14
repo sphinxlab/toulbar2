@@ -5,9 +5,9 @@
 
 .. _home:
 
-.. only:: html
+.. _index:
 
-    .. include:: presentation.rst
+.. include:: presentation.rst
 
 Detailed Content
 ----------------
@@ -20,11 +20,8 @@ Detailed Content
    benchmarks.rst
    examples/tutorials.rst
    Use cases <examples/usecases.rst>
-   All examples <examples/examples_toc.rst>
    userdoc.rst
    refman.rst
    pdfmanuals.rst
    publications.rst
-
-.. examples/examples_toc.rst required for latex case
 
