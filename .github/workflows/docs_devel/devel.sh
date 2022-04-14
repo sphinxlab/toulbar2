@@ -46,6 +46,7 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
 versions="sphinx-nr step4 master"
 
 for current_version in ${versions}; do
+   echo "********** FOR ${current_version}"
    git checkout ${current_version}
    .github/workflows/docs_devel/build.sh ${docroot} ${current_version}
    git checkout master # return to master branch
