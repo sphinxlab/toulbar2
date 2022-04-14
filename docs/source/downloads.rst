@@ -4,6 +4,13 @@
 Downloads
 =========
 
+Packages
+--------
+
+- to install **toulbar2** using the package manager in Debian and Debian derived Linux distributions (Ubuntu, Mint,...): ::
+
+    apt install toulbar2
+
 Binaries
 --------
 
@@ -16,7 +23,7 @@ Binaries
 Python package
 --------------
 
-- pytoulbar2 module for Linux and MacOS on `PyPI <https://pypi.org/project/pytoulbar2>`_ 
+- **pytoulbar2** module for Linux and MacOS on `PyPI <https://pypi.org/project/pytoulbar2>`_ 
 
 Open-source code
 ----------------
