@@ -45,6 +45,13 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
 #versions="sphinx-nr step1 step2"
 versions="sphinx-nr step4 master"
 
+echo ""
+echo ""
+echo "**********"
+echo "* VERSIONS : ${versions}"
+echo "**********"
+echo ""
+echo ""
 for current_version in ${versions}; do
    echo "********** FOR ${current_version}"
    git checkout ${current_version}
