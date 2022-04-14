@@ -52,6 +52,16 @@ echo "* VERSIONS : ${versions}"
 echo "**********"
 echo ""
 echo ""
+
+
+# !!! ERROR
+# fatal: unsafe repository ('/__w/toulbar2/toulbar2' is owned by someone else)
+# To add an exception for this directory, call:
+# git config --global --add safe.directory /__w/toulbar2/toulbar2
+
+git config --global --add safe.directory /__w/toulbar2/toulbar2
+
+
 for current_version in ${versions}; do
    echo "********** FOR ${current_version}"
    git checkout ${current_version}
