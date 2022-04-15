@@ -9,9 +9,7 @@ Introduction
 
 Here are several toulbar2 use cases, where toulbar2 has been used in order to 
 resolve different problems.
-
 According to cases, they can be used to overview, learn, use toulbar2...
-
 They may contain source code, explanations, possibility to run yourself...
 
 .. only:: latex
