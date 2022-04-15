@@ -1,5 +1,9 @@
 .. _usecases_pdf:
 
+=========
+Use cases
+=========
+
 .. include:: usecases.rst
 
 .. TOC :
