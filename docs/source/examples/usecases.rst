@@ -29,8 +29,3 @@ Some applications based on toulbar2
   :ref:`vs_app` |
   :ref:`snum`
 
-Examples to learn
-=================
-
-.. include:: tutorials_list.rst
-
