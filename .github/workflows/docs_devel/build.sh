@@ -18,8 +18,8 @@ export current_version # for conf.py
  
 echo "INFO: Building for ${current_version}"
  
-if [ ! -e 'docs/conf.py' ]; then
-    echo -e "\tINFO: Can not find 'docs/conf.py' (skipped)"
+if [ ! -e 'docs/source/conf.py' ]; then
+    echo -e "\tINFO: Can not find 'docs/source/conf.py' (skipped)"
     continue
 fi
 

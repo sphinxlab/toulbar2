@@ -43,7 +43,7 @@ export REPO_NAME="${GITHUB_REPOSITORY##*/}"
 # manual selection of a list of branches
 ###versions="master sphinx-nr sphinx-usr"
 #versions="sphinx-nr step1 step2"
-versions="sphinx-nr step4 master"
+versions="sphinx-nr step4 step5"
 
 echo ""
 echo ""
@@ -53,11 +53,10 @@ echo "**********"
 echo ""
 echo ""
 
-
 # !!! ERROR
-# fatal: unsafe repository ('/__w/toulbar2/toulbar2' is owned by someone else)
-# To add an exception for this directory, call:
-# git config --global --add safe.directory /__w/toulbar2/toulbar2
+#     fatal: unsafe repository ('/__w/toulbar2/toulbar2' is owned by someone else)
+#     To add an exception for this directory, call:
+#     git config --global --add safe.directory /__w/toulbar2/toulbar2
 
 git config --global --add safe.directory /__w/toulbar2/toulbar2
 
