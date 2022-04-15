@@ -14,11 +14,24 @@ They may contain source code, explanations, possibility to run yourself...
     You will find the mentioned examples, among the following exhaustive 
     list of examples.
 
-- **toulbar2 and Deep Learning** :
+**toulbar2 and Deep Learning** :
 
-  :ref:`vs_tut` | :ref:`vs_app`
+  - :ref:`vs_tut`
 
-- **Some applications based on toulbar2** :
+  - :ref:`vs_app`
 
-  :ref:`vs_app` | :ref:`snum`
+**Some applications based on toulbar2** :
+
+  - **Mendelsoft** : `Mendelsoft <https://miat.inrae.fr/MendelSoft>`_ detects
+    Mendelian errors in complex pedigree [Sanchez et al, Constraints 2008].
+
+  - **Pompd** : `POsitive Multistate Protein Design
+    <https://forgemia.inra.fr/thomas.schiex/pompd>`_, 
+    [Vucini et al Bioinformatics 2020]
+    `URL <https://academic.oup.com/bioinformatics/article/36/1/122/5519117?login=true>`_
+    and `pdf <https://hal.inrae.fr/hal-02625007/file/main.pdf>`_
+
+  - :ref:`vs_app`
+
+  - :ref:`snum`
 
