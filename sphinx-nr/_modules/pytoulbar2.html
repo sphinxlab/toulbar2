@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pytoulbar2 &mdash; toulbar2 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/toulbar2.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> toulbar2
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../presentation.html">Presentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../downloads.html">Downloads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../benchmarks.html">Benchmark libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/usecases.html">Use cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userdoc.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../refman.html">Reference Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pdfmanuals.html">Documentation in pdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../publications.html">Publications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toulbar2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+<div class=toulbar2header>
+
+  <div class="toulbar2logo">
+
+    <h1>toulbar2</h1>
+    <h2>An exact solver for cost function networks</h2>
+
+  </div>
+
+  <div class=toulbar2headerline>
+
+    <a href=../presentation.html>Presentation</a> |
+    <a href=../downloads.html>Downloads</a> |
+    <a href=../benchmarks.html>Benchmarks</a> |
+    <a href=../examples/tutorials.html>Tutorials</a> |
+    <a href=../examples/usecases.html>Use cases</a> |
+    <a href=../userdoc.html>User</a> |
+    <a href=../refman.html>Reference</a> |
+    <a href=../pdfmanuals.html>Doc in pdf</a> |
+    <a href=../publications.html>Publications</a>
+
+  </div>
+
+</div>
+
+<!-- News : see news_*.rst pages -->
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pytoulbar2</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Help on module pytoulbar2:</span>
+
+<span class="sd">NAME</span>
+<span class="sd">    pytoulbar2 - Python3 interface of toulbar2.</span>
+
+<span class="sd">DESCRIPTION</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">try</span> <span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pytoulbar2.pytb2</span> <span class="k">as</span> <span class="nn">tb2</span>
+<span class="k">except</span> <span class="p">:</span>
+    <span class="k">pass</span>
+
+<div class="viewcode-block" id="CFN"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN">[docs]</a><span class="k">class</span> <span class="nc">CFN</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;pytoulbar2 base class used to manipulate and solve a cost function network.</span>
+<span class="sd">    </span>
+<span class="sd">    See pytoulbar2test.py example in src repository.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ubinit</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">resolution</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vac</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">configuration</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">vns</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+        
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">decimalPoint</span> <span class="o">=</span> <span class="n">resolution</span>   <span class="c1"># decimal precision of costs</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">vac</span> <span class="o">=</span> <span class="n">vac</span>   <span class="c1"># if no zero, maximum search depth-1 where VAC algorithm is performed (use 1 for preprocessing only)</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>    <span class="c1"># random seed number (use -1 if a pseudo-randomly generated seed is wanted)</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>   <span class="c1"># verbosity level of toulbar2 (-1:no message, 0:search statistics, 1:search tree, 2-7: propagation information)</span>
+
+        <span class="c1"># default options (can be modified later by the user)</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">FullEAC</span> <span class="o">=</span> <span class="kc">True</span>   <span class="c1"># if True, exploit VAC integrality variable orderding heuristic or just Full-EAC heuristic if VAC diseable</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">VACthreshold</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># if True, reuse VAC auto-threshold value found in preprocessing during search </span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">useRASPS</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># if 1 or greater, perform iterative RASPS depth-first search (or LDS if greater than 1) in preprocessing during 1000 backtracks to find a good initial upperbound (to be used with VAC)</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">weightedTightness</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># if 1 or 2, variable ordering heuristic exploiting cost distribution information (0: none, 1: mean cost, 2: median cost)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">configuration</span> <span class="o">=</span> <span class="n">configuration</span>   <span class="c1"># if True then special settings for learning</span>
+        <span class="k">if</span> <span class="n">configuration</span><span class="p">:</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">elimDegree_preprocessing</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># maximum degree level of variable elimination in preprocessing (-1: none, 0: null degree, 1: degree one, etc.)</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">solutionBasedPhaseSaving</span> <span class="o">=</span> <span class="kc">False</span>   <span class="c1">#  if False do not reuse previous complete solutions as hints during incremental solving used by structure learning evaluation procedure!</span>
+
+        <span class="k">if</span> <span class="n">vns</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">vnsInitSol</span> <span class="o">=</span> <span class="n">vns</span>   <span class="c1"># if vns different than None then perform Decomposition-Guided Variable Neighborhood Search (-1: initial solution at random, -2: minimum domain values, -3: maximum domain values, -4: first solution found by DFS, &gt;=0: or by LDS with at most vns discrepancies)</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">lds</span> <span class="o">=</span> <span class="mi">4</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">restart</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">;</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">searchMethod</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>    <span class="c1"># 0:DFBB or HBFS, 1:VNS, 2:DGVNS 4:Parallel DGVNS</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">vnsNeighborVarHeur</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>   <span class="c1"># 0: random, 1:conflict, 3: decomposition</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Variables</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">VariableIndices</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Scopes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">VariableNames</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span> <span class="o">=</span> <span class="n">tb2</span><span class="o">.</span><span class="n">Solver</span><span class="p">()</span> <span class="c1"># initialize VAC algorithm depending on tb2.option.vac</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">UbInit</span> <span class="o">=</span> <span class="n">ubinit</span> <span class="c1"># warning! cannot convert initial upper bound into an integer cost before knowing the rest of the problem        </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Contradiction</span> <span class="o">=</span> <span class="n">tb2</span><span class="o">.</span><span class="n">Contradiction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SolverOut</span> <span class="o">=</span> <span class="n">tb2</span><span class="o">.</span><span class="n">SolverOut</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Option</span> <span class="o">=</span> <span class="n">tb2</span><span class="o">.</span><span class="n">option</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Top</span> <span class="o">=</span> <span class="n">tb2</span><span class="o">.</span><span class="n">MAX_COST</span> <span class="o">//</span> <span class="mi">10</span><span class="o">**</span><span class="n">resolution</span>    <span class="c1"># can be used to represent forbidden assignments</span>
+        
+        <span class="n">tb2</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>    <span class="c1"># checks compatibility between selected options</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">Scopes</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">Variables</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">VariableIndices</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">VariableNames</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span>
+
+<div class="viewcode-block" id="CFN.flatten"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.flatten">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">S</span> <span class="o">==</span> <span class="p">[]:</span>
+            <span class="k">return</span> <span class="n">S</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">CFN</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">CFN</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="k">return</span> <span class="n">S</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">CFN</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span></div>
+
+<div class="viewcode-block" id="CFN.NoPreprocessing"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.NoPreprocessing">[docs]</a>    <span class="k">def</span> <span class="nf">NoPreprocessing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">elimDegree</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">elimDegree_preprocessing</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">preprocessTernaryRPC</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">preprocessFunctional</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">costfuncSeparate</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">preprocessNary</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">DEE</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">MSTDAC</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">trwsAccuracy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span></div>
+
+<div class="viewcode-block" id="CFN.AddVariable"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.AddVariable">[docs]</a>    <span class="k">def</span> <span class="nf">AddVariable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;AddVariable summary line description....</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (type...): ...</span>
+<span class="sd">            values (type...): ...</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ...</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Variables</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot; already defined&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span>
+
+        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">):</span>
+            <span class="n">vIdx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">makeEnumeratedVariable</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">vn</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">addValueName</span><span class="p">(</span><span class="n">vIdx</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">vn</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">):</span>
+            <span class="n">vIdx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">makeEnumeratedVariable</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">vn</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">addValueName</span><span class="p">(</span><span class="n">vIdx</span><span class="p">,</span> <span class="n">vn</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Incorrect domain:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">VariableIndices</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">vIdx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">VariableNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">vIdx</span></div>
+
+<div class="viewcode-block" id="CFN.AddFunction"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.AddFunction">[docs]</a>    <span class="k">def</span> <span class="nf">AddFunction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">costs</span><span class="p">,</span> <span class="n">incremental</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;AddFunction summary line description....</span>
+
+<span class="sd">        Description text ... AddFunction ...</span>
+<span class="sd">     </span>
+<span class="sd">        Args:</span>
+<span class="sd">           scope (type...): Description text...</span>
+<span class="sd">           costs (type...): Description text...</span>
+<span class="sd">           incremental (type...): Description text...</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ...</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sscope</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sscope</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Duplicate variable in scope:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">scope</span><span class="p">))</span>
+        <span class="n">iscope</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scope</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VariableIndices</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">VariableNames</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Out of range variable index:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+            <span class="n">iscope</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> 
+            
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">assert</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">costs</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNullaryConstraint</span><span class="p">(</span><span class="n">costs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postUnaryConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">costs</span><span class="p">,</span> <span class="n">incremental</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postBinaryConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">costs</span><span class="p">,</span> <span class="n">incremental</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="k">assert</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postTernaryConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">iscope</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">costs</span><span class="p">,</span> <span class="n">incremental</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">incremental</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s1">&#39;Sorry, incremental &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;-arity cost functions not implemented yet in toulbar2.&#39;</span><span class="p">)</span>
+            <span class="n">mincost</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">costs</span><span class="p">)</span>
+            <span class="n">maxcost</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">costs</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNullaryConstraint</span><span class="p">(</span><span class="n">mincost</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">mincost</span> <span class="o">==</span> <span class="n">maxcost</span><span class="p">):</span>
+                <span class="k">return</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNaryConstraintBegin</span><span class="p">(</span><span class="n">iscope</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">costs</span><span class="p">)</span> <span class="o">-</span> <span class="n">costs</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="nb">tuple</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toValue</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">iscope</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">cost</span> <span class="ow">in</span> <span class="n">costs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cost</span> <span class="o">&gt;</span> <span class="n">mincost</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNaryConstraintTuple</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">cost</span><span class="o">-</span><span class="n">mincost</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">decimalPoint</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)):</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">r</span>
+                    <span class="n">v</span> <span class="o">=</span> <span class="n">iscope</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toValue</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                        <span class="nb">tuple</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)):</span>
+                            <span class="nb">tuple</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toValue</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+                        <span class="k">break</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNaryConstraintEnd</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Scopes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sscope</span><span class="p">)</span>
+        <span class="k">return</span></div>
+
+<div class="viewcode-block" id="CFN.AddCompactFunction"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.AddCompactFunction">[docs]</a>    <span class="k">def</span> <span class="nf">AddCompactFunction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">defcost</span><span class="p">,</span> <span class="n">tuples</span><span class="p">,</span> <span class="n">tcosts</span><span class="p">,</span> <span class="n">incremental</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;AddCompactFunction summary line description....</span>
+
+<span class="sd">        Description text ... AddCompactFunction ...</span>
+<span class="sd">     </span>
+<span class="sd">        Args:</span>
+<span class="sd">           scope (type...): Description text...</span>
+<span class="sd">           tcosts (type...): Description text...</span>
+<span class="sd">           incremental (type...): Description text...</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ...</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tuples</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">tcosts</span><span class="p">))</span>
+        <span class="n">sscope</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sscope</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Duplicate variable in scope:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">scope</span><span class="p">))</span>
+        <span class="n">iscope</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scope</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VariableIndices</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">VariableNames</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Out of range variable index:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+            <span class="n">iscope</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> 
+            
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tuples</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNullaryConstraint</span><span class="p">(</span><span class="n">defcost</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">costs</span> <span class="o">=</span> <span class="p">[</span><span class="n">defcost</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="nb">tuple</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tuples</span><span class="p">):</span>
+                <span class="n">costs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toIndex</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="n">tcosts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postUnaryConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">costs</span><span class="p">,</span> <span class="n">incremental</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="n">costs</span> <span class="o">=</span> <span class="p">[</span><span class="n">defcost</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="nb">tuple</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tuples</span><span class="p">):</span>
+                <span class="n">costs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toIndex</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toIndex</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span> <span class="o">=</span> <span class="n">tcosts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postBinaryConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">costs</span><span class="p">,</span> <span class="n">incremental</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="n">costs</span> <span class="o">=</span> <span class="p">[</span><span class="n">defcost</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="nb">tuple</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tuples</span><span class="p">):</span>
+                <span class="n">costs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toIndex</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toIndex</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toIndex</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">])]</span> <span class="o">=</span> <span class="n">tcosts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postTernaryConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">iscope</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">iscope</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">costs</span><span class="p">,</span> <span class="n">incremental</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">incremental</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s1">&#39;Sorry, incremental &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iscope</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;-arity cost functions not implemented yet in toulbar2.&#39;</span><span class="p">)</span>
+            <span class="n">mincost</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">defcost</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">tcosts</span><span class="p">))</span>
+            <span class="n">maxcost</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">defcost</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tcosts</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNullaryConstraint</span><span class="p">(</span><span class="n">mincost</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">mincost</span> <span class="o">==</span> <span class="n">maxcost</span><span class="p">):</span>
+                <span class="k">return</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNaryConstraintBegin</span><span class="p">(</span><span class="n">iscope</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">defcost</span> <span class="o">-</span> <span class="n">mincost</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">decimalPoint</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">tcosts</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="nb">tuple</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tuples</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNaryConstraintTuple</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">tcosts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mincost</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">decimalPoint</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postNaryConstraintEnd</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Scopes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sscope</span><span class="p">)</span>
+        <span class="k">return</span></div>
+
+
+<div class="viewcode-block" id="CFN.AddLinearConstraint"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.AddLinearConstraint">[docs]</a>    <span class="k">def</span> <span class="nf">AddLinearConstraint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coefs</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="n">operand</span> <span class="o">=</span> <span class="s1">&#39;==&#39;</span><span class="p">,</span> <span class="n">rightcoef</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">coefs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">scope</span><span class="p">))</span>
+        <span class="n">sscope</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">scope</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sscope</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Duplicate variable in scope: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">scope</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">operand</span> <span class="o">!=</span> <span class="s1">&#39;&gt;=&#39;</span> <span class="ow">and</span> <span class="n">operand</span> <span class="o">!=</span> <span class="s1">&#39;&lt;=&#39;</span> <span class="ow">and</span> <span class="n">operand</span> <span class="o">!=</span> <span class="s1">&#39;==&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown operand in AddLinearConstraint: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">operand</span><span class="p">))</span>
+        <span class="n">iscope</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scope</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VariableIndices</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">VariableNames</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Out of range variable index:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+            <span class="n">iscope</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> 
+
+        <span class="k">if</span> <span class="n">operand</span> <span class="o">==</span> <span class="s1">&#39;&gt;=&#39;</span> <span class="ow">or</span> <span class="n">operand</span> <span class="o">==</span> <span class="s1">&#39;==&#39;</span><span class="p">:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">rightcoef</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flatten</span><span class="p">([[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">v</span><span class="p">)),</span> <span class="p">[[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toValue</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">valindex</span><span class="p">)),</span> <span class="nb">str</span><span class="p">(</span><span class="n">coefs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toValue</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">valindex</span><span class="p">))]</span> <span class="k">for</span> <span class="n">valindex</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">v</span><span class="p">))]]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iscope</span><span class="p">)]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postKnapsackConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">kp</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">operand</span> <span class="o">==</span> <span class="s1">&#39;&lt;=&#39;</span> <span class="ow">or</span> <span class="n">operand</span> <span class="o">==</span> <span class="s1">&#39;==&#39;</span><span class="p">:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="n">rightcoef</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flatten</span><span class="p">([[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">v</span><span class="p">)),</span> <span class="p">[[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toValue</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">valindex</span><span class="p">)),</span> <span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="n">coefs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">toValue</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">valindex</span><span class="p">))]</span> <span class="k">for</span> <span class="n">valindex</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDomainInitSize</span><span class="p">(</span><span class="n">v</span><span class="p">))]]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iscope</span><span class="p">)]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postKnapsackConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">kp</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFN.AddGeneralizedLinearConstraint"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.AddGeneralizedLinearConstraint">[docs]</a>    <span class="k">def</span> <span class="nf">AddGeneralizedLinearConstraint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tuples</span><span class="p">,</span> <span class="n">operand</span> <span class="o">=</span> <span class="s1">&#39;==&#39;</span><span class="p">,</span> <span class="n">rightcoef</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">sscope</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">scope</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">coef</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tuples</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sscope</span><span class="p">:</span>
+                <span class="n">sscope</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="n">scope</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">operand</span> <span class="o">!=</span> <span class="s1">&#39;&gt;=&#39;</span> <span class="ow">and</span> <span class="n">operand</span> <span class="o">!=</span> <span class="s1">&#39;&lt;=&#39;</span> <span class="ow">and</span> <span class="n">operand</span> <span class="o">!=</span> <span class="s1">&#39;==&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown operand in AddGeneralizedLinearConstraint: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">operand</span><span class="p">))</span>
+        <span class="n">iscope</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scope</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VariableIndices</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">VariableNames</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Out of range variable index:&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+            <span class="n">iscope</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> 
+
+        <span class="k">if</span> <span class="n">operand</span> <span class="o">==</span> <span class="s1">&#39;&gt;=&#39;</span> <span class="ow">or</span> <span class="n">operand</span> <span class="o">==</span> <span class="s1">&#39;==&#39;</span><span class="p">:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">rightcoef</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">iscope</span><span class="p">:</span>
+                <span class="n">vtuples</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">coef</span><span class="p">)]</span> <span class="k">for</span> <span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">coef</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tuples</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">VariableIndices</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">==</span><span class="n">v</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">var</span><span class="o">==</span><span class="n">v</span><span class="p">)]</span>
+                <span class="n">params</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vtuples</span><span class="p">))</span>
+                <span class="n">params</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">vtuples</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postKnapsackConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">kp</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">operand</span> <span class="o">==</span> <span class="s1">&#39;&lt;=&#39;</span> <span class="ow">or</span> <span class="n">operand</span> <span class="o">==</span> <span class="s1">&#39;==&#39;</span><span class="p">:</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="n">rightcoef</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">iscope</span><span class="p">:</span>
+                <span class="n">vtuples</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="o">-</span><span class="n">coef</span><span class="p">)]</span> <span class="k">for</span> <span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">coef</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tuples</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">VariableIndices</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">==</span><span class="n">v</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">var</span><span class="o">==</span><span class="n">v</span><span class="p">)]</span>
+                <span class="n">params</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vtuples</span><span class="p">))</span>
+                <span class="n">params</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">vtuples</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">postKnapsackConstraint</span><span class="p">(</span><span class="n">iscope</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">kp</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="CFN.Read"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Read">[docs]</a>    <span class="k">def</span> <span class="nf">Read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFN.Parse"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Parse">[docs]</a>    <span class="k">def</span> <span class="nf">Parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">certificate</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">parse_solution</span><span class="p">(</span><span class="n">certificate</span><span class="p">,</span> <span class="kc">False</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configuration</span> <span class="k">else</span> <span class="kc">True</span><span class="p">)</span>    <span class="c1"># WARNING! False: do not reuse certificate in future searches used by structure learning evaluation procedure!</span></div>
+
+<div class="viewcode-block" id="CFN.Dump"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Dump">[docs]</a>    <span class="k">def</span> <span class="nf">Dump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">UbInit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">integercost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">DoubletoCost</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">UbInit</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">updateUb</span><span class="p">(</span><span class="n">integercost</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;.wcsp&#39;</span> <span class="ow">in</span> <span class="n">problem</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getNegativeLb</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">decimalPoint</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Warning! Problem optimum has been&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; multiplied by &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">decimalPoint</span><span class="p">)</span> <span class="k">if</span> <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">decimalPoint</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; and&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getNegativeLb</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">decimalPoint</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39; shifted by &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getNegativeLb</span><span class="p">())</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getNegativeLb</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; in wcp format&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">dump_wcsp</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s1">&#39;.cfn&#39;</span> <span class="ow">in</span> <span class="n">problem</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">dump_wcsp</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Error unknown format!&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFN.GetNbVars"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.GetNbVars">[docs]</a>    <span class="k">def</span> <span class="nf">GetNbVars</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">numberOfVariables</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CFN.Domain"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Domain">[docs]</a>    <span class="k">def</span> <span class="nf">Domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varIndex</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getEnumDomain</span><span class="p">(</span><span class="n">varIndex</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFN.GetNbConstrs"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.GetNbConstrs">[docs]</a>    <span class="k">def</span> <span class="nf">GetNbConstrs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">numberOfConstraints</span><span class="p">()</span></div>
+ 
+<div class="viewcode-block" id="CFN.GetUB"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.GetUB">[docs]</a>    <span class="k">def</span> <span class="nf">GetUB</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDPrimalBound</span><span class="p">()</span></div>
+
+    <span class="c1"># use only for decreasing current upper bound</span>
+<div class="viewcode-block" id="CFN.UpdateUB"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.UpdateUB">[docs]</a>    <span class="k">def</span> <span class="nf">UpdateUB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost</span><span class="p">):</span>
+        <span class="n">icost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">DoubletoCost</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">updateUb</span><span class="p">(</span><span class="n">icost</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">enforceUb</span><span class="p">()</span>   <span class="c1"># this might generate a Contradiction exception</span></div>
+
+<div class="viewcode-block" id="CFN.GetNbNodes"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.GetNbNodes">[docs]</a>    <span class="k">def</span> <span class="nf">GetNbNodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">getNbNodes</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CFN.GetNbBacktracks"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.GetNbBacktracks">[docs]</a>    <span class="k">def</span> <span class="nf">GetNbBacktracks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">getNbBacktracks</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CFN.GetSolutions"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.GetSolutions">[docs]</a>    <span class="k">def</span> <span class="nf">GetSolutions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">solutions</span><span class="p">()</span></div>
+        
+    <span class="c1"># non-incremental solving method</span>
+<div class="viewcode-block" id="CFN.Solve"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Solve">[docs]</a>    <span class="k">def</span> <span class="nf">Solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showSolutions</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">allSolutions</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">diversityBound</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">showSolutions</span> <span class="o">=</span> <span class="n">showSolutions</span>   <span class="c1"># show solutions found (0: none, 1: value indexes, 2: value names, 3: variable and value names if available)</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">allSolutions</span> <span class="o">=</span> <span class="n">allSolutions</span>   <span class="c1"># find all solutions up to a given maximum limit (or 0 if searching for the optimum)</span>
+        <span class="k">if</span> <span class="n">diversityBound</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">allSolutions</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">divNbSol</span> <span class="o">=</span> <span class="n">allSolutions</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">divBound</span> <span class="o">=</span> <span class="n">diversityBound</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">divMethod</span> <span class="o">=</span> <span class="mi">3</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">initDivVariables</span><span class="p">()</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>    <span class="c1"># checks compatibility between selected options</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">UbInit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">integercost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">DoubletoCost</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">UbInit</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">updateUb</span><span class="p">(</span><span class="n">integercost</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">sortConstraints</span><span class="p">()</span>
+        <span class="n">solved</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">solutions</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">allSolutions</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">solutions</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">solutions</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">solutions</span><span class="p">())</span> <span class="c1"># returns the last solution found</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">solution</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDPrimalBound</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">solutions</span><span class="p">())</span> <span class="c1"># returns the best solution found</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+    <span class="c1"># incremental solving: perform initial preprocessing before all future searches, return improved ub</span>
+<div class="viewcode-block" id="CFN.SolveFirst"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.SolveFirst">[docs]</a>    <span class="k">def</span> <span class="nf">SolveFirst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;SolveFirst performs problem preprocessing before doing incremental solving.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Initial upper bound, possibly improved by considering a worst-case situation based on the sum of maximum finite cost for every function plus one.</span>
+<span class="sd">            or None if the problem has no solution (a contradiction occurs during preprocessing).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">UbInit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">integercost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">DoubletoCost</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">UbInit</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">updateUb</span><span class="p">(</span><span class="n">integercost</span><span class="p">)</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>    <span class="c1"># checks compatibility between selected options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">sortConstraints</span><span class="p">()</span>
+        <span class="n">ub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getUb</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">beginSolve</span><span class="p">(</span><span class="n">ub</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">preprocessing</span><span class="p">(</span><span class="n">ub</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">tb2</span><span class="o">.</span><span class="n">Contradiction</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">whenContradiction</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Problem has no solution!&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">Cost2ADCost</span><span class="p">(</span><span class="n">ub</span><span class="p">)</span></div>
+
+    <span class="c1"># incremental solving: change initial upper bound up and down before adding any problem modifications</span>
+<div class="viewcode-block" id="CFN.SetUB"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.SetUB">[docs]</a>    <span class="k">def</span> <span class="nf">SetUB</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost</span><span class="p">):</span>
+        <span class="n">icost</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">DoubletoCost</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">setUb</span><span class="p">(</span><span class="n">icost</span><span class="p">)</span>  <span class="c1"># must be done after problem loading</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">initSolutionCost</span><span class="p">()</span>  <span class="c1"># important to notify previous best found solution is no more valid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">enforceUb</span><span class="p">()</span>   <span class="c1"># this might generate a Contradiction exception</span></div>
+
+    <span class="c1"># incremental solving: find the next (optimal) solution after a problem modification (see also SetUB)</span>
+<div class="viewcode-block" id="CFN.SolveNext"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.SolveNext">[docs]</a>    <span class="k">def</span> <span class="nf">SolveNext</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">showSolutions</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;AddVariable summary line description....</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (type...): ...</span>
+<span class="sd">            values (type...): ...</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ...</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">showSolutions</span> <span class="o">=</span> <span class="n">showSolutions</span>   <span class="c1"># show solutions found (0: none, 1: value indexes, 2: value names, 3: variable and value names if available)</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>    <span class="c1"># checks compatibility between selected options</span>
+        <span class="n">initub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getUb</span><span class="p">()</span>
+        <span class="n">initdepth</span> <span class="o">=</span> <span class="n">tb2</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">getDepth</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">beginSolve</span><span class="p">(</span><span class="n">initub</span><span class="p">)</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">hbfs</span> <span class="o">=</span> <span class="mi">1</span>     <span class="c1"># reinitialize this parameter which can be modified during hybridSolve()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">tb2</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">store</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">propagate</span><span class="p">()</span>
+                <span class="n">lb</span><span class="p">,</span> <span class="n">ub</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">hybridSolve</span><span class="p">()</span>
+            <span class="k">except</span> <span class="n">tb2</span><span class="o">.</span><span class="n">Contradiction</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">whenContradiction</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">tb2</span><span class="o">.</span><span class="n">SolverOut</span><span class="p">:</span>
+            <span class="n">tb2</span><span class="o">.</span><span class="n">option</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">initdepth</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getSolutionCost</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">initub</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">solution</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">getDPrimalBound</span><span class="p">(),</span> <span class="kc">None</span>   <span class="c1"># warning! None: does not return number of found solutions because it is two slow to retrieve all solutions in python</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+    <span class="c1"># The following functions allow user-defined search procedures:</span>
+    
+<div class="viewcode-block" id="CFN.Depth"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Depth">[docs]</a>    <span class="k">def</span> <span class="nf">Depth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tb2</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">getDepth</span><span class="p">()</span></div>
+
+    <span class="c1"># make a copy (incremental) of the current problem and move to Depth+1</span>
+<div class="viewcode-block" id="CFN.Store"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Store">[docs]</a>    <span class="k">def</span> <span class="nf">Store</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">store</span><span class="p">()</span></div>
+
+    <span class="c1"># restore previous copy made at a given depth</span>
+<div class="viewcode-block" id="CFN.Restore"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Restore">[docs]</a>    <span class="k">def</span> <span class="nf">Restore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="p">):</span>
+        <span class="n">tb2</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFN.Assign"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Assign">[docs]</a>    <span class="k">def</span> <span class="nf">Assign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varIndex</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">varIndex</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">propagate</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="CFN.MultipleAssign"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.MultipleAssign">[docs]</a>    <span class="k">def</span> <span class="nf">MultipleAssign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varIndexes</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">assignLS</span><span class="p">(</span><span class="n">varIndexes</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">false</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="CFN.Remove"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Remove">[docs]</a>    <span class="k">def</span> <span class="nf">Remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varIndex</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">varIndex</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">propagate</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="CFN.Increase"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Increase">[docs]</a>    <span class="k">def</span> <span class="nf">Increase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varIndex</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">increase</span><span class="p">(</span><span class="n">varIndex</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">propagate</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="CFN.Decrease"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.Decrease">[docs]</a>    <span class="k">def</span> <span class="nf">Decrease</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">varIndex</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">decrease</span><span class="p">(</span><span class="n">varIndex</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">propagate</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="CFN.ClearPropagationQueues"><a class="viewcode-back" href="../ref/ref_python.html#pytoulbar2.CFN.ClearPropagationQueues">[docs]</a>    <span class="k">def</span> <span class="nf">ClearPropagationQueues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">CFN</span><span class="o">.</span><span class="n">wcsp</span><span class="o">.</span><span class="n">whenContradiction</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, INRAE.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
