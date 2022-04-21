@@ -23,13 +23,13 @@ They may contain source code, explanations, possibility to run yourself...
 **Some applications based on toulbar2** :
 
   - **Mendelsoft** : `Mendelsoft <https://miat.inrae.fr/MendelSoft>`_ detects
-    Mendelian errors in complex pedigree [Sanchez et al, Constraints 2008].
+    Mendelian errors in complex pedigree
+    [`Sanchez et al, Constraints 2008 <https://st1.zoom.us/web_client/1q1nf58/html/externalLinkPage.html?ref=http://miat.inrae.fr/degivry/Sanchez07a.pdf>`_].
 
   - **Pompd** : `POsitive Multistate Protein Design
     <https://forgemia.inra.fr/thomas.schiex/pompd>`_, 
-    [Vucini et al Bioinformatics 2020]
-    `URL <https://academic.oup.com/bioinformatics/article/36/1/122/5519117?login=true>`_
-    and `pdf <https://hal.inrae.fr/hal-02625007/file/main.pdf>`_
+    [`Vucini et al Bioinformatics 2020
+    <https://hal.inrae.fr/hal-02625007/file/main.pdf>`_]
 
   - :ref:`vs_app`
 
