@@ -463,6 +463,21 @@ public:
         return divVariables;
     }
 
+    void initDivVariables()
+    {
+        divVariables.clear();
+        for (auto var : vars) {
+            if (var->unassigned() && var->getName().rfind(IMPLICIT_VAR_TAG, 0) != 0) {
+                if (var->enumerated()) {
+                    divVariables.push_back(var);
+                } else {
+                    cerr << "Error: cannot control diversity of non enumerated variable: " << var->getName() << endl;
+                    throw BadConfiguration();
+                }
+            }
+        }
+    }
+
     int postCliqueConstraint(vector<int>& scope, const string& arguments)
     {
         std::istringstream file(arguments);
@@ -470,12 +485,14 @@ public:
     }
     int postCliqueConstraint(int* scopeIndex, int arity, istream& file);
 
-    int postKnapsackConstraint(vector<int>& scope, const string& arguments, bool isclique = false, bool kp = false)
+    void addAMOConstraints();
+
+    int postKnapsackConstraint(vector<int>& scope, const string& arguments, bool isclique = false, bool kp = false, bool conflict = false)
     {
-        std::istringstream file(arguments);
-        return postKnapsackConstraint(scope.data(), scope.size(), file, isclique, kp);
+        istringstream file(arguments);
+        return postKnapsackConstraint(scope.data(), scope.size(), file, isclique, kp, conflict);
     }
-    int postKnapsackConstraint(int* scopeIndex, int arity, istream& file, bool isclique, bool kp);
+    int postKnapsackConstraint(int* scopeIndex, int arity, istream& file, bool isclique, bool kp, bool conflict);
     int postGlobalConstraint(int* scopeIndex, int arity, const string& gcname, istream& file, int* constrcounter = NULL, bool mult = true); ///< \deprecated should use WCSP::postGlobalCostFunction instead \warning does not work for arity below 4 (use binary or ternary cost functions instead)
 
     GlobalConstraint* postGlobalCostFunction(int* scopeIndex, int arity, const string& name, int* constrcounter = NULL);

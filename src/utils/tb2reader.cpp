@@ -194,7 +194,7 @@ typedef struct {
  *
  * Warning :  Cost functions defined in intention cannot be shared.
  *
- * Note : More about network-based global cost functions can be found here https://metivier.users.greyc.fr/decomposable/
+ * Note More about network-based global cost functions can be found on ./misc/doc/DecomposableGlobalCostFunctions.html
  *
  * Examples:
  * - quadratic cost function \f$x0 * x1\f$ in extension with variable domains \f$\{0,1\}\f$ (equivalent to a soft clause \f$\neg x0 \vee \neg x1\f$): \code 2 0 1 0 1 1 1 1 \endcode
@@ -1411,12 +1411,15 @@ void CFNStreamReader::readGlobalCostFunction(vector<int>& scope, const string& f
                 cerr << "Error: the clique global constraint does not accept RHS different from 1 for now at line" << line << endl;
                 throw WrongFileFormat();
             }
+        } else if (funcName == "knapsackc") {
+            string ps = paramsStream.str();
+            this->wcsp->postKnapsackConstraint(scopeArray, arity, paramsStream, false, true, true);
         } else if (funcName == "knapsackp") {
             string ps = paramsStream.str();
-            this->wcsp->postKnapsackConstraint(scopeArray, arity, paramsStream, false, true);
+            this->wcsp->postKnapsackConstraint(scopeArray, arity, paramsStream, false, true, false);
         } else if (funcName == "knapsack") {
             string ps = paramsStream.str();
-            this->wcsp->postKnapsackConstraint(scopeArray, arity, paramsStream, false, false);
+            this->wcsp->postKnapsackConstraint(scopeArray, arity, paramsStream, false, false, false);
         } else { // monolithic
             int nbconstr; // unused int for pointer ref
             this->wcsp->postGlobalConstraint(scopeArray, arity, funcName, paramsStream, &nbconstr, false);
@@ -2166,19 +2169,13 @@ Cost WCSP::read_wcsp(const char* fileName)
         read_legacy(fileName);
     }
 
+    if (ToulBar2::addAMOConstraints) {
+        addAMOConstraints();
+    }
+
     // Diverse variables structure and variables allocation and initialization
     if (ToulBar2::divNbSol > 1) {
-        for (auto var : vars) {
-            if (var->unassigned() && var->getName().rfind(IMPLICIT_VAR_TAG, 0) != 0) {
-                if (var->enumerated()) {
-                    divVariables.push_back(var);
-                } else {
-                    cerr << "Error: cannot control diversity of non enumerated variable: " << var->getName() << endl;
-                    throw BadConfiguration();
-                }
-            }
-        }
-
+        initDivVariables();
         // Dual variables allocation, only needed for divMethod 0 Dual or 1 Hidden
         if (ToulBar2::divMethod < 2) {
             divVarsId.resize(ToulBar2::divNbSol);
@@ -2381,10 +2378,12 @@ void WCSP::read_legacy(const char* fileName)
                     decomposableGCF->addToCostFunctionNetwork(this);
                 } else if (gcname == "clique") {
                     postCliqueConstraint(scopeIndex, arity, file);
+                } else if (gcname == "knapsackc") {
+                    postKnapsackConstraint(scopeIndex, arity, file, false, true, true);
                 } else if (gcname == "knapsackp") {
-                    postKnapsackConstraint(scopeIndex, arity, file, false, true);
+                    postKnapsackConstraint(scopeIndex, arity, file, false, true, false);
                 } else if (gcname == "knapsack") {
-                    postKnapsackConstraint(scopeIndex, arity, file, false, false);
+                    postKnapsackConstraint(scopeIndex, arity, file, false, false, false);
                 } else { // monolithic global cost functions
                     postGlobalConstraint(scopeIndex, arity, gcname, file, &nbconstr);
                 }
@@ -2542,18 +2541,24 @@ void WCSP::read_legacy(const char* fileName)
                     EnumeratedVariable* z = (EnumeratedVariable*)vars[k];
                     vector<Cost> costs((size_t)x->getDomainInitSize() * (size_t)y->getDomainInitSize() * (size_t)z->getDomainInitSize(), MIN_COST);
                     postTernaryConstraint(i, j, k, costs); //generate a zero-cost ternary constraint instead that will absorb all its binary hard constraints
+                } else if (gcname == "knapsackc") {
+                    int scopeIndex[3];
+                    scopeIndex[0] = i;
+                    scopeIndex[1] = j;
+                    scopeIndex[2] = k;
+                    postKnapsackConstraint(scopeIndex, arity, file, false, true, true);
                 } else if (gcname == "knapsackp") {
                     int scopeIndex[3];
                     scopeIndex[0] = i;
                     scopeIndex[1] = j;
                     scopeIndex[2] = k;
-                    postKnapsackConstraint(scopeIndex, arity, file, false, true);
+                    postKnapsackConstraint(scopeIndex, arity, file, false, true, false);
                 } else if (gcname == "knapsack") {
                     int scopeIndex[3];
                     scopeIndex[0] = i;
                     scopeIndex[1] = j;
                     scopeIndex[2] = k;
-                    postKnapsackConstraint(scopeIndex, arity, file, false, false);
+                    postKnapsackConstraint(scopeIndex, arity, file, false, false, false);
                 } else { // monolithic global cost functions
                     postGlobalConstraint(scopeIndex, arity, gcname, file, &nbconstr);
                 }
@@ -2656,16 +2661,21 @@ void WCSP::read_legacy(const char* fileName)
                     file >> funcparam5;
                     file >> funcparam6;
                     postSpecialDisjunction(i, j, funcparam1, funcparam2, funcparam3, funcparam4, MULT(funcparam5, K), MULT(funcparam6, K));
+                } else if (funcname == "knapsackc") {
+                    int scopeIndex[2];
+                    scopeIndex[0] = i;
+                    scopeIndex[1] = j;
+                    postKnapsackConstraint(scopeIndex, arity, file, false, true, true);
                 } else if (funcname == "knapsackp") {
                     int scopeIndex[2];
                     scopeIndex[0] = i;
                     scopeIndex[1] = j;
-                    postKnapsackConstraint(scopeIndex, arity, file, false, true);
+                    postKnapsackConstraint(scopeIndex, arity, file, false, true, false);
                 } else if (funcname == "knapsack") {
                     int scopeIndex[2];
                     scopeIndex[0] = i;
                     scopeIndex[1] = j;
-                    postKnapsackConstraint(scopeIndex, arity, file, false, false);
+                    postKnapsackConstraint(scopeIndex, arity, file, false, false, false);
                 } else {
                     int scopeIndex[2];
                     scopeIndex[0] = i;
@@ -2695,14 +2705,18 @@ void WCSP::read_legacy(const char* fileName)
                     if (gcname.substr(0, 1) == "w") { // global cost functions decomposed into a cost function network
                         DecomposableGlobalCostFunction* decomposableGCF = DecomposableGlobalCostFunction::FactoryDGCF(gcname, arity, scopeIndex, file);
                         decomposableGCF->addToCostFunctionNetwork(this);
+                    } else if (gcname == "knapsackc") {
+                        int scopeIndex[1];
+                        scopeIndex[0] = i;
+                        postKnapsackConstraint(scopeIndex, arity, file, false, true, true);
                     } else if (gcname == "knapsackp") {
                         int scopeIndex[1];
                         scopeIndex[0] = i;
-                        postKnapsackConstraint(scopeIndex, arity, file, false, true);
+                        postKnapsackConstraint(scopeIndex, arity, file, false, true, false);
                     } else if (gcname == "knapsack") {
                         int scopeIndex[1];
                         scopeIndex[0] = i;
-                        postKnapsackConstraint(scopeIndex, arity, file, false, false);
+                        postKnapsackConstraint(scopeIndex, arity, file, false, false, false);
                     } else { // monolithic global cost functions
                         postGlobalConstraint(scopeIndex, arity, gcname, file, &nbconstr);
                     }

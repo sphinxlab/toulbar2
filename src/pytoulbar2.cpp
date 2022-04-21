@@ -61,8 +61,8 @@ namespace py = pybind11;
 PYBIND11_MODULE(pytb2, m)
 {
     m.def("init", []() { tb2init(); }); // must be called at the very beginning
-    m.attr("MAX_COST") = py::cast(MAX_COST);
-    m.attr("MIN_COST") = py::cast(MIN_COST);
+    m.attr("MAX_COST") = py::int_(MAX_COST);
+    m.attr("MIN_COST") = py::int_(MIN_COST);
 
     py::register_exception<Contradiction>(m, "Contradiction");
     py::register_exception<InternalError>(m, "InternalError");
@@ -143,6 +143,8 @@ PYBIND11_MODULE(pytb2, m)
         .def_readwrite_static("qpbo", &ToulBar2::qpbo)
         .def_readwrite_static("qpboQuadraticCoefMultiplier", &ToulBar2::qpboQuadraticCoefMultiplier)
         .def_readwrite_static("opb", &ToulBar2::opb)
+        .def_readwrite_static("addAMOConstraints", &ToulBar2::addAMOConstraints)
+        .def_readwrite_static("knapsackDP", &ToulBar2::knapsackDP)
         .def_readwrite_static("divNbSol", &ToulBar2::divNbSol)
         .def_readwrite_static("divBound", &ToulBar2::divBound)
         .def_readwrite_static("divWidth", &ToulBar2::divWidth)
@@ -351,6 +353,7 @@ PYBIND11_MODULE(pytb2, m)
         //        .def("postWVarSum", &WeightedCSP::postWVarSum)
         //        .def("postWOverlap", &WeightedCSP::postWOverlap)
         .def("postWDivConstraint", &WeightedCSP::postWDivConstraint)
+        .def("initDivVariables", &WeightedCSP::initDivVariables)
         .def("isGlobal", &WeightedCSP::isGlobal)
         .def("getSolution", (const vector<Value> (WeightedCSP::*)()) & WeightedCSP::getSolution)
         .def("initSolutionCost", &WeightedCSP::initSolutionCost)
