@@ -24,7 +24,7 @@ They may contain source code, explanations, possibility to run yourself...
 
   - **Mendelsoft** : `Mendelsoft <https://miat.inrae.fr/MendelSoft>`_ detects
     Mendelian errors in complex pedigree
-    [`Sanchez et al, Constraints 2008 <https://st1.zoom.us/web_client/1q1nf58/html/externalLinkPage.html?ref=http://miat.inrae.fr/degivry/Sanchez07a.pdf>`_].
+    [`Sanchez et al, Constraints 2008 <http://miat.inrae.fr/degivry/Sanchez07a.pdf>`_].
 
   - **Pompd** : `POsitive Multistate Protein Design
     <https://forgemia.inra.fr/thomas.schiex/pompd>`_, 
