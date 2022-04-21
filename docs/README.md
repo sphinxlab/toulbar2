@@ -10,6 +10,12 @@
   * [Local build](#local-build)
   * [Quick local build](#quick-local-build)
 
+## deliv3
+
+Rename de sphinx-nr dans son etat de livraison a toulbar2/toulbar2 (21 avril 2022, 3eme livraison)
+
+Voir document NotesReunions.odt pour plus de details.
+
 ## Overview
 
 - The **'toulbar2/docs'** folder is dedicated to the **Sphinx** documentation
